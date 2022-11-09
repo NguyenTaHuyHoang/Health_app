@@ -1,0 +1,37 @@
+{
+  "name": "nmcnpm_nhom13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon --inspect src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NguyenTaHuyHoang/NMCNPM_NHOM13.git"
+  },
+  "keywords": [
+    "hospital",
+    "management",
+    "nvhai",
+    "nthhoang",
+    "nnnam",
+    "tkbinh",
+    "nnghia"
+  ],
+  "author": "nvhai, nthhoang, nnnam, tkbinh, nnghia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NguyenTaHuyHoang/NMCNPM_NHOM13/issues"
+  },
+  "homepage": "https://github.com/NguyenTaHuyHoang/NMCNPM_NHOM13#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6"
+  },
+  "devDependencies": {
+    "inspect": "^0.0.2",
+    "nodemon": "^2.0.20"
+  }
+}
