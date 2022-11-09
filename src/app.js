@@ -7,6 +7,7 @@ const app = express();
 const port = 3000;
 
 // setup resources for client
+// all images,... are provided from the file "public"
 app.use(express.static(path.join(__dirname, "public")));
 
 //setup handlebars
@@ -23,6 +24,10 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.render("homepage");
+});
+
+app.use((err, req, res, next) => {
+  res.status(500).send(err.message);
 });
 
 app.listen(port, () => {
