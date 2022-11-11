@@ -2,9 +2,9 @@
   "name": "nmcnpm_nhom13",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "src/myApp.js",
   "scripts": {
-    "start": "nodemon --inspect src/app.js",
+    "start": "nodemon --inspect src/myApp.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
