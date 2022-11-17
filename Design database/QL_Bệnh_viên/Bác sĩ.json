@@ -1,0 +1,20 @@
+[
+  {
+    "Họ tên": "Nguyễn Văn D",
+    "Email": "bsD@gmail.com",
+    "SĐT": "078438873563",
+    "Chuyên khoa": "Răng hàm mặt",
+    "Chức vụ": "Trưởng khoa",
+    "Ảnh": "https://12abcxyz34",
+    "Mật Khẩu": "bsD12345"
+  },
+  {
+    "Họ tên": "Trần Văn E",
+    "Email": "bsE@gmail.com",
+    "SĐT": "0847884736",
+    "Chuyên khoa": "Tim",
+    "Chức vụ": "Phó khoa",
+    "Ảnh": "https://123abc",
+    "Mật Khẩu": "bsE12345"
+  }
+]
