@@ -7,6 +7,11 @@ const path = require("path");
 const routers = require("./routers");
 const router = require("./routers/siteRouter");
 
+// connect to DB
+const db = require("./config/db");
+//connect DB
+db.connect();
+
 // declare app
 const app = express();
 const port = 3000;
