@@ -4,12 +4,14 @@ class AdminController {
     // get interface
     //[GET] /admin
     interface(req, res, next) {
-        res.render("admin");
+        res.render("admin", {
+            title: "Admin",
+        });
     }
 
     // [POST] /admin/login
     checkLogin(req, res, next) {
-        Admin.find({
+        Admin.findOne({
             email: req.body.email,
             password: req.body.password
         }).then(admin => {
@@ -19,8 +21,7 @@ class AdminController {
                 })
             }
             else {
-                res.render('admin', {
-                })
+                res.redirect('/admin');
             }
         })
             .catch(next);
