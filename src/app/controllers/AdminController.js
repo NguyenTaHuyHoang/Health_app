@@ -1,4 +1,5 @@
 const Admin = require('../models/admin');
+const mongooseHelper = require('../util/mongoose');
 
 class AdminController {
     // get interface
@@ -15,12 +16,13 @@ class AdminController {
             email: req.body.email,
             password: req.body.password
         }).then(admin => {
-            if (admin.length == 0) {
+            if (admin == null) {
                 res.render('login', {
                     notification: "Nhập sai email hoặc mật khẩu!",
                 })
             }
             else {
+                let obj = mongooseHelper.mongoosesToObject(admin);
                 res.redirect('/admin');
             }
         })

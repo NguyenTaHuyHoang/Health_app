@@ -1,11 +1,12 @@
 const Employee = require('../models/employee');
+const mongooseHelper = require('../util/mongoose');
 
 class EmployeeController {
     // get interface
     // [GET] /employee
     interface(req, res, next) {
         res.render("employee", {
-            title: `Client: ${req.params.id}`
+            title: `Employee: ${req.params.id}`
         });
     }
 
@@ -15,13 +16,15 @@ class EmployeeController {
             email: req.body.email,
             password: req.body.password
         }).then(employee => {
-            if (employee.length == 0) {
+            if (employee != null) {
                 res.render('login', {
                     notification: "Nhập sai email hoặc mật khẩu!",
                 })
             }
             else {
-                res.redirect('/employee');
+                let obj = mongooseHelper.mongoosesToObject(employee);
+                let id = obj._id;
+                res.redirect(`/employee/${id}`);
             }
         })
             .catch(next);

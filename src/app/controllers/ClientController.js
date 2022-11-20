@@ -1,4 +1,4 @@
-const Client  = require('../models/client');
+const Client = require('../models/client');
 const mongooseHelper = require('../util/mongoose');
 
 class ClientController {
@@ -16,13 +16,14 @@ class ClientController {
             email: req.body.email,
             password: req.body.password
         }).then(client => {
-            if (client.length == 0) {
+            if (client == null) {
                 res.render('login', {
                     notification: "Nhập sai email hoặc mật khẩu!",
                 })
             }
             else {
-                let id = mongooseHelper.mongoosesToObject(client)._id;
+                let obj = mongooseHelper.mongoosesToObject(client);
+                let id = obj._id;
                 res.redirect(`/client/${id}`);
             }
         })
