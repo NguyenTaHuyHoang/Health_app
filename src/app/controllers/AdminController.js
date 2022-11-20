@@ -1,26 +1,29 @@
 const Admin = require('../models/admin');
+const mongooseHelper = require('../util/mongoose');
 
 class AdminController {
     // get interface
     //[GET] /admin
     interface(req, res, next) {
-        res.render("admin");
+        res.render("admin", {
+            title: "Admin",
+        });
     }
 
     // [POST] /admin/login
     checkLogin(req, res, next) {
-        Admin.find({
+        Admin.findOne({
             email: req.body.email,
             password: req.body.password
         }).then(admin => {
-            if (admin.length == 0) {
+            if (admin == null) {
                 res.render('login', {
                     notification: "Nhập sai email hoặc mật khẩu!",
                 })
             }
             else {
-                res.render('admin', {
-                })
+                let obj = mongooseHelper.mongoosesToObject(admin);
+                res.redirect('/admin');
             }
         })
             .catch(next);
