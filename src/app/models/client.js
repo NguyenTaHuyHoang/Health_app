@@ -16,7 +16,7 @@ const Client = new Schema({
     // this code support generator slug
     slug: { type: String, slug: 'name', maxLength: 300, unique: true },
 }, {
-    collection: 'Client_Account',
+    collection: 'Client',
     timestamps: true,
 });
 

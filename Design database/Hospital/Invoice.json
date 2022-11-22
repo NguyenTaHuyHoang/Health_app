@@ -1,0 +1,174 @@
+[
+  {
+    "_id": {
+      "$oid": "637a377f459d6b1d7b0e3922"
+    },
+    "client": {
+      "_id": {
+        "$oid": "637c89c98e1c88bcddda99f7"
+      },
+      "name": "Nguyễn Văn A",
+      "dateOfBirth": "08/08/1975",
+      "email": "nva@gmail.com",
+      "gender": "Nam",
+      "CCCD_CMND": "545405199",
+      "BHYT": "QK 3456778479",
+      "SDT": "0827130017",
+      "address": "24 Nguyễn Văn Thành, phường Hiệp Phú, TP Thủ Đức, TP HCM"
+    },
+    "employee": {
+      "_id": {
+        "$oid": "637c855f8e1c88bcddda99e6"
+      },
+      "name": "Nguyễn Tạ Huy Hoàng",
+      "dateOfBirth": "05/07/2002",
+      "email": "nthh@gmail.com",
+      "gender": "Nam",
+      "CCCD_CMND": "245405199",
+      "SDT": "0326130017",
+      "address": "KTX, khu B, DHQG Thành Phố Hồ Chí Minh"
+    },
+    "service": [
+      {
+        "name": "Nhổ răng",
+        "price": 20000000
+      },
+      {
+        "name": "Gọt cằm",
+        "price": 10000000
+      }
+    ],
+    "dateOfCreation": "20/11/2022",
+    "status": true
+  },
+  {
+    "_id": {
+      "$oid": "637ce53596308a6c4610a2e5"
+    },
+    "client": {
+      "_id": {
+        "$oid": "637c89c98e1c88bcddda99f7"
+      },
+      "name": "Nguyễn Văn A",
+      "dateOfBirth": "08/08/1975",
+      "email": "nva@gmail.com",
+      "gender": "Nam",
+      "CCCD_CMND": "545405199",
+      "BHYT": "QK 3456778479",
+      "SDT": "0827130017",
+      "address": "24 Nguyễn Văn Thành, phường Hiệp Phú, TP Thủ Đức, TP HCM"
+    },
+    "employee": {
+      "_id": {
+        "$oid": "637c855f8e1c88bcddda99e7"
+      },
+      "name": "Nguyễn Nghĩa",
+      "dateOfBirth": "01/12/2002",
+      "email": "nn@gmail.com",
+      "gender": "Nam",
+      "CCCD_CMND": "245401149",
+      "SDT": "0823125768",
+      "address": "KTX, khu B, DHQG Thành Phố Hồ Chí Minh"
+    },
+    "service": [
+      {
+        "name": "trám răng",
+        "price": 2000000
+      },
+      {
+        "name": "Gọt cằm",
+        "price": 10000000
+      }
+    ],
+    "dateOfCreation": "21/11/2022",
+    "status": false
+  },
+  {
+    "_id": {
+      "$oid": "637ce5bb96308a6c4610a2e8"
+    },
+    "client": {
+      "_id": {
+        "$oid": "637c89c98e1c88bcddda99f8"
+      },
+      "name": "Phan Thị Thu B",
+      "dateOfBirth": "02/10/2002",
+      "email": "pttb@gmail.com",
+      "gender": "Nữ",
+      "CCCD_CMND": "245481149",
+      "BHYT": "BH 7456778479",
+      "SDT": "0823124768",
+      "address": "248 Dương Quảng Hàm, quận Gò Vấp, TP HCM"
+    },
+    "employee": {
+      "_id": {
+        "$oid": "637c855f8e1c88bcddda99e8"
+      },
+      "name": "Nhật Nam",
+      "dateOfBirth": "15/01/2002",
+      "email": "nnam@gmail.com",
+      "gender": "Nam",
+      "CCCD_CMND": "245401149",
+      "SDT": "0823125768",
+      "address": "KTX, khu B, DHQG Thành Phố Hồ Chí Minh"
+    },
+    "service": [
+      {
+        "name": "Phẫu thuật mắt",
+        "price": 5000000
+      },
+      {
+        "name": "Tẩy trắng da",
+        "price": 10000000
+      }
+    ],
+    "dateOfCreation": "22/11/2022",
+    "status": false
+  },
+  {
+    "_id": {
+      "$oid": "637ce6b396308a6c4610a2ea"
+    },
+    "client": {
+      "_id": {
+        "$oid": "637c89c98e1c88bcddda99fa"
+      },
+      "name": "Trần Thị D",
+      "dateOfBirth": "02/02/2004",
+      "email": "ttd@gmail.com",
+      "gender": "Nữ",
+      "CCCD_CMND": "075401149",
+      "BHYT": "DD 0456778479",
+      "SDT": "0223125768",
+      "address": "77/46 Lê Văn Việt, quận 5, TP HCM"
+    },
+    "employee": {
+      "_id": {
+        "$oid": "637c855f8e1c88bcddda99e6"
+      },
+      "name": "Nguyễn Tạ Huy Hoàng",
+      "dateOfBirth": "05/07/2002",
+      "email": "nthh@gmail.com",
+      "gender": "Nam",
+      "CCCD_CMND": "245405199",
+      "SDT": "0326130017",
+      "address": "KTX, khu B, DHQG Thành Phố Hồ Chí Minh"
+    },
+    "service": [
+      {
+        "name": "Phẫu thuật mắt",
+        "price": 5000000
+      },
+      {
+        "name": "Tẩy trắng da",
+        "price": 10000000
+      },
+      {
+        "name": "Gọt cằm",
+        "price": 1000000
+      }
+    ],
+    "dateOfCreation": "25/11/2022",
+    "status": true
+  }
+]

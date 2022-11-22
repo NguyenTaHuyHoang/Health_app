@@ -13,7 +13,7 @@ function getInvoiceElement(invoiceEle, stt) {
             <th scope="row">${stt}</th>
             <td>${invoiceEle._id}</td>
             <td>${invoiceEle.employee.name}</td>
-            <td>${invoiceEle.date}</td>
+            <td>${invoiceEle.dateOfCreation}</td>
             <td>${sumPrice}</td>
             <td>${status}</td>
             <td><a href="#" role="button">Xóa</a></td>
@@ -46,14 +46,13 @@ module.exports = {
         let data = "";
         let btn = "";
 
-        for (let i = 0; i < listInvoice.length; i++) {
-            data += getInvoiceElement(listInvoice[i], i + 1);
-        }
-        let max = 4;
+        let max = parseInt(listInvoice.length / 10) + 1;
         for (let j = 0; j < max; j++) {
             data += `<tbody class="noneDisplay" id="InvoiceTable${j + 1}">`;
             for (let i = 0; i < 10; i++) {
-                data += template;
+                if (j * 10 + i < listInvoice.length) {
+                    data += getInvoiceElement(listInvoice[j * 10 + i], j * 10 + i + 1);
+                }
             }
             btn += getBtn("invoiceBtn", j + 1);
             data += `</tbody>`;

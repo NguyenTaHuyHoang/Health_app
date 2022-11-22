@@ -8,12 +8,12 @@ const mongoose_delete = require('mongoose-delete');
 const Schema = mongoose.Schema;
 
 const Patient = new Schema({
-    date: { type: String },
-    name: { type: Array },
+    dateOfCreation: { type: String },
+    medicalHistory: { type: Array },
     // this code support generator slug
     slug: { type: String, slug: 'name', maxLength: 300, unique: true },
 }, {
-    collection: 'Patient',
+    collection: 'MedicalRecord',
     timestamps: true,
 });
 
