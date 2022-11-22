@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "637c866c8e1c88bcddda99f3"
+  },
+  "name": "Trần Khắc Bình",
+  "dateOfBirth": "02/02/2002",
+  "email": "tkb@gmail.com",
+  "gender": "Nam",
+  "CCCD_CMND": "245401199",
+  "SDT": "0326130017",
+  "address": "77/7 Tân Lập 2, phường Hiệp Phú, TP Thủ Đức, TP HCM",
+  "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
+  "password": "123456789"
+},{
+  "_id": {
+    "$oid": "637c866c8e1c88bcddda99f4"
+  },
+  "name": "Nguyễn Văn Hải",
+  "dateOfBirth": "21/03/2002",
+  "email": "nvh@gmail.com",
+  "gender": "Nam",
+  "CCCD_CMND": "245401149",
+  "SDT": "0823125768",
+  "address": "KTX, khu B, DHQG Thành Phố Hồ Chí Minh",
+  "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
+  "password": "123456789"
+}]

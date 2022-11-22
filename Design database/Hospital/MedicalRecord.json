@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "637c8b9f8e1c88bcddda99fd"
+  },
+  "id_patient": {
+    "$oid": "637c89c98e1c88bcddda99f7"
+  },
+  "dateOfCreation": "18/11/2022",
+  "medicalHistory": [
+    "Viêm gan b",
+    "Tiểu đường"
+  ]
+},{
+  "_id": {
+    "$oid": "637c8b9f8e1c88bcddda99fe"
+  },
+  "id_patient": {
+    "$oid": "637c89c98e1c88bcddda99f8"
+  },
+  "dateOfCreation": "19/11/2022",
+  "medicalHistory": [
+    "Sốt xuất huyết"
+  ]
+},{
+  "_id": {
+    "$oid": "637c8b9f8e1c88bcddda99ff"
+  },
+  "id_patient": {
+    "$oid": "637c89c98e1c88bcddda99fa"
+  },
+  "dateOfCreation": "05/12/2022",
+  "medicalHistory": [
+    "Đau xương khớp",
+    "Tiểu đường",
+    "Men gan cao"
+  ]
+}]

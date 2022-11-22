@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "637c855f8e1c88bcddda99e6"
+  },
+  "name": "Nguyễn Tạ Huy Hoàng",
+  "dateOfBirth": "05/07/2002",
+  "email": "nthh@gmail.com",
+  "gender": "Nam",
+  "CCCD_CMND": "245405199",
+  "SDT": "0326130017",
+  "address": "KTX, khu B, DHQG Thành Phố Hồ Chí Minh",
+  "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
+  "password": "123456789",
+  "specialist": "Răng hàm mặt",
+  "position": "Trưởng khoa"
+},{
+  "_id": {
+    "$oid": "637c855f8e1c88bcddda99e7"
+  },
+  "name": "Nguyễn Nghĩa",
+  "dateOfBirth": "01/12/2002",
+  "email": "nn@gmail.com",
+  "gender": "Nam",
+  "CCCD_CMND": "245401149",
+  "SDT": "0823125768",
+  "address": "KTX, khu B, DHQG Thành Phố Hồ Chí Minh",
+  "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
+  "password": "123456789",
+  "specialist": "Tim mạch",
+  "position": "Phó khoa"
+},{
+  "_id": {
+    "$oid": "637c855f8e1c88bcddda99e8"
+  },
+  "name": "Nhật Nam",
+  "dateOfBirth": "15/01/2002",
+  "email": "nnam@gmail.com",
+  "gender": "Nam",
+  "CCCD_CMND": "245401149",
+  "SDT": "0823125768",
+  "address": "KTX, khu B, DHQG Thành Phố Hồ Chí Minh",
+  "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
+  "password": "123456789",
+  "specialist": "Da liễu",
+  "position": "Bác sĩ"
+}]

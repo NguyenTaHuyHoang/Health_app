@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "637c90a68e1c88bcddda9a14"
+  },
+  "id_patient": {
+    "$oid": "637c89c98e1c88bcddda99f7"
+  },
+  "id_doctor": {
+    "$oid": "637c855f8e1c88bcddda99e6"
+  },
+  "serviceName": [
+    "Siêu âm tim",
+    "Nội soi dạ dày",
+    "Xét nghiệm máu"
+  ],
+  "dateOfCreation": "20/11/2022",
+  "status": "Chưa thanh toán"
+},{
+  "_id": {
+    "$oid": "637c90a68e1c88bcddda9a15"
+  },
+  "id_patient": {
+    "$oid": "637c89c98e1c88bcddda99f8"
+  },
+  "id_doctor": {
+    "$oid": "637c855f8e1c88bcddda99e6"
+  },
+  "serviceName": [
+    "Nội soi dạ dày",
+    "Xét nghiệm máu"
+  ],
+  "dateOfCreation": "13/11/2022",
+  "status": "Đã thanh toán"
+},{
+  "_id": {
+    "$oid": "637c90a68e1c88bcddda9a16"
+  },
+  "id_patient": {
+    "$oid": "637c89c98e1c88bcddda99f7"
+  },
+  "id_doctor": {
+    "$oid": "637c855f8e1c88bcddda99e8"
+  },
+  "serviceName": [
+    "Xét nghiệm máu"
+  ],
+  "dateOfCreation": "20/10/2022",
+  "status": "Chưa thanh toán"
+},{
+  "_id": {
+    "$oid": "637c90a68e1c88bcddda9a17"
+  },
+  "id_patient": {
+    "$oid": "637c89c98e1c88bcddda99f9"
+  },
+  "id_doctor": {
+    "$oid": "637c855f8e1c88bcddda99e8"
+  },
+  "serviceName": [
+    "Khám tổng quát"
+  ],
+  "dateOfCreation": "10/11/2022",
+  "status": "Chưa thanh toán"
+}]
