@@ -8,7 +8,7 @@ const mongoose_delete = require('mongoose-delete');
 const Schema = mongoose.Schema;
 
 const Service = new Schema({
-    name: { type: String },
+    serviceName: { type: String },
     price: { type: Int16Array },
     // this code support generator slug
     slug: { type: String, slug: 'name', maxLength: 300, unique: true },

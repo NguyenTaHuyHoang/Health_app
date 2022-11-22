@@ -16,7 +16,7 @@ const Employee = new Schema({
     // this code support generator slug
     slug: { type: String, slug: 'name', maxLength: 300, unique: true },
 }, {
-    collection: 'Employee_Management',
+    collection: 'Employee',
     timestamps: true,
 });
 

@@ -16,7 +16,7 @@ const Admin = new Schema({
     // this code support generator slug
     slug: { type: String, slug: 'name', maxLength: 300, unique: true },
 }, {
-    collection: 'Admin_Management',
+    collection: 'Admin',
     timestamps: true,
 });
 
