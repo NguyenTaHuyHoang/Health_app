@@ -16,7 +16,7 @@ class EmployeeController {
             email: req.body.email,
             password: req.body.password
         }).then(employee => {
-            if (employee != null) {
+            if (employee == null) {
                 res.render('login', {
                     notification: "Nhập sai email hoặc mật khẩu!",
                 })
