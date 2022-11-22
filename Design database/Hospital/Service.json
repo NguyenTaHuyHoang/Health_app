@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "637c8cd98e1c88bcddda9a02"
+  },
+  "serviceName": "Siêu âm tim",
+  "price": 200000
+},{
+  "_id": {
+    "$oid": "637c8cd98e1c88bcddda9a03"
+  },
+  "serviceName": "Nội soi dạ dày",
+  "price": 100000
+},{
+  "_id": {
+    "$oid": "637c8cd98e1c88bcddda9a04"
+  },
+  "serviceName": "Xét nghiệm máu",
+  "price": 50000
+},{
+  "_id": {
+    "$oid": "637c8cd98e1c88bcddda9a05"
+  },
+  "serviceName": "Khám tổng quát",
+  "price": 500000
+}]
