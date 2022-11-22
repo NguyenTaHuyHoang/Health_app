@@ -7,6 +7,7 @@ const adminRouter = require("./adminRouter");
 
 
 function routers(app) {
+  //localhost:3000/....
   app.use("/client", clientRouter);
   app.use("/login", loginRouter);
   app.use("/employee", employeeRouter);

@@ -8,7 +8,7 @@
       <div class="navbar-brand"><div>
           <img
             class="avatar shadow-lg p-2"
-            src="https://img.icons8.com/metro/100/null/gender-neutral-user.png"
+            src="{{client.image}}"
             alt="avatar"
           />
         </div></div>
@@ -27,19 +27,22 @@
         <div class="navbar-nav me-auto mb-2 mb-lg-0">
           <div>
             <ul>
-              <li class="fw-bold">Tên: Nguyễn Văn Hải</li>
-              <li>Thành viên: Vàng</li>
-              <li>Địa chỉ: KTX khu B, DHQG thành phố Hồ Chí Minh</li>
+              <li class="fw-bold">Tên: {{client.name}}</li>
+              <li>Thành viên: {{client.rank}}</li>
+              <li>Địa chỉ: {{client.address}}</li>
             </ul>
           </div>
         </div>
         <div class="d-flex" role="search">
           <div>
             <ul>
-              <li><img
+              <li>
+                <img
                   src="https://img.icons8.com/metro/52/null/exit.png"
                   alt="logout"
-                  style=" width: 30px; margin-left: 150px; margin-bottom: 50px;"
+                  style=" width: 30px; margin-left: 150px; margin-bottom: 50px; cursor: pointer;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#logoutModal"
                 /></li>
               <a href="">Sửa đổi thông tin cá nhân</a>
             </ul>
@@ -99,31 +102,9 @@
           <div><img
               src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
               alt="bin"
-              style="width: 30px;"
+              style="width: 30px; cursor: pointer;"
             /></div>
-          <table class="table mt-3 mb-3 table-striped table-hover">
-            <thead>
-              <tr class="table-dark text-white">
-                <th scope="col">ID</th>
-                <th scope="col">Mã hóa đơn</th>
-                <th scope="col">Bác sĩ phụ trách</th>
-                <th scope="col">Ngày khám</th>
-                <th scope="col">Đơn giá</th>
-                <th scope="col" colspan="2">Trạng thái</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><a href="#" role="button">Xóa</a></td>
-              </tr>
-            </tbody>
-          </table>
+          {{{ListInvoice}}}
         </div></div>
       <div
         class="tab-pane fade"
@@ -137,29 +118,7 @@
               alt="bin"
               style="width: 30px;"
             /></div>
-          <table class="table mt-3 mb-3 table-striped table-hover">
-            <thead>
-              <tr class="table-dark text-white">
-                <th scope="col">ID</th>
-                <th scope="col">Mã hóa đơn</th>
-                <th scope="col">Bác sĩ phụ trách</th>
-                <th scope="col">Ngày khám</th>
-                <th scope="col">Đơn giá</th>
-                <th scope="col" colspan="2">Trạng thái</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><a href="#" role="button">Xóa</a></td>
-              </tr>
-            </tbody>
-          </table>
+          {{{ListPatient}}}
         </div></div>
       <div
         class="tab-pane fade"
@@ -173,31 +132,44 @@
               alt="bin"
               style="width: 30px;"
             /></div>
-          <table class="table mt-3 mb-3 table-striped table-hover">
-            <thead>
-              <tr class="table-dark text-white">
-                <th scope="col">ID</th>
-                <th scope="col">Mã hóa đơn</th>
-                <th scope="col">Bác sĩ phụ trách</th>
-                <th scope="col">Ngày khám</th>
-                <th scope="col">Đơn giá</th>
-                <th scope="col" colspan="2">Trạng thái</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><a href="#" role="button">Xóa</a></td>
-              </tr>
-
-            </tbody>
-          </table>
+          {{{ListAppointment}}}
         </div></div>
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="logoutModal"
+  tabindex="-1"
+  aria-labelledby="logoutModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="logoutModalLabel">Đăng xuất</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc muốn đăng xuất không?
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Không</button>
+        <a type="button" class="btn btn-danger" href="/">Chắc chắn</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/client.js"></script>
