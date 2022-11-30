@@ -7,15 +7,14 @@ nav {
   border-radius: 10%;
 }
 
-li {
+/* li {
   list-style: none;
 }
 
 .noneDisplay {
   display: none;
 }
-
-
+ */
 #makeAppointment {
   float: right;
 }
