@@ -27,6 +27,27 @@ function getBtn(className, val) {
     `;
 }
 
+function getOneMedicalRecord(val, index) {
+    return `
+    <tr>
+        <th scope="row">${index}</th>
+        <td>${val}</td>
+    </tr>
+    `
+}
+
+function getRowAppointment(val, index) {
+    return `
+    <tr>
+        <th scope="row">${index}</th>
+        <td>${val.employee.name}</td>
+        <td>${val.employee.email}</td>
+        <td>${val.dateOfCreation}</td>
+        <td><a href="#" role="button">Xóa</a></td>
+    </tr>
+    `
+}
+
 module.exports = {
     // This function for multi Object
     getListInvoice: function (listInvoice) {
@@ -98,48 +119,46 @@ module.exports = {
     },
 
     //Thí function for 1 Obj
-    getListPatient: function () {
+    getListPatient: function (MH) {
+        let data = '';
+        for (let i = 0; i < MH.length; i++) {
+            data += getOneMedicalRecord(MH[i], i + 1);
+        }
+
         return `
         <table class="table mt-3 mb-3 table-striped table-hover">
             <thead>
             <tr class="table-dark text-white">
                 <th scope="col">STT</th>
                 <th scope="col">Tên bệnh</th>
-                <th scope="col">Trạng thái</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-            </tr>
+                ${data}
             </tbody>
         </table>
         `;
     },
 
-    getListAppointment: function () {
+    getListAppointment: function (AMs) {
+
+        data = '';
+        for (let i = 0; i < AMs.length; i++) {
+            data += getRowAppointment(AMs[i], i + 1);
+        }
+
         return `
         <table class="table mt-3 mb-3 table-striped table-hover">
             <thead>
             <tr class="table-dark text-white">
                 <th scope="col">STT</th>
                 <th scope="col">Bác sĩ phụ trách</th>
-                <th scope="col">Số điện thoại</th>
-                <th scope="col">Ngày hẹn khám</th>
-                <th scope="col" colspan="2">Trạng thái</th>
+                <th scope="col">email</th>
+                <th scope="col" colspan="2">Ngày hẹn khám</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Nguyễn Văn Hải</td>
-                <td>0813042255</td>
-                <td>25/12/2022</td>
-                <td>Chưa diễn ra</td>
-                <td><a href="#" role="button">Xóa</a></td>
-            </tr>
+                ${data}
             </tbody>
 
         </table>
