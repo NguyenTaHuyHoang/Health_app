@@ -41,7 +41,7 @@ function getRowAppointment(val, index) {
     <tr>
         <th scope="row">${index}</th>
         <td>${val.employee.name}</td>
-        <td>${val.employee.email}</td>
+        <td>${val.employee.SDT}</td>
         <td>${val.dateOfCreation}</td>
         <td><a href="#" role="button">Xóa</a></td>
     </tr>
@@ -77,6 +77,10 @@ module.exports = {
             }
             btn += getBtn("invoiceBtn", j + 1);
             data += `</tbody>`;
+        }
+
+        if (listInvoice.length == 0) {
+            data += `<tr><th colspan="7">Không có hóa đơn nào.</th></tr>`
         }
 
         return `
@@ -124,6 +128,9 @@ module.exports = {
         for (let i = 0; i < MH.length; i++) {
             data += getOneMedicalRecord(MH[i], i + 1);
         }
+        if (MH.length == 0) {
+            data += `<tr><th colspan="2">Không lịch sử bệnh án.</th></tr>`
+        }
 
         return `
         <table class="table mt-3 mb-3 table-striped table-hover">
@@ -147,13 +154,17 @@ module.exports = {
             data += getRowAppointment(AMs[i], i + 1);
         }
 
+        if (AMs.length == 0) {
+            data += `<tr><th colspan="5">Không có cuộc hẹn nào.</th></tr>`
+        }
+
         return `
         <table class="table mt-3 mb-3 table-striped table-hover">
             <thead>
             <tr class="table-dark text-white">
                 <th scope="col">STT</th>
                 <th scope="col">Bác sĩ phụ trách</th>
-                <th scope="col">email</th>
+                <th scope="col">SDT</th>
                 <th scope="col" colspan="2">Ngày hẹn khám</th>
             </tr>
             </thead>

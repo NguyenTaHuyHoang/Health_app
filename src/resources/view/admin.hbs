@@ -28,7 +28,7 @@
           <div>
             <ul>
               <li class="fw-bold">Tên: {{admin.name}}</li>
-              <li>Thành viên: {{admin.rank}}</li>
+              <li>Admin</li>
               <li>Địa chỉ: {{admin.address}}</li>
             </ul>
           </div>
@@ -91,7 +91,7 @@
         >Danh sách dịch vụ</button>
       </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content" id="myTabContent" style="min-height: 40rem;">
       <div
         class="tab-pane fade show active"
         id="list-client-pane"
@@ -104,7 +104,7 @@
               alt="bin"
               style="width: 30px; cursor: pointer;"
             /></div>
-          {{{ListInvoice}}}
+          {{{ListClient}}}
         </div></div>
       <div
         class="tab-pane fade"
@@ -118,7 +118,7 @@
               alt="bin"
               style="width: 30px;"
             /></div>
-          {{{ListPatient}}}
+          {{{ListEmployee}}}
         </div></div>
       <div
         class="tab-pane fade"
@@ -132,9 +132,8 @@
               alt="bin"
               style="width: 30px;"
             />
-            <a href="#" id="makeAppointment">Đặt lịch khám với bác sĩ</a>
           </div>
-          {{{ListAppointment}}}
+          {{{ListService}}}
         </div></div>
     </div>
   </div>
@@ -172,6 +171,10 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="alert alert-primary mb-0" role="alert" style="height: 6.5rem;">
+  this is footer
 </div>
 
 <script src="/js/admin.js"></script>

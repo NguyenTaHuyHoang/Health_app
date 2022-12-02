@@ -12,7 +12,7 @@ function getInvoiceElement(invoiceEle, stt) {
         <tr>
             <th scope="row">${stt}</th>
             <td>${invoiceEle._id}</td>
-            <td>${invoiceEle.employee.name}</td>
+            <td>${invoiceEle.client.name}</td>
             <td>${invoiceEle.dateOfCreation}</td>
             <td>${sumPrice}</td>
             <td>${status}</td>
@@ -25,6 +25,19 @@ function getBtn(className, val) {
     return `
         <li class="page-item ${className}" value=${val}><a class="page-link" href="#">${val}</a></li>
     `;
+}
+
+
+function getRowAppointment(AM, index) {
+    return `
+    <tr>
+        <th scope="row">${index}</th>
+        <td>${AM.client.name}</td>
+        <td>${AM.client.SDT}</td>
+        <td>${AM.dateOfCreation}</td>
+        <td><a href="#" role="button">Xóa</a></td>
+    </tr>
+    `
 }
 
 module.exports = {
@@ -58,13 +71,17 @@ module.exports = {
             data += `</tbody>`;
         }
 
+        if (listInvoice.length == 0) {
+            data += `<tr><th colspan="7">Không có hóa đơn nào.</th></tr>`
+        }
+
         return `
         <table class="table mt-3 mb-3 table-striped table-hover">
             <thead>
             <tr class="table-dark text-white">
                 <th scope="col">ID</th>
                 <th scope="col">Mã hóa đơn</th>
-                <th scope="col">Bác sĩ phụ trách</th>
+                <th scope="col">Họ tên bệnh nhân</th>
                 <th scope="col">Ngày khám</th>
                 <th scope="col">Đơn giá</th>
                 <th scope="col" colspan="2">Trạng thái</th>
@@ -98,34 +115,25 @@ module.exports = {
     },
 
     //Thí function for 1 Obj
-    getListPatient: function () {
-        return `
-        <table class="table mt-3 mb-3 table-striped table-hover">
-            <thead>
-            <tr class="table-dark text-white">
-                <th scope="col">STT</th>
-                <th scope="col">Tên bệnh</th>
-                <th scope="col">Trạng thái</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-            </tr>
-            </tbody>
-        </table>
-        `;
-    },
 
-    getListAppointment: function () {
+    getListAppointment: function (AMs) {
+
+        data = '';
+        for (let i = 0; i < AMs.length; i++) {
+            data += getRowAppointment(AMs[i], i + 1);
+        }
+
+        if (AMs.length == 0) {
+            data += `<tr><th colspan="5">Không có cuộc hẹn nào.</th></tr>`
+        }
+
+
         return `
         <table class="table mt-3 mb-3 table-striped table-hover">
             <thead>
             <tr class="table-dark text-white">
                 <th scope="col">STT</th>
-                <th scope="col">Bác sĩ phụ trách</th>
+                <th scope="col">Họ tên bệnh nhân</th>
                 <th scope="col">Số điện thoại</th>
                 <th scope="col">Ngày hẹn khám</th>
                 <th scope="col" colspan="2">Trạng thái</th>
@@ -133,12 +141,7 @@ module.exports = {
             </thead>
             <tbody>
             <tr>
-                <th scope="row">1</th>
-                <td>Nguyễn Văn Hải</td>
-                <td>0813042255</td>
-                <td>25/12/2022</td>
-                <td>Chưa diễn ra</td>
-                <td><a href="#" role="button">Xóa</a></td>
+                ${data}
             </tr>
             </tbody>
 

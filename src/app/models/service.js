@@ -3,13 +3,14 @@ const mongoose = require("mongoose");
 const slug = require("mongoose-slug-generator");
 //include Mongoose delete
 const mongoose_delete = require('mongoose-delete');
+const { Int32 } = require("mongodb");
 
 
 const Schema = mongoose.Schema;
 
 const Service = new Schema({
     serviceName: { type: String },
-    price: { type: Int16Array },
+    price: {},
     // this code support generator slug
     slug: { type: String, slug: 'name', maxLength: 300, unique: true },
 }, {
