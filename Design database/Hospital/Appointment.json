@@ -1,0 +1,32 @@
+[
+    {
+        "_id": {
+            "$oid": "6386f0a8c171b247735b2885"
+        },
+        "client": {
+            "email": "nva@gmail.com",
+            "SDT": "0812124789",
+            "name": "Nguyễn Văn A"
+        },
+        "employee": {
+            "name": "Nguyễn Tạ Huy Hoàng",
+            "email": "nthh@gmail.com"
+        },
+        "dateOfCreation": "25/12/2022"
+    },
+    {
+        "_id": {
+            "$oid": "6386f307c171b247735b2888"
+        },
+        "client": {
+            "email": "nva@gmail.com",
+            "SDT": "0812124789",
+            "name": "Nguyễn Văn A"
+        },
+        "employee": {
+            "name": "Nhật Nam",
+            "email": "nnnam@gmail.com"
+        },
+        "dateOfCreation": "24/12/2022"
+    }
+]

@@ -10,12 +10,11 @@ nav {
 li {
   list-style: none;
 }
-
+/*
 .noneDisplay {
   display: none;
 }
-
-
+ */
 #makeAppointment {
   float: right;
 }

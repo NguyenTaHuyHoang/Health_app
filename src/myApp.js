@@ -5,7 +5,6 @@ const handlebars = require("express-handlebars").create({
 });
 const path = require("path");
 const routers = require("./routers");
-const router = require("./routers/siteRouter");
 
 // connect to DB
 const db = require("./config/db");
