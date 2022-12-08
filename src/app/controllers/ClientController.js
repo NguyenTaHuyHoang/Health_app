@@ -10,20 +10,11 @@ class ClientController {
     // get interface
     //[GET] /client
     async interface(req, res, next) {
-
-        let obj;
-
-        Invoice.find({}).then(
-            invoice => {
-                obj = mongooseHelper.multiMongooseToObject(invoice);
-            }
-        ).catch(next);
-
-        const MR = await MedicalRecord.findOne({ id_patient: req.params.id });
-        const allAM = await Appointment.find();
-
-        Client.findOne({ _id: req.params.id }).then(client => {
-            let client_ = mongooseHelper.mongoosesToObject(client);
+        try {
+            let obj = mongooseHelper.multiMongooseToObject(await Invoice.find({}));
+            const MR = await MedicalRecord.findOne({ id_patient: req.params.id });
+            const allAM = await Appointment.find();
+            let client_ = mongooseHelper.mongoosesToObject(await Client.findOne({ _id: req.params.id }));
 
             let invoice = [];
 
@@ -48,8 +39,11 @@ class ClientController {
                 ListPatient: clientHelper.getListPatient(MR.medicalHistory),
                 ListAppointment: clientHelper.getListAppointment(AM),
             });
-        })
-            .catch(next);
+
+        }
+        catch (err) {
+            next(err);
+        }
 
     }
 

@@ -1,9 +1,10 @@
 const Admin = require('../models/admin');
 const mongooseHelper = require('../util/mongoose');
-const Client = require('../models/employee');
+const Client = require('../models/client');
 const Employee = require('../models/employee');
 const adminHelper = require('../util/adminHelper');
 const Service = require('../models/service');
+const employee = require('../models/employee');
 
 
 class AdminController {
@@ -11,6 +12,7 @@ class AdminController {
     //[GET] /admin
     async interface(req, res, next) {
         try {
+            //https://img.icons8.com/metro/100/null/gender-neutral-user.png
 
             let Clients = mongooseHelper.multiMongooseToObject(await Client.find());
             let Employees = mongooseHelper.multiMongooseToObject(await Employee.find());
@@ -48,6 +50,34 @@ class AdminController {
             }
         })
             .catch(next);
+    }
+
+    // [POST] /admin/add/Client
+    addClient(req, res, next) {
+        const client = new Client(req.body);
+        client.save();
+    }
+
+    // [GET] /getAPI/client
+    async getAPIClient(req, res, next) {
+        try {
+            let Clients = mongooseHelper.multiMongooseToObject(await Client.find());
+            res.send(Clients);
+        }
+        catch (err) {
+            next(err);
+        }
+    }
+
+    // [GET] /getAPI/employee
+    async getAPIAdmin(req, res, next) {
+        try {
+            let Employees = mongooseHelper.multiMongooseToObject(await Employee.find());
+            res.send(Employees);
+        }
+        catch (err) {
+            next(err);
+        }
     }
 }
 

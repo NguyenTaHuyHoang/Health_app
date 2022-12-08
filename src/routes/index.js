@@ -6,7 +6,7 @@ const adminRouter = require("./adminRouter");
 
 
 
-function routers(app) {
+function routes(app) {
   //localhost:3000/....
   app.use("/client", clientRouter);
   app.use("/login", loginRouter);
@@ -15,4 +15,4 @@ function routers(app) {
   app.use("/", siteRouter);
 }
 
-module.exports = routers;
+module.exports = routes;

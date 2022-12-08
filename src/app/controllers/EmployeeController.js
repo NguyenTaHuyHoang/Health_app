@@ -9,18 +9,10 @@ class EmployeeController {
     // get interface
     // [GET] /employee
     async interface(req, res, next) {
-        let obj;
-
-        Invoice.find({}).then(
-            invoice => {
-                obj = mongooseHelper.multiMongooseToObject(invoice);
-            }
-        ).catch(next);
-
-        const allAM = await Appointment.find();
-
-        Employee.findOne({ _id: req.params.id }).then(employee => {
-            let employee_  = mongooseHelper.mongoosesToObject(employee);
+        try {
+            let obj = mongooseHelper.multiMongooseToObject(await Invoice.find({}));
+            const allAM = mongooseHelper.multiMongooseToObject(await Appointment.find());
+            const employee_ = mongooseHelper.mongoosesToObject(await Employee.findOne({ _id: req.params.id }));
 
             let invoice = [];
 
@@ -43,8 +35,10 @@ class EmployeeController {
                 ListInvoice: employeeHelper.getListInvoice(invoice),
                 ListAppointment: employeeHelper.getListAppointment(AM),
             });
-        })
-            .catch(next);
+        }
+        catch (err) {
+            next(err);
+        }
     }
 
     // [POST] /employee/login

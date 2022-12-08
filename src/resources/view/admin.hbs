@@ -103,7 +103,14 @@
               src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
               alt="bin"
               style="width: 30px; cursor: pointer;"
-            /></div>
+            />
+            <a
+              href="#"
+              style="float: right;"
+              data-bs-toggle="modal"
+              data-bs-target="#addClientModal"
+            >Tạo mới tài khoản khách hàng.</a>
+          </div>
           {{{ListClient}}}
         </div></div>
       <div
@@ -177,4 +184,93 @@
   this is footer
 </div>
 
-<script src="/js/admin.js"></script>
+<!-- Modal Client-->
+<div
+  class="modal fade"
+  id="addClientModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="addClientModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addClientModalLabel">Thêm tài khoản của
+          khách hàng.</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      {{! đây là phần body }}
+      <div class="modal-body">
+        <form id="form" class="row">
+          <div class="mb-3 col-md-6">
+            <label for="name" class="form-label">Họ và tên</label>
+            <input type="text" class="form-control" id="name" name="name" />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="gender" class="form-label">Giới tính</label>
+            <select class="form-select" name="gender" id="gender">
+              <option value="male">Nam</option>
+              <option value="female">Nữ</option>
+            </select>
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="BD" class="form-label">Ngày sinh</label>
+            <input type="date" class="form-control" id="BD" name="BD" />
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="address" class="form-label">Địa chỉ</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              name="address"
+            />
+          </div>
+
+          <div class="mb-3 col-md-4">
+            <label for="id" class="form-label">CCCD/CMND</label>
+            <input type="text" class="form-control" id="id" name="id" />
+          </div>
+
+          <div class="mb-3 col-md-6 ">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="example@aa.xx"/>
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="SDT" class="form-label">Số điện thoại</label>
+            <input type="text" class="form-control" id="SDT" name="SDT" />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="BHYT" class="form-label">Số bảo hiểm y tế</label>
+            <input type="text" class="form-control" id="BHYT" name="BHYT" />
+          </div>
+          <h5 id="notification" class="text-danger">{{notification}}</h5>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Hủy</button>
+        <button type="button" class="btn btn-primary" id="addCBtn">Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/admin/admin.js"></script>
+<script src="/js/validation.js"></script>
