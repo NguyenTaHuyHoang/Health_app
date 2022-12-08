@@ -42,8 +42,8 @@ function validation(name, email, SDT, CCCD_CMND, gender) {
 
 let check = 1;
 
-async function getAPI(obj) {
-    let dat = await fetch("/admin/getAPI/client");
+async function getAPI(obj, apiUrl) {
+    let dat = await fetch(apiUrl);
     let clients = await dat.json();
 
     console.log(clients);
@@ -58,7 +58,7 @@ async function getAPI(obj) {
             break;
         }
 
-        else if (obj.BHYT == clients[i].BHYT) {
+        else if (obj.BHYT == clients[i].BHYT && obj.BHYT != undefined) {
             check = -3;
             break;
         }
@@ -100,7 +100,7 @@ $('#addCBtn').click(function (e) {
             url: window.location.href,
         }
 
-        getAPI(dataSending);
+        getAPI(dataSending, "/admin/getAPI/client");
 
 
         setTimeout(() => {
@@ -139,5 +139,70 @@ $('#addCBtn').click(function (e) {
 });
 
 
-$(document).ready(function () {
+$('#addEmployeeBtn').click(function (e) {
+    e.preventDefault();
+    let name = $("#nameE").val();
+    let gender = $("#genderE").val();
+    let id = $("#idE").val();
+    let email = $("#emailE").val();
+    let BD = $("#BD_E").val();
+    let address = $("#addressE").val();
+    let department = $("#department").val();
+    let position = $("#position").val();
+    let SDT = $("#SDT_E").val();
+
+    if (validation(name, email, SDT, id, gender)) {
+
+        let dataSending = {
+            name: name,
+            gender: gender,
+            dateOfBirth: BD,
+            rank: "Bạc",
+            image: "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
+            CCCD_CMND: id,
+            email: email,
+            SDT: SDT,
+            password: id,
+            address: address,
+            specialist: department,
+            position : position,
+            url: window.location.href,
+        }
+
+        getAPI(dataSending, "/admin/getAPI/employee");
+
+
+        setTimeout(() => {
+            console.log(check);
+            if (check == 1) {
+                $.ajax({
+                    type: "POST",
+                    url: "add/employee",
+                    data: dataSending,
+                    dataType: "JSON",
+                    success: function (response) {
+                        console.log("Đăng ký thành công!");
+                    }
+                });
+
+                $('#addEmployeeModal').modal('hide');
+                alert("Đăng ký thành công!")
+            }
+            else if (check == -1) {
+                notification.innerHTML = ("CCCD/CMND đã được sử dụng!");
+            }
+            else if (check == -2) {
+                notification.innerHTML = ("SDT đã được sử dụng!");
+            }
+            else if (check == -3) {
+                notification.innerHTML = ("Bảo hiểm y tế đã được sử dụng!");
+            }
+            else if (check == -4) {
+                notification.innerHTML = ("Email đã được sử dụng!");
+            }
+
+            check = 1;
+        }, 1000);
+
+    };
 });

@@ -58,6 +58,12 @@ class AdminController {
         client.save();
     }
 
+    // [POST] /admin/add/employee
+    addEmployee(req, res, next) {
+        const employee = new Employee(req.body);
+        employee.save();
+    }
+
     // [GET] /getAPI/client
     async getAPIClient(req, res, next) {
         try {
@@ -70,7 +76,7 @@ class AdminController {
     }
 
     // [GET] /getAPI/employee
-    async getAPIAdmin(req, res, next) {
+    async getAPIEmployee(req, res, next) {
         try {
             let Employees = mongooseHelper.multiMongooseToObject(await Employee.find());
             res.send(Employees);
