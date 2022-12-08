@@ -2,7 +2,16 @@
 
 author:
     20120468 - Nguyễn Văn Hải
-               Nguyễn Tạ Huy Hoàng
-               Trần Khắc Bình
-               Nguyễn Nhật Nam
-               Nguyễn Nghĩa
+    20120482 - Nguyễn Tạ Huy Hoàng
+    20120437 - Trần Khắc Bình
+    20120532 - Nguyễn Nhật Nam
+    20120534 - Nguyễn Nghĩa
+
+How to run this project:
+    + First : install nodeJS: https://nodejs.org/en/
+    + Second: Download this repository
+    + Third: 
+        Step 1: Download MongoDB (database) : https://www.mongodb.com/try/download/community
+        Step 2: Move to file /Design database/Hospital and import data from JSON file to MongoDB (you can watch that video: https://www.youtube.com/watch?time_continue=1&v=IjAflHMkuzk&feature=emb_title)
+        
+    + Last : Now, you can run this project with command : npm start
