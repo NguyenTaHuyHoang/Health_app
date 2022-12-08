@@ -4,7 +4,7 @@ const handlebars = require("express-handlebars").create({
   extname: ".hbs",
 });
 const path = require("path");
-const routers = require("./routers");
+const routes = require("./routes");
 
 // connect to DB
 const db = require("./config/db");
@@ -32,7 +32,7 @@ app.use(
 
 app.use(express.json());
 
-routers(app);
+routes(app);
 
 app.use((err, req, res, next) => {
   res.status(500).send(err.message);
