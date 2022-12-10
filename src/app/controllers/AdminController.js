@@ -54,14 +54,23 @@ class AdminController {
 
     // [POST] /admin/add/Client
     addClient(req, res, next) {
+        console.log(req.body);
         const client = new Client(req.body);
         client.save();
     }
 
     // [POST] /admin/add/employee
     addEmployee(req, res, next) {
+        console.log(req.body);
         const employee = new Employee(req.body);
         employee.save();
+    }
+
+    // [POST] /admin/add/employee
+    addService(req, res, next) {
+        console.log(req.body);
+        const service = new Service(req.body);
+        service.save();
     }
 
     // [GET] /getAPI/client
@@ -80,6 +89,17 @@ class AdminController {
         try {
             let Employees = mongooseHelper.multiMongooseToObject(await Employee.find());
             res.send(Employees);
+        }
+        catch (err) {
+            next(err);
+        }
+    }
+
+    // [GET] /getAPI/service
+    async getAPIService(req, res, next) {
+        try {
+            let services = mongooseHelper.multiMongooseToObject(await Service.find());
+            res.send(services);
         }
         catch (err) {
             next(err);

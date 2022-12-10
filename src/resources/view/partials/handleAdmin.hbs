@@ -1,0 +1,93 @@
+<!-- Modal Add Client-->
+<div
+  class="modal fade"
+  id="adminModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="adminModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="adminModalLabel">Thêm tài khoản của
+          khách hàng.</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      {{! đây là phần body }}
+      <div class="modal-body">
+        <form id="form" class="row">
+          <div class="mb-3 col-md-6">
+            <label for="nameA" class="form-label">Họ và tên</label>
+            <input type="text" class="form-control" id="nameA" name="nameA" />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="genderA" class="form-label">Giới tính</label>
+            <select class="form-select" name="genderA" id="genderA">
+              <option value="Nam">Nam</option>
+              <option value="Nữ">Nữ</option>
+            </select>
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="BD_A" class="form-label">Ngày sinh</label>
+            <input type="date" class="form-control" id="BD_A" name="BD_A" />
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="addressA" class="form-label">Địa chỉ</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addressA"
+              name="addressA"
+            />
+          </div>
+
+          <div class="mb-3 col-md-4">
+            <label for="idA" class="form-label">CCCD/CMND</label>
+            <input type="text" class="form-control" id="idA" name="idA" />
+          </div>
+
+          <div class="mb-3 col-md-6">
+            <label for="emailA" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="emailA"
+              name="emailA"
+              placeholder="example@aa.xx"
+            />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="SDT_A" class="form-label">Số điện thoại</label>
+            <input type="text" class="form-control" id="SDT_A" name="SDT_A" />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="imageA" class="form-label">Link ảnh đại diện.</label>
+            <input type="text" class="form-control" id="imageA" name="imageA" />
+          </div>
+          <h5 id="" class="notification text-danger">{{notification}}</h5>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Hủy</button>
+        <button type="button" class="btn btn-primary" id="addCBtn">Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>
