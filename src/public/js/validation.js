@@ -94,7 +94,7 @@ async function checkExistService(obj) {
     let data = await dat.json();
 
     for (let i = 0; i < data.length; i++) {
-        if (obj.name == data[i].name) {
+        if (obj.serviceName == data[i].serviceName) {
             check = -1;
             break;
         }
@@ -105,7 +105,7 @@ async function checkExistService(obj) {
 }
 
 // when click add Client button
-$('#addCBtn').click(function (e) {
+$('#addCBtn').click(async function (e) {
     e.preventDefault();
     // get information about client
     let name = $("#name").val();
@@ -136,46 +136,43 @@ $('#addCBtn').click(function (e) {
             url: window.location.href,
         }
 
-        checkIsExistByAPI(dataSending, "/admin/getAPI/clients");
+        await checkIsExistByAPI(dataSending, "/admin/getAPI/clients");
 
         // Synchronous
-        setTimeout(() => {
-            console.log(check);
-            if (check == 1) {
-                $.ajax({
-                    type: "POST",
-                    url: "add/Client",
-                    data: dataSending,
-                    dataType: "JSON",
-                    success: function (response) {
-                        console.log("Đăng ký thành công!");
-                    }
-                });
+        console.log(check);
+        if (check == 1) {
+            $.ajax({
+                type: "POST",
+                url: "add/Client",
+                data: dataSending,
+                dataType: "JSON",
+                success: function (response) {
+                    console.log("Đăng ký thành công!");
+                }
+            });
+            notification.html(" ");
+            $('#clientModal').modal('hide');
+            alert("Đăng ký thành công!")
+        }
+        else if (check == -1) {
+            notification.html("CCCD/CMND đã được sử dụng!");
+        }
+        else if (check == -2) {
+            notification.html("SDT đã được sử dụng!");
+        }
+        else if (check == -3) {
+            notification.html("Bảo hiểm y tế đã được sử dụng!");
+        }
+        else if (check == -4) {
+            notification.html("Email đã được sử dụng!");
+        }
 
-                $('#clientModal').modal('hide');
-                alert("Đăng ký thành công!")
-            }
-            else if (check == -1) {
-                notification.html("CCCD/CMND đã được sử dụng!");
-            }
-            else if (check == -2) {
-                notification.html("SDT đã được sử dụng!");
-            }
-            else if (check == -3) {
-                notification.html("Bảo hiểm y tế đã được sử dụng!");
-            }
-            else if (check == -4) {
-                notification.html("Email đã được sử dụng!");
-            }
-
-            check = 1;
-        }, 1000);
-
-    };
+        check = 1;
+    }
 });
 
 // when click add Employee button
-$('#addEmployeeBtn').click(function (e) {
+$('#addEmployeeBtn').click(async function (e) {
     e.preventDefault();
     let name = $("#nameE").val();
     let gender = $("#genderE").val();
@@ -206,44 +203,42 @@ $('#addEmployeeBtn').click(function (e) {
         }
 
         //check is Exist 
-        checkIsExistByAPI(dataSending, "/admin/get/employees");
+        await checkIsExistByAPI(dataSending, "/admin/getAPI/employees");
 
 
-        setTimeout(() => {
-            if (check == 1) {
-                $.ajax({
-                    type: "POST",
-                    url: "add/employee",
-                    data: dataSending,
-                    dataType: "JSON",
-                    success: function (response) {
-                        console.log("Đăng ký thành công!");
-                    }
-                });
+        if (check == 1) {
+            $.ajax({
+                type: "POST",
+                url: "add/employee",
+                data: dataSending,
+                dataType: "JSON",
+                success: function (response) {
+                    console.log("Đăng ký thành công!");
+                }
+            });
+            notification.html(" ");
+            $('#employeeModal').modal('hide');
+            alert("Đăng ký thành công!")
+        }
+        else if (check == -1) {
+            notification.html("CCCD/CMND đã được sử dụng!");
+        }
+        else if (check == -2) {
+            notification.html("SDT đã được sử dụng!");
+        }
+        else if (check == -3) {
+            notification.html("Bảo hiểm y tế đã được sử dụng!");
+        }
+        else if (check == -4) {
+            notification.html("Email đã được sử dụng!");
+        }
 
-                $('#employeeModal').modal('hide');
-                alert("Đăng ký thành công!")
-            }
-            else if (check == -1) {
-                notification.html("CCCD/CMND đã được sử dụng!");
-            }
-            else if (check == -2) {
-                notification.html("SDT đã được sử dụng!");
-            }
-            else if (check == -3) {
-                notification.html("Bảo hiểm y tế đã được sử dụng!");
-            }
-            else if (check == -4) {
-                notification.html("Email đã được sử dụng!");
-            }
-
-            check = 1;
-        }, 1000);
-
-    };
+        check = 1;
+    }
 });
 
-$('#addServiceBtn').click(function (e) {
+// event add Service
+$('#addServiceBtn').click(async function (e) {
     e.preventDefault();
     let name = $("#nameS").val();
     let price = $("#price").val();
@@ -254,28 +249,27 @@ $('#addServiceBtn').click(function (e) {
             price: price
         }
 
-        checkExistService(dataSending);
+        await checkExistService(dataSending);
 
-        setTimeout(() => {
-            if (check == 1) {
-                $.ajax({
-                    type: "POST",
-                    url: "add/service",
-                    data: dataSending,
-                    dataType: "JSON",
-                    success: function (response) {
-                        console.log("Đăng ký thành công!");
-                    }
-                });
-
-                $('#serviceModal').modal('hide');
-                alert("Đăng ký thành công!")
-            }
-            else {
-                notification.html("Dịch vụ này đã tồn tại!");
-            }
-            check = 1;
-        }, 1000);
-
+        if (check == 1) {
+            $.ajax({
+                type: "POST",
+                url: "add/service",
+                data: dataSending,
+                dataType: "JSON",
+                success: function (response) {
+                    console.log("Đăng ký thành công!");
+                }
+            });
+            notification.html(" ");
+            $('#serviceModal').modal('hide');
+            alert("Đăng ký thành công!")
+        }
+        else {
+            notification.html("Dịch vụ này đã tồn tại!");
+        }
+        check = 1;
     }
+
 });
+

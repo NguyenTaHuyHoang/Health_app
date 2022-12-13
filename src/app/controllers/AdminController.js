@@ -105,6 +105,40 @@ class AdminController {
             next(err);
         }
     }
+
+    //[POST] /admin/:id/updateInformation
+    updateInformation(req, res, next) {
+        // [PUT]    /curse/:id
+        // this func after edit course
+        Admin.updateOne({ _id: req.params.id }, req.body)
+            .then(() => console.log("Successfully update " + req.params.id))
+            .catch(next);
+    }
+
+
+    //[POST] //admin/disableClient/
+    disableClient(req, res, next) {
+        console.log(req.body.id);
+        Client.delete({ _id: req.body.id })
+            .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] //admin/disableEmployee/
+    disableEmployee(req, res, next) {
+        console.log(req.body.id);
+        Employee.delete({ _id: req.body.id })
+            .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] //admin/removeService/
+    removeService(req, res, next) {
+        console.log(req.body.id);
+        Service.delete({ _id: req.body.id })
+            .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
+    }
 }
 
 module.exports = new AdminController();

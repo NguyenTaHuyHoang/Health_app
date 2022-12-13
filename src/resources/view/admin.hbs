@@ -42,7 +42,7 @@
                   alt="logout"
                   style=" width: 30px; margin-left: 150px; margin-bottom: 50px; cursor: pointer;"
                   data-bs-toggle="modal"
-                  data-bs-target="#logoutModal"
+                  data-bs-target="#confirmModal"
                 /></li>
               <a href="" data-bs-toggle="modal" data-bs-target="#adminModal" 
                 data-name = "{{admin.name}}"
@@ -168,44 +168,13 @@
   </div>
 </div>
 
-<!-- Modal -->
-<div
-  class="modal fade"
-  id="logoutModal"
-  tabindex="-1"
-  aria-labelledby="logoutModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="logoutModalLabel">Đăng xuất</h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        Bạn có chắc muốn đăng xuất không?
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-        >Không</button>
-        <a type="button" class="btn btn-danger" href="/">Chắc chắn</a>
-      </div>
-    </div>
-  </div>
-</div>
+<form id="dynamicForm"></form>
 
 <div class="alert alert-primary mb-0" role="alert" style="height: 6.5rem;">
   this is footer
 </div>
 
+{{> confirmModal}}
 {{> handleClient}}
 {{> handleEmployee}}
 {{> handleService}}
@@ -214,3 +183,4 @@
 <script src="/js/admin/admin.js"></script>
 <script src="/js/validation.js"></script>
 <script src="/js/admin/getAdminInterface.js"></script>
+<script src="/js/admin/handleConfirm.js"></script>

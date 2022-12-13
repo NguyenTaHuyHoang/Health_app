@@ -10,6 +10,10 @@ nav {
 li {
   list-style: none;
 }
+
+.displayNone {
+  display: none;
+}
 /*
 .noneDisplay {
   display: none;

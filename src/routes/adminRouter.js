@@ -3,6 +3,10 @@ const router = express.Router();
 
 const adminRouter = require("../app/controllers/AdminController");
 
+router.post('/disableClient', adminRouter.disableClient);
+router.post('/disableEmployee', adminRouter.disableEmployee);
+router.post('/removeService', adminRouter.removeService);
+router.post('/:id/updateInformation', adminRouter.updateInformation);
 router.get('/getAPI/services', adminRouter.getAPIService);
 router.get('/getAPI/employees', adminRouter.getAPIEmployee);
 router.get('/getAPI/clients', adminRouter.getAPIClient);

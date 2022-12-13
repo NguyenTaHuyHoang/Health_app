@@ -24,3 +24,41 @@ exampleModal.addEventListener('show.bs.modal', event => {
     document.getElementById("SDT_A").value = SDT;
     document.getElementById("imageA").value = image;
 })
+
+$('#updateInformationAdmin').click(function (e) {
+    e.preventDefault();
+
+    let name = $("#nameA").val();
+    let gender = $("#genderA").val();
+    let id = $("#idA").val();
+    let email = $("#emailA").val();
+    let BD = $("#BD_A").val();
+    let address = $("#addressA").val();
+    let image = $("#imageA").val();
+    let SDT = $("#SDT_A").val();
+
+    let dataSending = {
+        name: name,
+        gender: gender,
+        CCCD_CMND: id,
+        email: email,
+        dateOfBirth: BD,
+        address: address,
+        image: image,
+        SDT: SDT,
+    }
+
+    $.ajax({
+        type: "POST",
+        url: window.location.href + "/updateInformation",
+        data: dataSending,
+        dataType: "JSON",
+        success: function (response) {
+            console.log("update thành công!");
+        }
+    });
+
+    alert("Thành công!");
+    $('#adminModal').modal('hide');
+
+});

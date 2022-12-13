@@ -7,7 +7,7 @@ ClientToRow = (client, index) => {
         <td>${client.email}</td>
         <td>${client.dateOfBirth}</td>
         <td><a href="#" role="button">Chỉnh sửa</a></td>
-        <td><a href="#" role="button">Vô hiệu hóa</a></td>
+        <td><a href="#" role="button" data-type="disableClient" data-id="${client._id}" data-bs-toggle="modal" data-bs-target="#confirmModal">Vô hiệu hóa</a></td>
     </tr>
     `
 }
@@ -21,7 +21,7 @@ EmployeeToRow = (employee, index) => {
         <td>${employee.email}</td>
         <td>${employee.position}</td>
         <td><a href="#" role="button">Chỉnh sửa</a></td>
-        <td><a href="#" role="button">Vô hiệu hóa</a></td>
+        <td><a href="#" role="button" data-type="disableEmployee" data-id="${employee._id}" data-bs-toggle="modal" data-bs-target="#confirmModal">Vô hiệu hóa</a></td>
     </tr>
     `
 }
@@ -33,7 +33,7 @@ ServiceToRow = (service, index) => {
         <td>${service.serviceName}</td>
         <td>${service.price}đ</td>
         <td><a href="#" role="button">Chỉnh sửa</a></td>
-        <td><a href="#" role="button">Xóa</a></td>
+        <td><a href="#" role="button" data-type="removeService" data-id="${service._id}" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
     </tr>
     `
 }
@@ -71,7 +71,7 @@ module.exports = {
         data = ``
 
         for (let i = 0; i < Employees.length; i++) {
-            data += ClientToRow(Employees[i], i + 1);
+            data += EmployeeToRow(Employees[i], i + 1);
         }
 
         if (Employees.length == 0)
