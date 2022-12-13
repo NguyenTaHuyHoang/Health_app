@@ -1,0 +1,51 @@
+<!-- Modal Add Client-->
+<div
+  class="modal fade"
+  id="editRankModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="editRankModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editRankModalLabel">Đổi vị trí làm
+          việc của nhân viên.</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      {{! đây là phần body }}
+      <div class="modal-body">
+        <form id="form" class="row">
+
+          <div class="mb-3">
+            <label for="rank" class="form-label">Xếp hạng khách hàng</label>
+            <select class="form-select" name="rank" id="rank">
+              <option value="Bạc">Bạc</option>
+              <option value="Vàng">Vàng</option>
+              <option value="Kim Cương">Kim Cương</option>
+            </select>
+          </div>
+
+          <h5 id="" class="notification text-danger">{{notification}}</h5>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Hủy</button>
+        <button type="button" class="btn btn-primary" id="changeRank">Xác
+          nhận</button>
+      </div>
+    </div>
+  </div>
+</div>
