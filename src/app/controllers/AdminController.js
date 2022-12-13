@@ -54,14 +54,23 @@ class AdminController {
 
     // [POST] /admin/add/Client
     addClient(req, res, next) {
+        console.log(req.body);
         const client = new Client(req.body);
         client.save();
     }
 
     // [POST] /admin/add/employee
     addEmployee(req, res, next) {
+        console.log(req.body);
         const employee = new Employee(req.body);
         employee.save();
+    }
+
+    // [POST] /admin/add/employee
+    addService(req, res, next) {
+        console.log(req.body);
+        const service = new Service(req.body);
+        service.save();
     }
 
     // [GET] /getAPI/client
@@ -84,6 +93,51 @@ class AdminController {
         catch (err) {
             next(err);
         }
+    }
+
+    // [GET] /getAPI/service
+    async getAPIService(req, res, next) {
+        try {
+            let services = mongooseHelper.multiMongooseToObject(await Service.find());
+            res.send(services);
+        }
+        catch (err) {
+            next(err);
+        }
+    }
+
+    //[POST] /admin/:id/updateInformation
+    updateInformation(req, res, next) {
+        // [PUT]    /curse/:id
+        // this func after edit course
+        Admin.updateOne({ _id: req.params.id }, req.body)
+            .then(() => console.log("Successfully update " + req.params.id))
+            .catch(next);
+    }
+
+
+    //[POST] //admin/disableClient/
+    disableClient(req, res, next) {
+        console.log(req.body.id);
+        Client.delete({ _id: req.body.id })
+            .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] //admin/disableEmployee/
+    disableEmployee(req, res, next) {
+        console.log(req.body.id);
+        Employee.delete({ _id: req.body.id })
+            .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] //admin/removeService/
+    removeService(req, res, next) {
+        console.log(req.body.id);
+        Service.delete({ _id: req.body.id })
+            .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
     }
 }
 

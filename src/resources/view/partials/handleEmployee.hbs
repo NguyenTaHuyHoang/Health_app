@@ -1,0 +1,115 @@
+<!-- Modal Add Employee-->
+<div
+  class="modal fade"
+  id="employeeModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="employeeModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="employeeModalLabel">Thêm tài khoản
+          của nhân viên.</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      {{! đây là phần body }}
+      <div class="modal-body">
+        <form id="form" class="row">
+          <div class="mb-3 col-md-6">
+            <label for="nameE" class="form-label">Họ và tên</label>
+            <input type="text" class="form-control" id="nameE" name="nameE" />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="genderE" class="form-label">Giới tính</label>
+            <select class="form-select" name="genderE" id="genderE">
+              <option value="male">Nam</option>
+              <option value="female">Nữ</option>
+            </select>
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="BD_E" class="form-label">Ngày sinh</label>
+            <input type="date" class="form-control" id="BD_E" name="BD_E" />
+          </div>
+
+          <div class="mb-3 col-md-7">
+            <label for="addressE" class="form-label">Địa chỉ</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addressE"
+              name="addressE"
+            />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="SDT_E" class="form-label">Số điện thoại</label>
+            <input type="text" class="form-control" id="SDT_E" name="SDT_E" />
+          </div>
+
+          <div class="mb-3 col-md-2">
+            <label for="idE" class="form-label">CCCD/CMND</label>
+            <input type="text" class="form-control" id="idE" name="idE" />
+          </div>
+
+          <div class="mb-3 col-md-6">
+            <label for="emailE" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="emailE"
+              name="emailE"
+              placeholder="example@aa.xx"
+            />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="department" class="form-label">Khoa</label>
+            <select class="form-select" name="department" id="department">
+              <option value="Khoa Nội">Khoa Nội</option>
+              <option value="Khoa Ngoại">Khoa Ngoại</option>
+              <option value="Khoa Phụ sản">Khoa Phụ sản</option>
+              <option value="Khoa Nhi">Khoa Nhi</option>
+              <option value="Khoa Truyền nhiễm">Khoa Truyền nhiễm</option>
+              <option value="Khoa Cấp cứu">Khoa Cấp cứu</option>
+              <option value="Khoa xét nghiệm">Khoa xét nghiệm</option>
+            </select>
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="position" class="form-label">Chức vụ</label>
+            <select class="form-select" name="position" id="position">
+              <option value="Trưởng khoa">Trưởng khoa</option>
+              <option value="Phó khoa">Phó khoa</option>
+              <option value="Bác sĩ">Bác sĩ</option>
+              <option value="Y tá">Y tá</option>
+            </select>
+          </div>
+          <h5 id="" class="notification text-danger">{{notification}}</h5>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Hủy</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="addEmployeeBtn"
+        >Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>

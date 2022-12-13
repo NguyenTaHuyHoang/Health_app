@@ -1,0 +1,53 @@
+<!-- Modal Add Employee-->
+<div
+  class="modal fade"
+  id="serviceModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="serviceModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="serviceModalLabel">Thêm tài khoản của
+          nhân viên.</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      {{! đây là phần body }}
+      <div class="modal-body">
+        <form id="form" class="row">
+          <div class="mb-3">
+            <label for="nameS" class="form-label">Tên dịch vụ</label>
+            <input type="text" class="form-control" id="nameS" name="nameS" />
+          </div>
+
+          <div class="mb-3">
+            <label for="price" class="form-label">Giá</label>
+            <input type="number" class="form-control" id="price" name="price" />
+          </div>
+          <h5 id="" class="notification text-danger">{{notification}}</h5>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Hủy</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="addServiceBtn"
+        >Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>

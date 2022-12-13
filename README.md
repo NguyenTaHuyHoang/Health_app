@@ -9,7 +9,9 @@ author:
 
 How to run this project:
     + First : install nodeJS: https://nodejs.org/en/
+
     + Second: Download this repository
+    
     + Third: 
         Step 1: Download MongoDB (database) : https://www.mongodb.com/try/download/community
         Step 2: Move to file /Design database/Hospital and import data from JSON file to MongoDB (you can watch that video: https://www.youtube.com/watch?time_continue=1&v=IjAflHMkuzk&feature=emb_title)

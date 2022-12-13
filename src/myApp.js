@@ -7,7 +7,7 @@ const path = require("path");
 const routes = require("./routes");
 
 // connect to DB
-const db = require("./config/db");
+const db = require("./configs/db");
 //connect DB
 db.connect();
 
