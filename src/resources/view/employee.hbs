@@ -30,6 +30,7 @@
               <li class="fw-bold">Tên: {{employee.name}}</li>
               <li>Vị trí: {{employee.position}}</li>
               <li>Địa chỉ: {{employee.address}}</li>
+              <li><a href="#">Sửa đổi thông tin cá nhân</a></li>
             </ul>
           </div>
         </div>
@@ -44,7 +45,12 @@
                   data-bs-toggle="modal"
                   data-bs-target="#logoutModal"
                 /></li>
-              <a href="">Sửa đổi thông tin cá nhân</a>
+              <li>
+                <a id="changePass" href="#">
+                  Đổi mật khẩu
+                </a>
+              </li>
+
             </ul>
           </div>
         </div>
@@ -114,39 +120,7 @@
   </div>
 </div>
 
-<!-- Modal -->
-<div
-  class="modal fade"
-  id="logoutModal"
-  tabindex="-1"
-  aria-labelledby="logoutModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="logoutModalLabel">Đăng xuất</h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        Bạn có chắc muốn đăng xuất không?
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-        >Không</button>
-        <a type="button" class="btn btn-danger" href="/">Chắc chắn</a>
-      </div>
-    </div>
-  </div>
-</div>
+{{> logoutModal}}
 
 <div class="alert alert-primary mb-0" role="alert" style="height: 6.5rem;">
   this is footer

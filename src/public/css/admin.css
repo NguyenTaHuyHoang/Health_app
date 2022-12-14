@@ -22,3 +22,14 @@ li {
 #makeAppointment {
   float: right;
 }
+
+#changePass {
+  position: absolute;
+  margin-left: 80px;
+}
+
+/* .gr1 {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+ */

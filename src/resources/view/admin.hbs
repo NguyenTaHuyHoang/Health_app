@@ -30,6 +30,19 @@
               <li class="fw-bold">Tên: {{admin.name}}</li>
               <li>Admin</li>
               <li>Địa chỉ: {{admin.address}}</li>
+              <li><a
+                  href=""
+                  data-bs-toggle="modal"
+                  data-bs-target="#adminModal"
+                  data-name="{{admin.name}}"
+                  data-bd="{{admin.dateOfBirth}}"
+                  data-email="{{admin.email}}"
+                  data-id="{{admin.CCCD_CMND}}"
+                  data-SDT="{{admin.SDT}}"
+                  data-image="{{admin.image}}"
+                  data-address="{{admin.address}}"
+                  data-gender="{{admin.gender}}"
+                >Sửa đổi thông tin cá nhân</a></li>
             </ul>
           </div>
         </div>
@@ -42,18 +55,14 @@
                   alt="logout"
                   style=" width: 30px; margin-left: 150px; margin-bottom: 50px; cursor: pointer;"
                   data-bs-toggle="modal"
-                  data-bs-target="#confirmModal"
+                  data-bs-target="#logoutModal"
                 /></li>
-              <a href="" data-bs-toggle="modal" data-bs-target="#adminModal" 
-                data-name = "{{admin.name}}"
-                data-bd="{{admin.dateOfBirth}}"
-                data-email = "{{admin.email}}"
-                data-id = "{{admin.CCCD_CMND}}"
-                data-SDT = "{{admin.SDT}}"
-                data-image = "{{admin.image}}"
-                data-address = "{{admin.address}}"
-                data-gender = "{{admin.gender}}"
-                >Sửa đổi thông tin cá nhân</a>
+              <li>
+                <a id="changePass" href="#">
+                  Đổi mật khẩu
+                </a>
+              </li>
+
             </ul>
           </div>
         </div>
@@ -108,11 +117,26 @@
         aria-labelledby="list-client"
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
-          <div><img
-              src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
-              alt="bin"
-              style="width: 30px; cursor: pointer;"
-            />
+          <div class="gr1">
+            <div id="moveToClientBin" style="width: 50px; cursor: pointer;">
+              <img
+                src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
+                alt="bin"
+                style="width: 30px;"
+              />({{numberClientDisable}})
+            </div>
+
+            <div
+              class="displayNone"
+              id="returnToClientList"
+              style="width: 50px; cursor: pointer;"
+            >
+              <img
+                src="https://img.icons8.com/metro/52/null/left.png"
+                alt="bin"
+                style="width: 30px;"
+              />({{numberClient}})
+            </div>
             <a
               href="#"
               style="float: right;"
@@ -121,6 +145,7 @@
             >Tạo mới tài khoản khách hàng.</a>
           </div>
           {{{ListClient}}}
+          {{{BinClient}}}
         </div></div>
       <div
         class="tab-pane fade"
@@ -129,11 +154,27 @@
         aria-labelledby="list-employee-tab"
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
-          <div><img
-              src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
-              alt="bin"
-              style="width: 30px;"
-            />
+          <div>
+            <div id="moveToEmployeeBin" style="width: 50px; cursor: pointer;">
+              <img
+                src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
+                alt="bin"
+                style="width: 30px;"
+              />({{numberEmployeeDisable}})
+            </div>
+
+            <div
+              class="displayNone"
+              id="returnToEmployeeList"
+              style="width: 50px; cursor: pointer;"
+            >
+              <img
+                src="https://img.icons8.com/metro/52/null/left.png"
+                alt="bin"
+                style="width: 30px;"
+              />({{numberClient}})
+            </div>
+
             <a
               href="#"
               style="float: right;"
@@ -142,6 +183,7 @@
             >Tạo mới tài khoản nhân viên.</a>
           </div>
           {{{ListEmployee}}}
+          {{{BinEmployee}}}
         </div></div>
       <div
         class="tab-pane fade"
@@ -150,11 +192,26 @@
         aria-labelledby="list-service"
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
-          <div><img
-              src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
-              alt="bin"
-              style="width: 30px;"
-            />
+          <div>
+            <div id="moveToServiceBin" style="width: 50px; cursor: pointer;">
+              <img
+                src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
+                alt="bin"
+                style="width: 30px;"
+              />({{numberServiceDisable}})
+            </div>
+
+            <div
+              class="displayNone"
+              id="returnToServiceList"
+              style="width: 50px; cursor: pointer;"
+            >
+              <img
+                src="https://img.icons8.com/metro/52/null/left.png"
+                alt="bin"
+                style="width: 30px;"
+              />({{numberClient}})
+            </div>
             <a
               href="#"
               style="float: right;"
@@ -163,6 +220,7 @@
             >Thêm dịch vụ.</a>
           </div>
           {{{ListService}}}
+          {{{BinService}}}
         </div></div>
     </div>
   </div>
@@ -174,13 +232,20 @@
   this is footer
 </div>
 
-{{> confirmModal}}
+{{> confirmDisableModal}}
 {{> handleClient}}
 {{> handleEmployee}}
 {{> handleService}}
 {{> handleAdmin}}
+{{> changePosition}}
+{{> changeRank}}
+{{> logoutModal}}
+{{> confirmRemoveForever}}
 
-<script src="/js/admin/admin.js"></script>
 <script src="/js/validation.js"></script>
+<script src="/js/admin/admin.js"></script>
+<script src="/js/admin/addEvent.js"></script>
 <script src="/js/admin/getAdminInterface.js"></script>
-<script src="/js/admin/handleConfirm.js"></script>
+<script src="/js/admin/handleEventDisable.js"></script>
+<script src="/js/admin/controlTheChangeOfInfo.js"></script>
+<script src="/js/admin/controlEventRemoveForever.js"></script>

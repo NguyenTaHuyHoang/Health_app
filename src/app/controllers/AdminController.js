@@ -17,14 +17,25 @@ class AdminController {
             let Clients = mongooseHelper.multiMongooseToObject(await Client.find());
             let Employees = mongooseHelper.multiMongooseToObject(await Employee.find());
             let Services = mongooseHelper.multiMongooseToObject(await Service.find());
-            let ad = await Admin.findOne({ _id: req.params.id });
-            ad = mongooseHelper.mongoosesToObject(ad);
+            let BinServices = mongooseHelper.multiMongooseToObject(await Service.findDeleted());
+            let BinEmployees = mongooseHelper.multiMongooseToObject(await Employee.findDeleted());
+            let BinClients = mongooseHelper.multiMongooseToObject(await Client.findDeleted());
+            let ad = mongooseHelper.mongoosesToObject(await Admin.findOne({ _id: req.params.id }));
             res.render("admin", {
                 title: `Admin: ${req.params.id}`,
                 admin: ad,
-                ListClient: adminHelper.getListClient(Clients),
-                ListEmployee: adminHelper.getListEmployee(Employees),
-                ListService: adminHelper.getListService(Services),
+                ListClient: adminHelper.getListClient(Clients, "notBin"),
+                BinClient: adminHelper.getListClient(BinClients, "bin"),
+                ListEmployee: adminHelper.getListEmployee(Employees, "notBin"),
+                BinEmployee: adminHelper.getListEmployee(BinEmployees, "bin"),
+                ListService: adminHelper.getListService(Services, "notBin"),
+                BinService: adminHelper.getListService(BinServices, "bin"),
+                numberClientDisable: BinClients.length,
+                numberEmployeeDisable: BinEmployees.length,
+                numberServiceDisable: BinServices.length,
+                numberClient: Clients.length,
+                numberEmployee: Employees.length,
+                numberService: Services.length,
             });
         }
         catch (err) {
@@ -134,9 +145,29 @@ class AdminController {
 
     //[POST] //admin/removeService/
     removeService(req, res, next) {
-        console.log(req.body.id);
         Service.delete({ _id: req.body.id })
             .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /admin/editService/:id
+    editService(req, res, next) {
+        Service.updateOne({ _id: req.params.id }, req.body)
+            .then(() => console.log("Successfully update " + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /admin/editEmployee/:id
+    editEmployee(req, res, next) {
+        Employee.updateOne({ _id: req.params.id }, req.body)
+            .then(() => console.log("Successfully update " + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /admin/editClient/:id
+    editClient(req, res, next) {
+        Client.updateOne({ _id: req.params.id }, req.body)
+            .then(() => console.log("Successfully update " + req.params.id))
             .catch(next);
     }
 }

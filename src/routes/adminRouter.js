@@ -3,6 +3,9 @@ const router = express.Router();
 
 const adminRouter = require("../app/controllers/AdminController");
 
+router.post('/editClient/:id', adminRouter.editClient);
+router.post('/editEmployee/:id', adminRouter.editEmployee);
+router.post('/editService/:id', adminRouter.editService);
 router.post('/disableClient', adminRouter.disableClient);
 router.post('/disableEmployee', adminRouter.disableEmployee);
 router.post('/removeService', adminRouter.removeService);
