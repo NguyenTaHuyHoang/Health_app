@@ -1,4 +1,16 @@
-ClientToRow = (client, index) => {
+ClientToRow = (client, index, type) => {
+
+    let temp = "deleteClientForever";
+    let className = "restoreClient";
+    let html_ = "Xóa vĩnh viễn";
+    let html1 = "Khôi phục";
+    if (type == "notBin") {
+        className = "ECBtn";
+        temp = "";
+        html_ = "Vô hiệu hóa";
+        html1 = "Chỉnh sửa";
+    }
+
     return `
     <tr>
         <th scope="row">${index}</th>
@@ -16,13 +28,25 @@ ClientToRow = (client, index) => {
             data-image = "${client.image}"
             data-rank = "${client.rank}"    
             data-address = "${client.address}"
-            data-gender = "${client.gender}" data-bs-toggle="modal" data-bs-target="#editRankModal" class="ECBtn">Chỉnh sửa</a></td>
-        <td><a href="#" role="button" data-type="disableClient" data-id="${client._id}" data-bs-toggle="modal" data-bs-target="#confirmModal">Vô hiệu hóa</a></td>
+            data-gender = "${client.gender}" data-bs-toggle="modal" data-bs-target="#editRankModal" class="${className}">${html1}</a></td>
+        <td><a href="#" role="button" data-type="disableClient" data-id="${client._id}" data-bs-toggle="modal" data-bs-target="#confirmModal" class="${temp}">${html_}</a></td>
     </tr>
     `
 }
 
-EmployeeToRow = (employee, index) => {
+EmployeeToRow = (employee, index, type) => {
+
+    let temp = "deleteEmployeeForever";
+    let className = "restoreEmployee";
+    let html_ = "Xóa vĩnh viễn";
+    let html1 = "Khôi phục";
+    if (type == "notBin") {
+        className = "EPBtn";
+        temp = "";
+        html_ = "Vô hiệu hóa";
+        html1 = "Chỉnh sửa";
+    }
+
     return `
     <tr>
         <th scope="row">${index}</th>
@@ -33,7 +57,7 @@ EmployeeToRow = (employee, index) => {
         <td>${employee.dateOfBirth}</td>
         <td><a href="#" role="button" 
             data-name = "${employee.name}"
-            data-id="${employee._id}"
+            data-id="${employee._id}"   
             data-bd="${employee.dateOfBirth}"
             data-email = "${employee.email}"
             data-socialID = "${employee.CCCD_CMND}"
@@ -42,13 +66,24 @@ EmployeeToRow = (employee, index) => {
             data-address = "${employee.address}"
             data-specialist = "${employee.specialist}"
             data-position = "${employee.position}"
-            data-gender = "${employee.gender}" data-bs-toggle="modal" data-bs-target="#editPositionModal" class="EPBtn">Sửa vị trí</a></td>
-        <td><a href="#" role="button" data-type="disableEmployee" data-id="${employee._id}" data-bs-toggle="modal" data-bs-target="#confirmModal">Vô hiệu hóa</a></td>
+            data-gender = "${employee.gender}" data-bs-toggle="modal" data-bs-target="#editPositionModal" class=" ${className}">${html1}</a></td>
+        <td><a href="#" role="button" data-type="disableEmployee" data-id="${employee._id}" data-bs-toggle="modal" data-bs-target="#confirmModal" class="${temp}">${html_}</a></td>
     </tr>
     `
 }
 
-ServiceToRow = (service, index) => {
+ServiceToRow = (service, index, type) => {
+    let temp = "deleteServiceForever";
+    let className = "restoreService";
+    let html_ = "Xóa vĩnh viễn";
+    let html1 = "Khôi phục";
+    if (type == "notBin") {
+        className = "changeServiceInfo";
+        temp = "";
+        html_ = "Vô hiệu hóa";
+        html1 = "Chỉnh sửa";
+    }
+
     return `
     <tr>
         <th scope="row">${index}</th>
@@ -59,9 +94,9 @@ ServiceToRow = (service, index) => {
             data-id="${service._id}"
             data-price="${service.price}"
             data-bs-toggle="modal" data-bs-target="#serviceModal"
-            class="changeServiceInfo"
-            >Chỉnh sửa</a></td>
-        <td><a href="#" role="button" data-type="removeService" data-id="${service._id}" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
+            class="${className}"
+            >${html1}</a></td>
+        <td><a href="#" role="button" data-type="removeService" data-id="${service._id}" data-bs-toggle="modal" data-bs-target="#confirmModal" class="${temp}">${html_}</a></td>
     </tr>
     `
 }
@@ -70,15 +105,19 @@ module.exports = {
     getListClient: (clients, type) => {
         data = '';
 
+        let _type = "binClient";
+        if (type == "notBin")
+            _type = "notBinClient";
+
         for (let i = 0; i < clients.length; i++) {
-            data += ClientToRow(clients[i], i + 1);
+            data += ClientToRow(clients[i], i + 1, type);
         }
 
         if (clients.length == 0)
             data = '<tr><td colspan="7">Không có tài khoản khách hàng nào.</td></tr>';
 
         return `
-        <table class="table mt-3 mb-3 table-striped table-hover" id="${type}">
+        <table class="table mt-3 mb-3 table-striped table-hover" id="${_type}">
             <thead>
             <tr class="table-dark text-white">
                 <th scope="col">STT</th>
@@ -98,15 +137,19 @@ module.exports = {
     getListEmployee: (Employees, type) => {
         data = ``
 
+        let _type = "binEmployee";
+        if (type == "notBin")
+            _type = "notBinEmployee";
+
         for (let i = 0; i < Employees.length; i++) {
-            data += EmployeeToRow(Employees[i], i + 1);
+            data += EmployeeToRow(Employees[i], i + 1, type);
         }
 
         if (Employees.length == 0)
             data = '<tr><td colspan="8">Không có tài khoản nhân viên nào.</td></tr>';
 
         return `
-        <table class="table mt-3 mb-3 table-striped table-hover" id="${type}">
+        <table class="table mt-3 mb-3 table-striped table-hover" id="${_type}">
             <thead>
             <tr class="table-dark text-white">
                 <th scope="col">STT</th>
@@ -126,15 +169,19 @@ module.exports = {
     getListService: (Services, type) => {
         data = ``;
 
+        let _type = "binService";
+        if (type == "notBin")
+            _type = "notBinService";
+
         for (let i = 0; i < Services.length; i++) {
-            data += ServiceToRow(Services[i], i + 1);
+            data += ServiceToRow(Services[i], i + 1, type);
         }
 
         if (Services.length == 0)
             data = '<tr><td colspan="5">Không có dịch vụ nào.</td></tr>';
 
         return `
-        <table class="table mt-3 mb-3 table-striped table-hover" id="${type}">
+        <table class="table mt-3 mb-3 table-striped table-hover" id="${_type}">
             <thead>
             <tr class="table-dark text-white">
                 <th scope="col">STT</th>

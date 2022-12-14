@@ -24,15 +24,18 @@ class AdminController {
             res.render("admin", {
                 title: `Admin: ${req.params.id}`,
                 admin: ad,
-                ListClient: adminHelper.getListClient(Clients, "notBinClient"),
-                BinClient: adminHelper.getListClient(BinClients, "binClient"),
-                ListEmployee: adminHelper.getListEmployee(Employees, "notBinEmployee"),
-                BinEmployee: adminHelper.getListEmployee(BinEmployees, "binEmployee"),
-                ListService: adminHelper.getListService(Services, "notBinService"),
-                BinService: adminHelper.getListService(BinServices, "binService"),
+                ListClient: adminHelper.getListClient(Clients, "notBin"),
+                BinClient: adminHelper.getListClient(BinClients, "bin"),
+                ListEmployee: adminHelper.getListEmployee(Employees, "notBin"),
+                BinEmployee: adminHelper.getListEmployee(BinEmployees, "bin"),
+                ListService: adminHelper.getListService(Services, "notBin"),
+                BinService: adminHelper.getListService(BinServices, "bin"),
                 numberClientDisable: BinClients.length,
                 numberEmployeeDisable: BinEmployees.length,
                 numberServiceDisable: BinServices.length,
+                numberClient: Clients.length,
+                numberEmployee: Employees.length,
+                numberService: Services.length,
             });
         }
         catch (err) {
