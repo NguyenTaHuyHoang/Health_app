@@ -1,94 +1,25 @@
-/* let _id = "";
-let dynamicForm = document.getElementById("dynamicForm");
+// id_ is in file controlUIConfirmModal.js
 
-const confirmModal = document.getElementById('confirmModal')
-confirmModal.addEventListener('show.bs.modal', event => {
-    // Button that triggered the modal
-    const button = event.relatedTarget
-    // Extract info from data-bs-* attributes
-    _id = button.getAttribute('data-id')
-    let type = button.getAttribute('data-type')
-
-
-    if (_id == undefined)
-        return;
-
-    if (type == "removeService") {
-        $("#confirmModalLabel").html("Xác nhận!");
-        $("#confirmModalBody").html(`Bạn có chắc muốn xóa dịch vụ này không?`);
-        $('.confirm').addClass('displayNone');
-        $('#cfRemoveService').removeClass("displayNone");
-    }
-    else if (type == "disableClient") {
-        $("#confirmModalLabel").html("Xác nhận!");
-        $("#confirmModalBody").html(`Bạn có chắc muốn vô hiệu hóa tài khoản này không?`);
-        $('.confirm').addClass('displayNone');
-        $('#cfDisableClient').removeClass("displayNone");
-    }
-    else if (type == "disableEmployee") {
-        $("#confirmModalLabel").html("Xác nhận!");
-        $("#confirmModalBody").html(`Bạn có chắc muốn vô hiệu hóa tài khoản này không?`);
-        $('.confirm').addClass('displayNone');
-        $('#cfDisableEmployee').removeClass("displayNone");
-    }
-});
-
-$("#cfRemoveService").click(function (e) {
+$("#cfDestroyService").click(function (e) {
     e.preventDefault();
     const dataSending = {
-        id: _id,
+        id: id_,
     }
-
-    $.ajax({
-        type: "POST",
-        url: `removeService`,
-        data: dataSending,
-        dataType: "JSON",
-        success: function (response) {
-            console.log("Xóa!");
-        }
-    });
-
-    alert(`Xóa dịch vụ ${_id} thành công!`);
-    $('#confirmModal').modal('hide');
+    eventPOST(dataSending, `destroyService/${id_}`, 'confirmModal', `Xóa vĩnh viễn tài khoản ${id_} thành công!`);
 });
 
-$("#cfDisableClient").click(function (e) {
+$("#cfDestroyClient").click(function (e) {
     e.preventDefault();
     const dataSending = {
-        id: _id,
+        id: id_,
     }
-
-    $.ajax({
-        type: "POST",
-        url: `disableClient`,
-        data: dataSending,
-        dataType: "JSON",
-        success: function (response) {
-            console.log("update thành công!");
-        }
-    });
-
-    alert(`Vô hiệu hóa tài khoản ${_id} thành công!`);
-    $('#confirmModal').modal('hide');
+    eventPOST(dataSending, `destroyClient/${id_}`, 'confirmModal', `Xóa vĩnh viễn tài khoản ${id_} thành công!`);
 });
 
-$("#cfDisableEmployee").click(function (e) {
+$("#cfDestroyEmployee").click(function (e) {
     e.preventDefault();
     const dataSending = {
-        id: _id,
+        id: id_,
     }
-
-    $.ajax({
-        type: "POST",
-        url: `disableEmployee`,
-        data: dataSending,
-        dataType: "JSON",
-        success: function (response) {
-            console.log("update thành công!");
-        }
-    });
-
-    alert(`Vô hiệu hóa tài khoản ${_id} thành công!`);
-    $('#confirmModal').modal('hide');
-}); */
+    eventPOST(dataSending, `destroyEmployee/${id_}`, 'confirmModal', `Xóa vĩnh viễn tài khoản ${id_} thành công!`);
+});

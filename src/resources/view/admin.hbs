@@ -117,33 +117,31 @@
         aria-labelledby="list-client"
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
-          <div class="gr1">
-            <div id="moveToClientBin" style="width: 50px; cursor: pointer;">
-              <img
-                src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
-                alt="bin"
-                style="width: 30px;"
-              />({{numberClientDisable}})
-            </div>
+          <a id="moveToClientBin" style="width: 50px; cursor: pointer;">
+            <img
+              src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
+              alt="bin"
+              style="width: 30px;"
+            />({{numberClientDisable}})
+          </a>
 
-            <div
-              class="displayNone"
-              id="returnToClientList"
-              style="width: 50px; cursor: pointer;"
-            >
-              <img
-                src="https://img.icons8.com/metro/52/null/left.png"
-                alt="bin"
-                style="width: 30px;"
-              />({{numberClient}})
-            </div>
-            <a
-              href="#"
-              style="float: right;"
-              data-bs-toggle="modal"
-              data-bs-target="#clientModal"
-            >Tạo mới tài khoản khách hàng.</a>
-          </div>
+          <a
+            class="displayNone"
+            id="returnToClientList"
+            style="width: 50px; cursor: pointer;"
+          >
+            <img
+              src="https://img.icons8.com/metro/52/null/left.png"
+              alt="bin"
+              style="width: 30px;"
+            />({{numberClient}})
+          </a>
+          <a
+            href="#"
+            style="float: right;"
+            data-bs-toggle="modal"
+            data-bs-target="#clientModal"
+          >Tạo mới tài khoản khách hàng.</a>
           {{{ListClient}}}
           {{{BinClient}}}
         </div></div>
@@ -155,15 +153,15 @@
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
           <div>
-            <div id="moveToEmployeeBin" style="width: 50px; cursor: pointer;">
+            <a id="moveToEmployeeBin" style="width: 50px; cursor: pointer;">
               <img
                 src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
                 alt="bin"
                 style="width: 30px;"
               />({{numberEmployeeDisable}})
-            </div>
+            </a>
 
-            <div
+            <a
               class="displayNone"
               id="returnToEmployeeList"
               style="width: 50px; cursor: pointer;"
@@ -173,7 +171,7 @@
                 alt="bin"
                 style="width: 30px;"
               />({{numberClient}})
-            </div>
+            </a>
 
             <a
               href="#"
@@ -193,15 +191,15 @@
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
           <div>
-            <div id="moveToServiceBin" style="width: 50px; cursor: pointer;">
+            <a id="moveToServiceBin" style="width: 50px; cursor: pointer;">
               <img
                 src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
                 alt="bin"
                 style="width: 30px;"
               />({{numberServiceDisable}})
-            </div>
+            </a>
 
-            <div
+            <a
               class="displayNone"
               id="returnToServiceList"
               style="width: 50px; cursor: pointer;"
@@ -211,7 +209,7 @@
                 alt="bin"
                 style="width: 30px;"
               />({{numberClient}})
-            </div>
+            </a>
             <a
               href="#"
               style="float: right;"
@@ -229,7 +227,7 @@
 <form id="dynamicForm"></form>
 
 {{> footer}}
-{{> confirmDisableModal}}
+{{> confirmModal}}
 {{> handleClient}}
 {{> handleEmployee}}
 {{> handleService}}
@@ -237,12 +235,14 @@
 {{> changePosition}}
 {{> changeRank}}
 {{> logoutModal}}
-{{> confirmRemoveForever}}
 
+<script src="/js/event.js"></script>
 <script src="/js/validation.js"></script>
 <script src="/js/admin/admin.js"></script>
 <script src="/js/admin/addEvent.js"></script>
 <script src="/js/admin/getAdminInterface.js"></script>
-<script src="/js/admin/handleEventDisable.js"></script>
+<script src="/js/controlUIConfirmModal.js"></script>
 <script src="/js/admin/controlTheChangeOfInfo.js"></script>
 <script src="/js/admin/controlEventRemoveForever.js"></script>
+<script src="/js/admin/controlRemoveEvent.js"></script>
+<script src="/js/admin/controlRestore.js"></script>

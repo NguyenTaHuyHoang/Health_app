@@ -152,6 +152,7 @@ class AdminController {
 
     //[POST] /admin/editService/:id
     editService(req, res, next) {
+        console.log(req.body, req.params.id);
         Service.updateOne({ _id: req.params.id }, req.body)
             .then(() => console.log("Successfully update " + req.params.id))
             .catch(next);
@@ -168,6 +169,51 @@ class AdminController {
     editClient(req, res, next) {
         Client.updateOne({ _id: req.params.id }, req.body)
             .then(() => console.log("Successfully update " + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /admin/restoreClient/:id
+    restoredClient(req, res, next) {
+        console.log("a");
+        Client.restore({ _id: req.params.id })
+            .then(() => console.log("Done restore " + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /admin/restoreEmployee/:id
+    restoredEmployee(req, res, next) {
+        console.log("b");
+        Employee.restore({ _id: req.params.id })
+            .then(() => console.log("Done restore " + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /admin/restoreService/:id
+    restoredService(req, res, next) {
+        console.log("c");
+        Service.restore({ _id: req.params.id })
+            .then(() => console.log("Done restore " + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /admin/destroyService/:id
+    destroyService(req, res, next) {
+        Service.deleteOne({ _id: req.params.id })
+            .then(() => console.log("Done destroy " + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /admin/destroyClient/:id
+    destroyClient(req, res, next) {
+        Client.deleteOne({ _id: req.params.id })
+            .then(() => console.log("Done destroy " + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /admin/destroyEmployee/:id
+    destroyEmployee(req, res, next) {
+        Employee.deleteOne({ _id: req.params.id })
+            .then(() => console.log("Done destroy " + req.params.id))
             .catch(next);
     }
 }

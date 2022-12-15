@@ -1,14 +1,18 @@
 ClientToRow = (client, index, type) => {
 
-    let temp = "deleteClientForever";
+
     let className = "restoreClient";
     let html_ = "Xóa vĩnh viễn";
     let html1 = "Khôi phục";
+    let typeBtn = "deleteClientForever";
+    let ModalName = "confirmModal";
     if (type == "notBin") {
         className = "ECBtn";
         temp = "";
         html_ = "Vô hiệu hóa";
         html1 = "Chỉnh sửa";
+        typeBtn = "disableClient";
+        ModalName = "editRankModal";
     }
 
     return `
@@ -28,8 +32,8 @@ ClientToRow = (client, index, type) => {
             data-image = "${client.image}"
             data-rank = "${client.rank}"    
             data-address = "${client.address}"
-            data-gender = "${client.gender}" data-bs-toggle="modal" data-bs-target="#editRankModal" class="${className}">${html1}</a></td>
-        <td><a href="#" role="button" data-type="disableClient" data-id="${client._id}" data-bs-toggle="modal" data-bs-target="#confirmModal" class="${temp}">${html_}</a></td>
+            data-gender = "${client.gender}" data-bs-toggle="modal" data-bs-target="#${ModalName}" class="${className}" data-type="${className}">${html1}</a></td>
+        <td><a href="#" role="button" data-type="${typeBtn}" data-id="${client._id}" data-bs-toggle="modal" data-bs-target="#confirmModal">${html_}</a></td>
     </tr>
     `
 }
@@ -40,11 +44,13 @@ EmployeeToRow = (employee, index, type) => {
     let className = "restoreEmployee";
     let html_ = "Xóa vĩnh viễn";
     let html1 = "Khôi phục";
+    let modalName = "confirmModal";
     if (type == "notBin") {
         className = "EPBtn";
-        temp = "";
+        temp = "disableEmployee";
         html_ = "Vô hiệu hóa";
         html1 = "Chỉnh sửa";
+        modalName = "editPositionModal";
     }
 
     return `
@@ -66,8 +72,8 @@ EmployeeToRow = (employee, index, type) => {
             data-address = "${employee.address}"
             data-specialist = "${employee.specialist}"
             data-position = "${employee.position}"
-            data-gender = "${employee.gender}" data-bs-toggle="modal" data-bs-target="#editPositionModal" class=" ${className}">${html1}</a></td>
-        <td><a href="#" role="button" data-type="disableEmployee" data-id="${employee._id}" data-bs-toggle="modal" data-bs-target="#confirmModal" class="${temp}">${html_}</a></td>
+            data-gender = "${employee.gender}" data-bs-toggle="modal" data-bs-target="#${modalName}" class="${className}" data-type="${className}">${html1}</a></td>
+        <td><a href="#" role="button" data-type="${temp}" data-id="${employee._id}" data-bs-toggle="modal" data-bs-target="#confirmModal">${html_}</a></td>
     </tr>
     `
 }
@@ -77,11 +83,13 @@ ServiceToRow = (service, index, type) => {
     let className = "restoreService";
     let html_ = "Xóa vĩnh viễn";
     let html1 = "Khôi phục";
+    let modalName = "confirmModal";
     if (type == "notBin") {
         className = "changeServiceInfo";
-        temp = "";
+        temp = "removeService";
         html_ = "Vô hiệu hóa";
         html1 = "Chỉnh sửa";
+        modalName = "serviceModal"
     }
 
     return `
@@ -93,10 +101,10 @@ ServiceToRow = (service, index, type) => {
             data-name = "${service.serviceName}"
             data-id="${service._id}"
             data-price="${service.price}"
-            data-bs-toggle="modal" data-bs-target="#serviceModal"
-            class="${className}"
+            data-bs-toggle="modal" data-bs-target="#${modalName}"
+            class="${className}" data-type="${className}"
             >${html1}</a></td>
-        <td><a href="#" role="button" data-type="removeService" data-id="${service._id}" data-bs-toggle="modal" data-bs-target="#confirmModal" class="${temp}">${html_}</a></td>
+        <td><a href="#" role="button" data-type="${temp}" data-id="${service._id}" data-bs-toggle="modal" data-bs-target="#confirmModal">${html_}</a></td>
     </tr>
     `
 }
