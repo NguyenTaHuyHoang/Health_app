@@ -67,6 +67,20 @@ class ClientController {
         })
             .catch(next);
     }
+
+    //[GET client/:email/:password
+    async apiCheckLogin(req, res, next) {
+        const client = mongooseHelper.mongoosesToObject(await Client.findOne({
+            email: req.params.email,
+            password: req.params.password
+        }));
+        if (client != null) return res.send({
+            result: true,
+        });
+        res.send({
+            result: false,
+        });
+    }
 }
 
 module.exports = new ClientController();

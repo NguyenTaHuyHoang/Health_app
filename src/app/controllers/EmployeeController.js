@@ -60,6 +60,20 @@ class EmployeeController {
         })
             .catch(next);
     }
+
+    //[GET employee/:email/:password
+    async apiCheckLogin(req, res, next) {
+        const employee = mongooseHelper.mongoosesToObject(await Employee.findOne({
+            email: req.params.email,
+            password: req.params.password
+        }));
+        if (employee != null) return res.send({
+            result: true,
+        });
+        res.send({
+            result: false,
+        });
+    }
 }
 
 module.exports = new EmployeeController();

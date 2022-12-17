@@ -37,6 +37,7 @@ router.post('/add/employee', adminRouter.addEmployee);
 router.post('/add/Client', adminRouter.addClient);
 
 // login and get interface routes
+router.get('/:email/:password', adminRouter.apiCheckLogin);
 router.post("/login", adminRouter.checkLogin);
 router.get("/:id", adminRouter.interface);
 

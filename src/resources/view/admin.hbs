@@ -34,6 +34,7 @@
                   href=""
                   data-bs-toggle="modal"
                   data-bs-target="#adminModal"
+                  type-account="admin"
                   data-name="{{admin.name}}"
                   data-bd="{{admin.dateOfBirth}}"
                   data-email="{{admin.email}}"
@@ -42,6 +43,7 @@
                   data-image="{{admin.image}}"
                   data-address="{{admin.address}}"
                   data-gender="{{admin.gender}}"
+                  id="getDataAccount"
                 >Sửa đổi thông tin cá nhân</a></li>
             </ul>
           </div>
@@ -58,7 +60,7 @@
                   data-bs-target="#logoutModal"
                 /></li>
               <li>
-                <a id="changePass" href="#">
+                <a id="changePass" href="#" data-bs-toggle="modal" data-bs-target="#changePassModal">
                   Đổi mật khẩu
                 </a>
               </li>
@@ -235,9 +237,11 @@
 {{> changePosition}}
 {{> changeRank}}
 {{> logoutModal}}
+{{> changePassModal}}
 
 <script src="/js/event.js"></script>
 <script src="/js/validation.js"></script>
+<script src="/js/controlChangePass.js"></script>
 <script src="/js/admin/admin.js"></script>
 <script src="/js/admin/addEvent.js"></script>
 <script src="/js/admin/getAdminInterface.js"></script>

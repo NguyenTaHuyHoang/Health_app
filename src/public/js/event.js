@@ -10,8 +10,10 @@ function eventPOST(dataSending, url, modalName, notification) {
         }
     });
 
-    alert(notification);
-    $(`#${modalName}`).modal('hide');
+    if (notification != null)
+        alert(notification);
+    if (modalName != null)
+        $(`#${modalName}`).modal('hide');
 }
 
 function updateContentOnConfirmModal(title, content, btnID) {

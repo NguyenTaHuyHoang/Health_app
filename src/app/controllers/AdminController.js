@@ -63,6 +63,20 @@ class AdminController {
             .catch(next);
     }
 
+    //[GET admin/:email/:password
+    async apiCheckLogin(req, res, next) {
+        const admin = mongooseHelper.mongoosesToObject(await Admin.findOne({
+            email: req.params.email,
+            password: req.params.password
+        }));
+        if (admin != null) return res.send({
+            result: true,
+        });
+        res.send({
+            result: false,
+        });
+    }
+
     // [POST] /admin/add/Client
     addClient(req, res, next) {
         console.log(req.body);
