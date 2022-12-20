@@ -4,7 +4,6 @@ const Client = require('../models/client');
 const Employee = require('../models/employee');
 const adminHelper = require('../util/adminHelper');
 const Service = require('../models/service');
-const employee = require('../models/employee');
 
 
 class AdminController {
@@ -12,6 +11,8 @@ class AdminController {
     //[GET] /admin
     async interface(req, res, next) {
         try {
+            if (!req.session.uidAdmin) return res.redirect('/login');
+
             //https://img.icons8.com/metro/100/null/gender-neutral-user.png
 
             let Clients = mongooseHelper.multiMongooseToObject(await Client.find());
@@ -44,37 +45,52 @@ class AdminController {
 
     }
 
-    // [POST] /admin/login
-    checkLogin(req, res, next) {
-        Admin.findOne({
-            email: req.body.email,
-            password: req.body.password
-        }).then(admin => {
-            if (admin == null) {
-                res.render('login', {
-                    notification: "Nhập sai email hoặc mật khẩu!",
-                })
-            }
-            else {
-                let obj = mongooseHelper.mongoosesToObject(admin);
-                res.redirect(`/admin/${obj._id}`);
-            }
-        })
-            .catch(next);
+    //[POST] /admin/logout
+    logout(req, res, next) {
+        delete req.session.uidAdmin;
+        res.redirect('/');
     }
 
-    //[GET admin/:email/:password
+    // [POST] /admin/login
+    async checkLogin(req, res, next) {
+
+        // if not remove check 
+        const admin = mongooseHelper.mongoosesToObject(await Admin.findOne({
+            email: req.body.email,
+        }));
+
+        if (admin == null)
+            return res.render('login', {
+                notification: "Nhập sai email!",
+            })
+        if (req.body.password != admin.password)
+            return res.render('login', {
+                notification: "Nhập sai mật khẩu!",
+            });
+
+        req.session.uidAdmin = admin._id;
+        res.redirect(`/admin/${admin._id}`);
+    }
+
+    //[GET] admin/:email/:password
     async apiCheckLogin(req, res, next) {
         const admin = mongooseHelper.mongoosesToObject(await Admin.findOne({
             email: req.params.email,
-            password: req.params.password
         }));
-        if (admin != null) return res.send({
+        if (admin == null)
+            return res.send({
+                result: false,
+                notification: "Nhập sai tài khoản!",
+            })
+        if (req.params.password != admin.password) return res.send({
+            result: false,
+            notification: "Nhập sai mật khẩu!",
+        });
+
+        res.send({
             result: true,
         });
-        res.send({
-            result: false,
-        });
+
     }
 
     // [POST] /admin/add/Client
@@ -91,14 +107,14 @@ class AdminController {
         employee.save();
     }
 
-    // [POST] /admin/add/employee
+    // [POST] admin/add/employee
     addService(req, res, next) {
         console.log(req.body);
         const service = new Service(req.body);
         service.save();
     }
 
-    // [GET] /getAPI/client
+    // [GET] checkAccount/getAPI/client
     async getAPIClient(req, res, next) {
         try {
             let Clients = mongooseHelper.multiMongooseToObject(await Client.find());
@@ -109,7 +125,7 @@ class AdminController {
         }
     }
 
-    // [GET] /getAPI/employee
+    // [GET] checkAccount/getAPI/employee
     async getAPIEmployee(req, res, next) {
         try {
             let Employees = mongooseHelper.multiMongooseToObject(await Employee.find());
@@ -120,7 +136,7 @@ class AdminController {
         }
     }
 
-    // [GET] /getAPI/service
+    // [GET] checkAccount/getAPI/service
     async getAPIService(req, res, next) {
         try {
             let services = mongooseHelper.multiMongooseToObject(await Service.find());
@@ -141,9 +157,8 @@ class AdminController {
     }
 
 
-    //[POST] //admin/disableClient/
+    //[POST] //admin/disableClient
     disableClient(req, res, next) {
-        console.log(req.body.id);
         Client.delete({ _id: req.body.id })
             .then(() => console.log("Successfully deleted" + req.params.id))
             .catch(next);
@@ -151,7 +166,6 @@ class AdminController {
 
     //[POST] //admin/disableEmployee/
     disableEmployee(req, res, next) {
-        console.log(req.body.id);
         Employee.delete({ _id: req.body.id })
             .then(() => console.log("Successfully deleted" + req.params.id))
             .catch(next);
@@ -188,7 +202,6 @@ class AdminController {
 
     //[POST] /admin/restoreClient/:id
     restoredClient(req, res, next) {
-        console.log("a");
         Client.restore({ _id: req.params.id })
             .then(() => console.log("Done restore " + req.params.id))
             .catch(next);
@@ -196,7 +209,6 @@ class AdminController {
 
     //[POST] /admin/restoreEmployee/:id
     restoredEmployee(req, res, next) {
-        console.log("b");
         Employee.restore({ _id: req.params.id })
             .then(() => console.log("Done restore " + req.params.id))
             .catch(next);
@@ -204,7 +216,6 @@ class AdminController {
 
     //[POST] /admin/restoreService/:id
     restoredService(req, res, next) {
-        console.log("c");
         Service.restore({ _id: req.params.id })
             .then(() => console.log("Done restore " + req.params.id))
             .catch(next);

@@ -17,7 +17,7 @@ function validationChangePass(newPass, cfPass) {
 }
 
 async function checkPass(email, pass, type) {
-    apiUrl = `/${type}/${email}/${pass}`;
+    apiUrl = `/${type}/checkAccount/${email}/${pass}`;
     checkAccount = await fetch(apiUrl);
     checkAccount = await checkAccount.json();
     checkAccount = checkAccount.result;
@@ -40,20 +40,12 @@ $('#changePassBtn').click(async function (e) {
     }
 
 
-    if (typeAccount == "admin") {
-        await checkPass(email, pass, typeAccount);
-        if (checkAccount == false) {
-            notificationChangePass.html('Nhập sai mật khẩu!');
-            return;
-        }
+    await checkPass(email, pass, typeAccount);
+    if (checkAccount == false) {
+        notificationChangePass.html('Nhập sai mật khẩu!');
+        return;
+    }
 
-        if (validationChangePass(newPass, confirmPass))
-            eventPOST({ password: newPass }, window.location.href + "/updateInformation", "changePassModal", "Thay đổi mật khẩu thành công!");
-    }
-    else if (typeAccount == "client") {
-        return;
-    }
-    else if (typeAccount == "employee") {
-        return;
-    }
+    if (validationChangePass(newPass, confirmPass))
+        eventPOST({ password: newPass }, window.location.href + "/updateInformation", "changePassModal", "Thay đổi mật khẩu thành công!");
 });

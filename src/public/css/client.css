@@ -15,6 +15,10 @@ li {
   display: none;
 }
 
+.displayNone {
+  display: none;
+}
+
 #makeAppointment {
   float: right;
 }

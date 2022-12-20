@@ -10,7 +10,6 @@ confirmModal.addEventListener('show.bs.modal', event => {
     id_ = button.getAttribute('data-id')
     let type = button.getAttribute('data-type')
 
-
     if (id_ == undefined)
         return;
 
@@ -43,5 +42,13 @@ confirmModal.addEventListener('show.bs.modal', event => {
     }
     else if (type == "deleteServiceForever") {
         updateContentOnConfirmModal("Xác nhận!", `Bạn có chắc muốn xóa vĩnh viễn dịch vụ này không?`, 'cfDestroyService');
+    }
+
+    //handle in client
+    else if (type == "removeInvoice") {
+        updateContentOnConfirmModal("Xác nhận!", `Bạn có chắc muốn xóa hóa đơn này không?`, 'cfRemoveInvoice');
+    }
+    else if (type == "removeAppointment") {
+        updateContentOnConfirmModal("Xác nhận!", `Bạn có chắc muốn xóa cuộc hẹn này không?`, 'cfRemoveAppointment');
     }
 });

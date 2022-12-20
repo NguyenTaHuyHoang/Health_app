@@ -37,8 +37,9 @@ router.post('/add/employee', adminRouter.addEmployee);
 router.post('/add/Client', adminRouter.addClient);
 
 // login and get interface routes
-router.get('/:email/:password', adminRouter.apiCheckLogin);
+router.get('/checkAccount/:email/:password', adminRouter.apiCheckLogin);
 router.post("/login", adminRouter.checkLogin);
+router.post("/logout", adminRouter.logout);
 router.get("/:id", adminRouter.interface);
 
 module.exports = router;

@@ -10,6 +10,8 @@ class EmployeeController {
     // [GET] /employee
     async interface(req, res, next) {
         try {
+            if (!req.session.uidEmployee) return res.redirect('/login');
+
             let obj = mongooseHelper.multiMongooseToObject(await Invoice.find({}));
             const allAM = mongooseHelper.multiMongooseToObject(await Appointment.find());
             const employee_ = mongooseHelper.mongoosesToObject(await Employee.findOne({ _id: req.params.id }));
@@ -41,38 +43,60 @@ class EmployeeController {
         }
     }
 
-    // [POST] /employee/login
-    checkLogin(req, res, next) {
-        Employee.findOne({
-            email: req.body.email,
-            password: req.body.password
-        }).then(employee => {
-            if (employee == null) {
-                res.render('login', {
-                    notification: "Nhập sai email hoặc mật khẩu!",
-                })
-            }
-            else {
-                let obj = mongooseHelper.mongoosesToObject(employee);
-                let id = obj._id;
-                res.redirect(`/employee/${id}`);
-            }
-        })
-            .catch(next);
+    //[POST] /employee/logout
+    logout(req, res, next) {
+        delete req.session.type;
+        res.redirect('/');
     }
 
-    //[GET employee/:email/:password
+    // [POST] /employee/login
+    async checkLogin(req, res, next) {
+        // Check this account is remove?
+        const isRemove = mongooseHelper.mongoosesToObject(await Employee.findOneDeleted({
+            email: req.body.email,
+        }));
+
+        // if not remove check 
+        const employee = mongooseHelper.mongoosesToObject(await Employee.findOne({
+            email: req.body.email,
+        }));
+
+        if (isRemove != null)
+            return res.render('login', {
+                notification: "Tài khoản này đã bị vô hiệu hóa!",
+            })
+
+        if (employee != null)
+            return res.render('login', {
+                notification: "Nhập sai email!",
+            })
+        if (req.body.password != employee.password)
+            return res.render('login', {
+                notification: "Nhập sai mật khẩu!",
+            })
+
+        req.session.uidAdmin = employee._id;
+        res.redirect(`/employee/${employee._id}`);
+    }
+
+    //[GET] employee/:email/:password
     async apiCheckLogin(req, res, next) {
         const employee = mongooseHelper.mongoosesToObject(await Employee.findOne({
             email: req.params.email,
-            password: req.params.password
         }));
-        if (employee != null) return res.send({
+        if (employee == null)
+            return res.send({
+                result: false,
+                notification: "Nhập sai tài khoản!",
+            });
+        if (req.params.password != employee.password) res.send({
+            result: false,
+            notification: "Nhập sai mật khẩu!",
+        });
+        return res.send({
             result: true,
         });
-        res.send({
-            result: false,
-        });
+
     }
 }
 

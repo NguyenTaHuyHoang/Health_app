@@ -30,7 +30,19 @@
               <li class="fw-bold">Tên: {{employee.name}}</li>
               <li>Vị trí: {{employee.position}}</li>
               <li>Địa chỉ: {{employee.address}}</li>
-              <li><a href="#">Sửa đổi thông tin cá nhân</a></li>
+              <li><a href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#employeeModal"
+                  type-account="admin"
+                  data-name="{{employee.name}}"
+                  data-bd="{{employee.dateOfBirth}}"
+                  data-email="{{employee.email}}"
+                  data-id="{{employee.CCCD_CMND}}"
+                  data-SDT="{{employee.SDT}}"
+                  data-image="{{employee.image}}"
+                  data-address="{{employee.address}}"
+                  data-gender="{{employee.gender}}"
+                  id="getDataAccount">Sửa đổi thông tin cá nhân</a></li>
             </ul>
           </div>
         </div>
@@ -46,7 +58,7 @@
                   data-bs-target="#logoutModal"
                 /></li>
               <li>
-                <a id="changePass" href="#">
+                <a id="changePass" href="#" data-bs-toggle="modal" data-bs-target="#changePassModal">
                   Đổi mật khẩu
                 </a>
               </li>
@@ -124,3 +136,4 @@
 {{> logoutModal}}
 
 <script src="/js/employee.js"></script>
+<script src="/js/controlLogout.js"></script>
