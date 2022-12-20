@@ -3,6 +3,9 @@ const router = express.Router();
 
 const employeeRouter = require("../app/controllers/EmployeeController");
 
+//change Info
+router.post("/:id/updateInformation", employeeRouter.updateInformation);
+
 // check account by API
 router.get("/checkAccount/:email/:password", employeeRouter.apiCheckLogin);
 

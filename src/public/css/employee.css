@@ -14,6 +14,9 @@ li {
 .noneDisplay {
   display: none;
 } */
+.displayNone {
+  display: none;
+}
 
 #makeAppointment {
   float: right;

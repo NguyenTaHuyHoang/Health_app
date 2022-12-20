@@ -146,7 +146,7 @@
               alt="bin"
               style="width: 30px;"
             />
-            <a href="#" id="makeAppointment">Đặt lịch khám với bác sĩ</a>
+            <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#appointmentModal">Đặt lịch khám với bác sĩ</a>
           </div>
           {{{ListAppointment}}}
         </div></div>
@@ -159,6 +159,7 @@
 {{> changePassModal}}
 {{> handleClient}}
 {{> confirmModal}}
+{{> appointmentModal}}
 
 <script src="/js/controlLogout.js"></script>
 <script src="/js/controlChangePass.js"></script>
@@ -168,3 +169,4 @@
 <script src="/js/client/client.js"></script>
 <script src="/js/client/controlChangeInfo.js"></script>
 <script src="/js/client/controlRemove.js"></script>
+<script src="/js/client/addAppointment.js"></script>

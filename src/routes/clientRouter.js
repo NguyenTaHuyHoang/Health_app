@@ -3,6 +3,9 @@ const router = express.Router();
 
 const clientRouter = require("../app/controllers/ClientController");
 
+// add appointment
+router.post("/add/appointment", clientRouter.addAppointment);
+
 //disable Event
 router.post("/removeInvoice", clientRouter.removeInvoice);
 router.post("/removeAppointment", clientRouter.removeAppointment);

@@ -128,6 +128,12 @@ class ClientController {
             .then(() => console.log("Successfully deleted" + req.params.id))
             .catch(next);
     }
+
+    // [POST] /client/add/Appointment
+    addAppointment(req, res, next) {
+        const ap = new Appointment(req.body);
+        ap.save();
+    }
 }
 
 module.exports = new ClientController();

@@ -24,7 +24,9 @@ exampleModal.addEventListener('show.bs.modal', event => {
     document.getElementById("SDT").value = SDT;
     document.getElementById("BHYT").value = BHYT;
 
-    $('#addCBtn').addClass("noneDisplay");
+    $('#addCBtn').addClass("displayNone");
+    $('#editCBtn').removeClass("displayNone");
+    $('#clientModalLabel').html('Thay đổi thông tin cá nhân');
 })
 
 $('#editCBtn').click(function (e) {

@@ -66,7 +66,7 @@ class EmployeeController {
                 notification: "Tài khoản này đã bị vô hiệu hóa!",
             })
 
-        if (employee != null)
+        if (employee == null)
             return res.render('login', {
                 notification: "Nhập sai email!",
             })
@@ -75,7 +75,7 @@ class EmployeeController {
                 notification: "Nhập sai mật khẩu!",
             })
 
-        req.session.uidAdmin = employee._id;
+        req.session.uidEmployee = employee._id;
         res.redirect(`/employee/${employee._id}`);
     }
 
@@ -97,6 +97,15 @@ class EmployeeController {
             result: true,
         });
 
+    }
+
+    //[POST] /employee/:id/updateInformation
+    updateInformation(req, res, next) {
+        // [PUT]    /curse/:id
+        // this func after edit course
+        Employee.updateOne({ _id: req.params.id }, req.body)
+            .then(() => console.log("Successfully update " + req.params.id))
+            .catch(next);
     }
 }
 

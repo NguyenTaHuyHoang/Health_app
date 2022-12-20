@@ -33,7 +33,7 @@
               <li><a href="#"
                   data-bs-toggle="modal"
                   data-bs-target="#employeeModal"
-                  type-account="admin"
+                  type-account="employee"
                   data-name="{{employee.name}}"
                   data-bd="{{employee.dateOfBirth}}"
                   data-email="{{employee.email}}"
@@ -124,7 +124,7 @@
               alt="bin"
               style="width: 30px;"
             />
-            <a href="#" id="makeAppointment">Đặt lịch khám với bác sĩ</a>
+            <a href="#" id="makeAppointment">Thêm lịch hẹn với khách hàng.</a>
           </div>
           {{{ListAppointment}}}
         </div></div>
@@ -134,6 +134,15 @@
   
 {{> footer}}
 {{> logoutModal}}
+{{> changePassModal}}
+{{> handleEmployee}}
+{{> confirmModal}}
+{{> appointmentModal}}
 
-<script src="/js/employee.js"></script>
 <script src="/js/controlLogout.js"></script>
+<script src="/js/controlChangePass.js"></script>
+<script src="/js/event.js"></script>
+<script src="/js/controlUiConfirmModal.js"></script>
+
+<script src="/js/employee/employee.js"></script>
+<script src="/js/employee/controlChangeInfo.js"></script>
