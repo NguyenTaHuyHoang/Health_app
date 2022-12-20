@@ -3,6 +3,13 @@ const router = express.Router();
 
 const employeeRouter = require("../app/controllers/EmployeeController");
 
+//add appointment
+router.post("/add/appointment", employeeRouter.addAppointment);
+
+//disable Event
+router.post("/removeInvoice", employeeRouter.removeInvoice);
+router.post("/removeAppointment", employeeRouter.removeAppointment);
+
 //change Info
 router.post("/:id/updateInformation", employeeRouter.updateInformation);
 

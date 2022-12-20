@@ -16,6 +16,15 @@ function eventPOST(dataSending, url, modalName, notification) {
         $(`#${modalName}`).modal('hide');
 }
 
+function validationDate(date) {
+    let currentDate = new Date();
+
+    if (date == "") return false;
+
+    if (date.getTime() > currentDate.getTime()) return true;
+    return false;
+}
+
 function updateContentOnConfirmModal(title, content, btnID) {
     $("#confirmModalLabel").html(`${title}`);
     $("#confirmModalBody").html(`${content}`);

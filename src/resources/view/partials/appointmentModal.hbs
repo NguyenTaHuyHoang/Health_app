@@ -26,6 +26,27 @@
           <h6>Thông tin liên hệ của bạn:</h6>
           <div class="myInfo"></div>
           <h6>Chi tiết cuộc hẹn:</h6>
+
+          <div class="mb-3 nameC displayNone col-md-6">
+            <label for="nameC" class="form-label">Khách hàng</label>
+            <input type="string" class="form-control" id="nameC" name="nameC" />
+          </div>
+
+          <div class="mb-3 emailC displayNone col-md-3">
+            <label for="emailC" class="form-label">Email</label>
+            <input
+              type="string"
+              class="form-control"
+              id="emailC"
+              name="emailC"
+            />
+          </div>
+
+          <div class="mb-3 SDTC displayNone col-md-3">
+            <label for="SDTC" class="form-label">SDT</label>
+            <input type="string" class="form-control" id="SDTC" name="SDTC" />
+          </div>
+
           <div class="mb-3">
             <label for="APdate" class="form-label">Ngày hẹn</label>
             <input type="date" class="form-control" id="APdate" name="APdate" />
@@ -49,11 +70,10 @@
           class="btn btn-secondary"
           data-bs-dismiss="modal"
         >Hủy</button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          id="makeAppointment"
-        >Xác nhận</button>
+
+        <button type="button" class="btn btn-primary" id="makeAppointment">Xác
+          nhận</button>
+
       </div>
     </div>
   </div>

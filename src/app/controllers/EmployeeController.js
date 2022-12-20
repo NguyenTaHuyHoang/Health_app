@@ -45,7 +45,7 @@ class EmployeeController {
 
     //[POST] /employee/logout
     logout(req, res, next) {
-        delete req.session.type;
+        delete req.session.uidEmployee;
         res.redirect('/');
     }
 
@@ -106,6 +106,26 @@ class EmployeeController {
         Employee.updateOne({ _id: req.params.id }, req.body)
             .then(() => console.log("Successfully update " + req.params.id))
             .catch(next);
+    }
+
+    //[POST] /client/disableInvoice
+    removeInvoice(req, res, next) {
+        Invoice.delete({ _id: req.body.id })
+            .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] //admin/disableAppointment/
+    removeAppointment(req, res, next) {
+        Appointment.delete({ _id: req.body.id })
+            .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
+    }
+
+    // [POST] /client/add/Appointment
+    addAppointment(req, res, next) {
+        const ap = new Appointment(req.body);
+        ap.save();
     }
 }
 

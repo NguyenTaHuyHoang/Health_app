@@ -1,6 +1,10 @@
 let checkAccount = false;
 
-function validationChangePass(newPass, cfPass) {
+function validationChangePass(pass, newPass, cfPass) {
+    if (pass == newPass) {
+        notificationChangePass.html('Mật khẩu mới và mật khẩu phải khác nhau!');
+        return false;
+    }
     if (newPass == "") {
         notificationChangePass.html('Vui lòng nhập mật khẩu mới!');
         return false;
@@ -46,6 +50,6 @@ $('#changePassBtn').click(async function (e) {
         return;
     }
 
-    if (validationChangePass(newPass, confirmPass))
+    if (validationChangePass(pass, newPass, confirmPass))
         eventPOST({ password: newPass }, window.location.href + "/updateInformation", "changePassModal", "Thay đổi mật khẩu thành công!");
 });

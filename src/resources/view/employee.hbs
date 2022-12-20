@@ -109,7 +109,9 @@
               src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
               alt="bin"
               style="width: 30px; cursor: pointer;"
-            /></div>
+            />
+            <a href="#">Tạo mới hóa đơn.</a>
+            </div>
           {{{ListInvoice}}}
         </div></div>
       <div
@@ -124,13 +126,14 @@
               alt="bin"
               style="width: 30px;"
             />
-            <a href="#" id="makeAppointment">Thêm lịch hẹn với khách hàng.</a>
+            <a href="#" data-bs-toggle="modal" style="float: right;" data-bs-target="#appointmentModal">Thêm lịch hẹn với khách hàng.</a>
           </div>
           {{{ListAppointment}}}
         </div></div>
     </div>
   </div>
 </div>
+<form id="dynamicForm" method="POST"></form>
   
 {{> footer}}
 {{> logoutModal}}
@@ -143,6 +146,8 @@
 <script src="/js/controlChangePass.js"></script>
 <script src="/js/event.js"></script>
 <script src="/js/controlUiConfirmModal.js"></script>
+<script src="/js/controlRemove.js"></script>
 
 <script src="/js/employee/employee.js"></script>
 <script src="/js/employee/controlChangeInfo.js"></script>
+<script src="/js/employee/addAppointment.js"></script>
