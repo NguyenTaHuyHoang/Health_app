@@ -39,9 +39,9 @@ class ClientController {
             res.render("client", {
                 title: `Client: ${req.params.id}`,
                 client: client_,
-                ListInvoice: clientHelper.getListInvoice(invoice),
+                ListInvoice: clientHelper.getListInvoice(invoice, "notBin"),
                 ListPatient: clientHelper.getListPatient(MH),
-                ListAppointment: clientHelper.getListAppointment(AM),
+                ListAppointment: clientHelper.getListAppointment(AM, "notBin"),
             });
 
         }

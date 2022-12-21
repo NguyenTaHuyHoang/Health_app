@@ -36,8 +36,8 @@ class EmployeeController {
             res.render("employee", {
                 title: `Employee: ${req.params.id}`,
                 employee: employee_,
-                ListInvoice: employeeHelper.getListInvoice(invoice),
-                ListAppointment: employeeHelper.getListAppointment(AM),
+                ListInvoice: employeeHelper.getListInvoice(invoice, "notBin"),
+                ListAppointment: employeeHelper.getListAppointment(AM, "notBin"),
                 listService: employeeHelper.getListService(services),
             });
         }

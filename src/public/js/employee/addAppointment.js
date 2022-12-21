@@ -57,8 +57,8 @@ $('#makeAppointment').click(function (e) {
     let dateOfCreation = $('#APdate').val();
     let note = $('#note').val();
 
-    /* if (!validationDate(dateOfCreation))
-        return $('.notification').html("Vui lòng chọn ngày sau hôm nay!"); */
+    if (!validationDate(dateOfCreation))
+        return $('.notification').html("Vui lòng chọn ngày sau hôm nay!");
 
     if (!validateAP(nameC, emailC, SDTC)) return;
 
