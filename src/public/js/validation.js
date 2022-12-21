@@ -1,7 +1,7 @@
 let notification = $('.notification');
 
 // check validation for client or employee
-function validation(name, email, SDT, CCCD_CMND, gender) {
+function validation(name, email, SDT, address, gender) {
 
     //code kieemr tra mail
     let regexMail =
@@ -25,8 +25,8 @@ function validation(name, email, SDT, CCCD_CMND, gender) {
         notification.html("Vui lòng nhập số điện thoại!");
         return false;
     }
-    else if (CCCD_CMND == "") {
-        notification.html("Vui lòng nhập CMND_CCCD!");
+    else if (address == "") {
+        notification.html("Vui lòng nhập địa chỉ!");
         return false;
     }
     else if (!regexMail.test(email)) {

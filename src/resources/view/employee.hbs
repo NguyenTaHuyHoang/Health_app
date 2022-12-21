@@ -110,7 +110,7 @@
               alt="bin"
               style="width: 30px; cursor: pointer;"
             />
-            <a href="#">Tạo mới hóa đơn.</a>
+            <a href="#"  style="float: right;" data-bs-toggle="modal" data-bs-target="#InvoiceModal">Tạo mới hóa đơn.</a>
             </div>
           {{{ListInvoice}}}
         </div></div>
@@ -141,13 +141,16 @@
 {{> handleEmployee}}
 {{> confirmModal}}
 {{> appointmentModal}}
+{{> invoiceModal}}
 
 <script src="/js/controlLogout.js"></script>
 <script src="/js/controlChangePass.js"></script>
 <script src="/js/event.js"></script>
 <script src="/js/controlUiConfirmModal.js"></script>
 <script src="/js/controlRemove.js"></script>
+<script src="/js/validation.js"></script>
 
 <script src="/js/employee/employee.js"></script>
 <script src="/js/employee/controlChangeInfo.js"></script>
 <script src="/js/employee/addAppointment.js"></script>
+<script src="/js/employee/addInvoice.js"></script>

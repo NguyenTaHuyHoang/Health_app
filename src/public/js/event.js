@@ -14,6 +14,7 @@ function eventPOST(dataSending, url, modalName, notification) {
         alert(notification);
     if (modalName != null)
         $(`#${modalName}`).modal('hide');
+    $('.notification').html('');
 }
 
 function validationDate(date) {

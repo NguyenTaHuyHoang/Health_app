@@ -3,6 +3,9 @@ const router = express.Router();
 
 const employeeRouter = require("../app/controllers/EmployeeController");
 
+//add Invoice
+router.post("/add/invoice", employeeRouter.addInvoice);
+
 //add appointment
 router.post("/add/appointment", employeeRouter.addAppointment);
 

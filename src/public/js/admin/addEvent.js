@@ -13,7 +13,7 @@ $('#addCBtn').click(async function (e) {
     let SDT = $("#SDT").val();
 
     // check validation
-    if (validation(name, email, SDT, id, gender)) {
+    if (validation(name, email, SDT, address, gender)) {
 
         // transfer data to JSON
         let dataSending = {
@@ -69,7 +69,7 @@ $('#addEmployeeBtn').click(async function (e) {
     let position = $("#position").val();
     let SDT = $("#SDT_E").val();
 
-    if (validation(name, email, SDT, id, gender)) {
+    if (validation(name, email, SDT, address, gender)) {
 
         let dataSending = {
             name: name,

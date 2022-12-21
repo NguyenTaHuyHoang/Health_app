@@ -114,7 +114,7 @@ class AdminController {
         service.save();
     }
 
-    // [GET] checkAccount/getAPI/client
+    // [GET] /getAPI/client
     async getAPIClient(req, res, next) {
         try {
             let Clients = mongooseHelper.multiMongooseToObject(await Client.find());
@@ -125,7 +125,7 @@ class AdminController {
         }
     }
 
-    // [GET] checkAccount/getAPI/employee
+    // [GET] /getAPI/employee
     async getAPIEmployee(req, res, next) {
         try {
             let Employees = mongooseHelper.multiMongooseToObject(await Employee.find());
@@ -136,7 +136,7 @@ class AdminController {
         }
     }
 
-    // [GET] checkAccount/getAPI/service
+    // [GET] /getAPI/service
     async getAPIService(req, res, next) {
         try {
             let services = mongooseHelper.multiMongooseToObject(await Service.find());
@@ -157,7 +157,7 @@ class AdminController {
     }
 
 
-    //[POST] //admin/disableClient
+    //[POST] /admin/disableClient
     disableClient(req, res, next) {
         Client.delete({ _id: req.body.id })
             .then(() => console.log("Successfully deleted" + req.params.id))

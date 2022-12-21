@@ -13,12 +13,12 @@ const Client = new Schema({
     image: { type: String },
     address: { type: String },
     password: { type: String },
-    dateOfBirth: { type: String },
+    dateOfBirth: { type: Date },
     CCCD_CMND: { type: String },
     BHYT: { type: String },
     SDT: { type: String },
-    rank : { type: String },
-    gender : { type: String },
+    rank: { type: String },
+    gender: { type: String },
     // this code support generator slug
     slug: { type: String, slug: 'name', maxLength: 300, unique: true },
 }, {

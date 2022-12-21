@@ -1,0 +1,128 @@
+<!-- Appointment Modal-->
+<div
+  class="modal fade"
+  id="invoiceModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="invoiceModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="invoiceModalLabel">Thêm hóa đơn</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      {{! đây là phần body }}
+      <div class="modal-body">
+        <form id="form" class="row">
+          <h6>Thông tin của khách hàng:</h6>
+
+          <div class="mb-3 col-md-6">
+            <label for="InameC" class="form-label">Tên khách hàng</label>
+            <input
+              type="string"
+              class="form-control"
+              id="InameC"
+              name="InameC"
+            />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="IemailC" class="form-label">Email</label>
+            <input
+              type="string"
+              class="form-control"
+              id="IemailC"
+              name="IemailC"
+            />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="ISDTC" class="form-label">SDT</label>
+            <input type="string" class="form-control" id="ISDTC" name="ISDTC" />
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="IaddressC" class="form-label">Địa chỉ</label>
+            <input
+              type="string"
+              class="form-control"
+              id="IaddressC"
+              name="IaddressC"
+            />
+          </div>
+
+          <div class="mb-3 col-md-2">
+            <label for="IBHYTC" class="form-label">Số BHYT</label>
+            <input
+              type="string"
+              class="form-control"
+              id="IBHYTC"
+              name="IBHYTC"
+            />
+          </div>
+
+          <div class="mb-3 col-md-2">
+            <label for="IgenderC" class="form-label">Giới tính</label>
+            <select class="form-select" name="IgenderC" id="IgenderC">
+              <option value="Nam">Nam</option>
+              <option value="Nữ">Nữ</option>
+            </select>
+          </div>
+
+          <h6>Thông tin của bác sĩ:</h6>
+
+          <div class="mb-3 col-md-6">
+            <label for="nameEm" class="form-label">Tên bác sĩ</label>
+            <input
+              type="string"
+              class="form-control"
+              id="nameEm"
+              name="nameEm"
+            />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="emailEm" class="form-label">Email</label>
+            <input
+              type="string"
+              class="form-control"
+              id="emailEm"
+              name="emailEm"
+            />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="SDTEm" class="form-label">SDT</label>
+            <input type="string" class="form-control" id="SDTEm" name="SDTEm" />
+          </div>
+
+          <h6>Vui lòng chọn các dịch vụ bệnh nhân đã sử dụng:</h6>
+          <div class="mb-3 row">
+            {{! Đây là chỗ cho chọn nè }}
+            {{{listService}}}
+          </div>
+          <h5 id="" class="notification text-danger">{{notification}}</h5>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Hủy</button>
+
+        <button type="button" class="btn btn-primary" id="addInvoice">Xác nhận</button>
+
+      </div>
+    </div>
+  </div>
+</div>

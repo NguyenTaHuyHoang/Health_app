@@ -20,7 +20,7 @@ class ClientController {
             let invoice = [];
 
             for (let i = 0; i < obj.length; i++) {
-                if (obj[i].client._id == req.params.id) {
+                if (obj[i].client.email == client_.email) {
                     invoice.push(obj[i]);
                 }
             }

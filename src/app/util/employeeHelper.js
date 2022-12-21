@@ -16,7 +16,7 @@ function getInvoiceElement(invoiceEle, stt) {
             <td>${invoiceEle.dateOfCreation}</td>
             <td>${sumPrice}</td>
             <td>${status}</td>
-            <td><a href="#" role="button" data-id="${invoiceEle._id}" data-type="removeInvoice" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
+            <td><a href="#" role="button" data-id="${invoiceEle._id} " data-type="removeInvoice" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
         </tr>
     `
 }
@@ -37,6 +37,21 @@ function getRowAppointment(AM, index) {
         <td>${AM.dateOfCreation}</td>
         <td><a href="#" role="button" data-id="${AM._id}" data-type="removeAppointment" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
     </tr>
+    `
+}
+
+function getRowService(service) {
+    return `
+    <div class="form-check col-md-4">
+        <input
+        class="form-check-input"
+        type="checkbox"
+        name="services"
+        id="${service._id}"
+        value="${service._id}"
+        />
+        <label class="form-check-label" for="${service._id}"> ${service.serviceName} : ${service.price}đ </label>
+    </div>
     `
 }
 
@@ -147,5 +162,13 @@ module.exports = {
 
         </table>
         `;
+    },
+
+    getListService: function (services) {
+        let data = "";
+        services.forEach(element => {
+            data += getRowService(element);
+        });
+        return data;
     }
 }
