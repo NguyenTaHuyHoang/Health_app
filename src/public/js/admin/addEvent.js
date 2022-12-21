@@ -1,3 +1,4 @@
+// eventPOST
 // when click add Client button
 $('#addCBtn').click(async function (e) {
     e.preventDefault();
@@ -35,18 +36,8 @@ $('#addCBtn').click(async function (e) {
         // Synchronous
         console.log(check);
         if (check == 1) {
-            $.ajax({
-                type: "POST",
-                url: "add/Client",
-                data: dataSending,
-                dataType: "JSON",
-                success: function (response) {
-                    console.log("Đăng ký thành công!");
-                }
-            });
-            notification.html(" ");
-            $('#clientModal').modal('hide');
-            alert("Đăng ký thành công!")
+
+            eventPOST(dataSending, "add/Client", 'clientModal', "Tạo mới thành công!");
         }
         else if (check == -1) {
             notification.html("CCCD/CMND đã được sử dụng!");
@@ -101,18 +92,7 @@ $('#addEmployeeBtn').click(async function (e) {
 
 
         if (check == 1) {
-            $.ajax({
-                type: "POST",
-                url: "add/employee",
-                data: dataSending,
-                dataType: "JSON",
-                success: function (response) {
-                    console.log("Đăng ký thành công!");
-                }
-            });
-            notification.html(" ");
-            $('#employeeModal').modal('hide');
-            alert("Đăng ký thành công!")
+            eventPOST(dataSending, "add/employee", 'employeeModal', "Tạo mới thành công!");
         }
         else if (check == -1) {
             notification.html("CCCD/CMND đã được sử dụng!");
@@ -146,18 +126,7 @@ $('#addServiceBtn').click(async function (e) {
         await checkExistService(dataSending);
 
         if (check == 1) {
-            $.ajax({
-                type: "POST",
-                url: "add/service",
-                data: dataSending,
-                dataType: "JSON",
-                success: function (response) {
-                    console.log("Đăng ký thành công!");
-                }
-            });
-            notification.html("");
-            $('#serviceModal').modal('hide');
-            alert("Đăng ký thành công!")
+            eventPOST(dataSending, "add/service", 'serviceModal', "Tạo mới thành công!");
         }
         else {
             notification.html("Dịch vụ này đã tồn tại!");

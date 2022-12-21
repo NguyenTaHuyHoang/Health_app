@@ -34,6 +34,7 @@
                   href=""
                   data-bs-toggle="modal"
                   data-bs-target="#adminModal"
+                  type-account="admin"
                   data-name="{{admin.name}}"
                   data-bd="{{admin.dateOfBirth}}"
                   data-email="{{admin.email}}"
@@ -42,6 +43,7 @@
                   data-image="{{admin.image}}"
                   data-address="{{admin.address}}"
                   data-gender="{{admin.gender}}"
+                  id="getDataAccount"
                 >Sửa đổi thông tin cá nhân</a></li>
             </ul>
           </div>
@@ -58,7 +60,7 @@
                   data-bs-target="#logoutModal"
                 /></li>
               <li>
-                <a id="changePass" href="#">
+                <a id="changePass" href="#" data-bs-toggle="modal" data-bs-target="#changePassModal">
                   Đổi mật khẩu
                 </a>
               </li>
@@ -117,33 +119,31 @@
         aria-labelledby="list-client"
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
-          <div class="gr1">
-            <div id="moveToClientBin" style="width: 50px; cursor: pointer;">
-              <img
-                src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
-                alt="bin"
-                style="width: 30px;"
-              />({{numberClientDisable}})
-            </div>
+          <a id="moveToClientBin" style="width: 50px; cursor: pointer;">
+            <img
+              src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
+              alt="bin"
+              style="width: 30px;"
+            />({{numberClientDisable}})
+          </a>
 
-            <div
-              class="displayNone"
-              id="returnToClientList"
-              style="width: 50px; cursor: pointer;"
-            >
-              <img
-                src="https://img.icons8.com/metro/52/null/left.png"
-                alt="bin"
-                style="width: 30px;"
-              />({{numberClient}})
-            </div>
-            <a
-              href="#"
-              style="float: right;"
-              data-bs-toggle="modal"
-              data-bs-target="#clientModal"
-            >Tạo mới tài khoản khách hàng.</a>
-          </div>
+          <a
+            class="displayNone"
+            id="returnToClientList"
+            style="width: 50px; cursor: pointer;"
+          >
+            <img
+              src="https://img.icons8.com/metro/52/null/left.png"
+              alt="bin"
+              style="width: 30px;"
+            />({{numberClient}})
+          </a>
+          <a
+            href="#"
+            style="float: right;"
+            data-bs-toggle="modal"
+            data-bs-target="#clientModal"
+          >Tạo mới tài khoản khách hàng.</a>
           {{{ListClient}}}
           {{{BinClient}}}
         </div></div>
@@ -155,15 +155,15 @@
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
           <div>
-            <div id="moveToEmployeeBin" style="width: 50px; cursor: pointer;">
+            <a id="moveToEmployeeBin" style="width: 50px; cursor: pointer;">
               <img
                 src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
                 alt="bin"
                 style="width: 30px;"
               />({{numberEmployeeDisable}})
-            </div>
+            </a>
 
-            <div
+            <a
               class="displayNone"
               id="returnToEmployeeList"
               style="width: 50px; cursor: pointer;"
@@ -173,7 +173,7 @@
                 alt="bin"
                 style="width: 30px;"
               />({{numberClient}})
-            </div>
+            </a>
 
             <a
               href="#"
@@ -193,15 +193,15 @@
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
           <div>
-            <div id="moveToServiceBin" style="width: 50px; cursor: pointer;">
+            <a id="moveToServiceBin" style="width: 50px; cursor: pointer;">
               <img
                 src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
                 alt="bin"
                 style="width: 30px;"
               />({{numberServiceDisable}})
-            </div>
+            </a>
 
-            <div
+            <a
               class="displayNone"
               id="returnToServiceList"
               style="width: 50px; cursor: pointer;"
@@ -211,7 +211,7 @@
                 alt="bin"
                 style="width: 30px;"
               />({{numberClient}})
-            </div>
+            </a>
             <a
               href="#"
               style="float: right;"
@@ -226,13 +226,10 @@
   </div>
 </div>
 
-<form id="dynamicForm"></form>
+<form id="dynamicForm" method="POST"></form>
 
-<div class="alert alert-primary mb-0" role="alert" style="height: 6.5rem;">
-  this is footer
-</div>
-
-{{> confirmDisableModal}}
+{{> footer}}
+{{> confirmModal}}
 {{> handleClient}}
 {{> handleEmployee}}
 {{> handleService}}
@@ -240,12 +237,17 @@
 {{> changePosition}}
 {{> changeRank}}
 {{> logoutModal}}
-{{> confirmRemoveForever}}
+{{> changePassModal}}
 
+<script src="/js/controlLogout.js"></script>
+<script src="/js/event.js"></script>
 <script src="/js/validation.js"></script>
+<script src="/js/controlChangePass.js"></script>
 <script src="/js/admin/admin.js"></script>
 <script src="/js/admin/addEvent.js"></script>
 <script src="/js/admin/getAdminInterface.js"></script>
-<script src="/js/admin/handleEventDisable.js"></script>
+<script src="/js/controlUIConfirmModal.js"></script>
 <script src="/js/admin/controlTheChangeOfInfo.js"></script>
 <script src="/js/admin/controlEventRemoveForever.js"></script>
+<script src="/js/admin/controlRemoveEvent.js"></script>
+<script src="/js/admin/controlRestore.js"></script>

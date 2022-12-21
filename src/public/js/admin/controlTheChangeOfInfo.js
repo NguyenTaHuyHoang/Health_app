@@ -39,20 +39,7 @@ $('#editServiceBtn').click(function (e) {
         name: name,
         price: price,
     }
-
-    $.ajax({
-        type: "POST",
-        url: "editService/" + idS,
-        data: dataSending,
-        dataType: "JSON",
-        success: function (response) {
-            console.log("update thành công!");
-        }
-    });
-
-    alert("Thành công!");
-    $('#serviceModal').modal('hide');
-
+    eventPOST(dataSending, "editService/" + idS, 'serviceModal', "Cập nhật thành công!");
 });
 
 // Event change position of Employee
@@ -78,19 +65,7 @@ $('#changePosition').click(function (e) {
         specialist: editDepartment,
         position: editPosition,
     }
-
-    $.ajax({
-        type: "POST",
-        url: "editEmployee/" + idE,
-        data: dataSending,
-        dataType: "JSON",
-        success: function (response) {
-            console.log("update thành công!");
-        }
-    });
-
-    alert("Thành công!");
-    $('#editPositionModal').modal('hide');
+    eventPOST(dataSending, "editEmployee/" + idE, 'editPositionModal', "Cập nhật thành công!");
 
 });
 
@@ -115,17 +90,5 @@ $('#changeRank').click(function (e) {
         rank: rank,
     }
 
-    $.ajax({
-        type: "POST",
-        url: "editClient/" + idC,
-        data: dataSending,
-        dataType: "JSON",
-        success: function (response) {
-            console.log("update thành công!");
-        }
-    });
-
-    alert("Thành công!");
-    $('#editRankModal').modal('hide');
-
+    eventPOST(dataSending, "editClient/" + idC, 'editRankModal', "Cập nhật thành công!");
 });

@@ -15,6 +15,9 @@ db.connect();
 const app = express();
 const port = 3000;
 
+// setup session
+require('./configs/session')(app);
+
 // setup resources for client
 // all images,... are provided from the file "public"
 app.use(express.static(path.join(__dirname, "public")));

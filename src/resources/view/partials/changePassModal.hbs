@@ -1,0 +1,63 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="changePassModal"
+  tabindex="-1"
+  aria-labelledby="changePassModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="changePassModalLabel">Đổi mật khẩu</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="mb-3">
+            <label for="pass" class="form-label">Mật khẩu</label>
+            <input type="password" class="form-control" id="pass" name="pass" />
+          </div>
+
+          <div class="mb-3">
+            <label for="newPass" class="form-label">Mật khẩu mới</label>
+            <input
+              type="password"
+              class="form-control"
+              id="newPass"
+              name="newPass"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="confirmPass" class="form-label">Xác nhận</label>
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPass"
+              name="confirmPass"
+            />
+          </div>
+          <div class="mb-3 text-danger" id="notificationChangePass"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Close</button>
+        <button
+          type="button"
+          class="btn btn-success"
+          id="changePassBtn"
+        >Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>

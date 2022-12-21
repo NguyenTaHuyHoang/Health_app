@@ -10,6 +10,8 @@ class EmployeeController {
     // [GET] /employee
     async interface(req, res, next) {
         try {
+            if (!req.session.uidEmployee) return res.redirect('/login');
+
             let obj = mongooseHelper.multiMongooseToObject(await Invoice.find({}));
             const allAM = mongooseHelper.multiMongooseToObject(await Appointment.find());
             const employee_ = mongooseHelper.mongoosesToObject(await Employee.findOne({ _id: req.params.id }));
@@ -41,24 +43,89 @@ class EmployeeController {
         }
     }
 
+    //[POST] /employee/logout
+    logout(req, res, next) {
+        delete req.session.uidEmployee;
+        res.redirect('/');
+    }
+
     // [POST] /employee/login
-    checkLogin(req, res, next) {
-        Employee.findOne({
+    async checkLogin(req, res, next) {
+        // Check this account is remove?
+        const isRemove = mongooseHelper.mongoosesToObject(await Employee.findOneDeleted({
             email: req.body.email,
-            password: req.body.password
-        }).then(employee => {
-            if (employee == null) {
-                res.render('login', {
-                    notification: "Nhập sai email hoặc mật khẩu!",
-                })
-            }
-            else {
-                let obj = mongooseHelper.mongoosesToObject(employee);
-                let id = obj._id;
-                res.redirect(`/employee/${id}`);
-            }
-        })
+        }));
+
+        // if not remove check 
+        const employee = mongooseHelper.mongoosesToObject(await Employee.findOne({
+            email: req.body.email,
+        }));
+
+        if (isRemove != null)
+            return res.render('login', {
+                notification: "Tài khoản này đã bị vô hiệu hóa!",
+            })
+
+        if (employee == null)
+            return res.render('login', {
+                notification: "Nhập sai email!",
+            })
+        if (req.body.password != employee.password)
+            return res.render('login', {
+                notification: "Nhập sai mật khẩu!",
+            })
+
+        req.session.uidEmployee = employee._id;
+        res.redirect(`/employee/${employee._id}`);
+    }
+
+    //[GET] employee/:email/:password
+    async apiCheckLogin(req, res, next) {
+        const employee = mongooseHelper.mongoosesToObject(await Employee.findOne({
+            email: req.params.email,
+        }));
+        if (employee == null)
+            return res.send({
+                result: false,
+                notification: "Nhập sai tài khoản!",
+            });
+        if (req.params.password != employee.password) res.send({
+            result: false,
+            notification: "Nhập sai mật khẩu!",
+        });
+        return res.send({
+            result: true,
+        });
+
+    }
+
+    //[POST] /employee/:id/updateInformation
+    updateInformation(req, res, next) {
+        // [PUT]    /curse/:id
+        // this func after edit course
+        Employee.updateOne({ _id: req.params.id }, req.body)
+            .then(() => console.log("Successfully update " + req.params.id))
             .catch(next);
+    }
+
+    //[POST] /client/disableInvoice
+    removeInvoice(req, res, next) {
+        Invoice.delete({ _id: req.body.id })
+            .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] //admin/disableAppointment/
+    removeAppointment(req, res, next) {
+        Appointment.delete({ _id: req.body.id })
+            .then(() => console.log("Successfully deleted" + req.params.id))
+            .catch(next);
+    }
+
+    // [POST] /client/add/Appointment
+    addAppointment(req, res, next) {
+        const ap = new Appointment(req.body);
+        ap.save();
     }
 }
 

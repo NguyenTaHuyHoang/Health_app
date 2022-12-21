@@ -48,17 +48,5 @@ $('#updateInformationAdmin').click(function (e) {
         SDT: SDT,
     }
 
-    $.ajax({
-        type: "POST",
-        url: window.location.href + "/updateInformation",
-        data: dataSending,
-        dataType: "JSON",
-        success: function (response) {
-            console.log("update thành công!");
-        }
-    });
-
-    alert("Thành công!");
-    $('#adminModal').modal('hide');
-
+    eventPOST(dataSending, window.location.href + "/updateInformation", "adminModal", "Cập nhật thành công!");
 });

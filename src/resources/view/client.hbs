@@ -30,7 +30,20 @@
               <li class="fw-bold">Tên: {{client.name}}</li>
               <li>Thành viên: {{client.rank}}</li>
               <li>Địa chỉ: {{client.address}}</li>
-              <li><a href="">Sửa đổi thông tin cá nhân</a></li>
+              <li><a href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#clientModal"
+                  type-account="client"
+                  data-name="{{client.name}}"
+                  data-bd="{{client.dateOfBirth}}"
+                  data-email="{{client.email}}"
+                  data-id="{{client.CCCD_CMND}}"
+                  data-SDT="{{client.SDT}}"
+                  data-image="{{client.image}}"
+                  data-address="{{client.address}}"
+                  data-gender="{{client.gender}}"
+                  data-BHYT="{{client.BHYT}}"
+                  id="getDataAccount">Sửa đổi thông tin cá nhân</a></li>
             </ul>
           </div>
         </div>
@@ -46,7 +59,7 @@
                   data-bs-target="#logoutModal"
                 /></li>
               <li>
-                <a id="changePass" href="#">
+                <a id="changePass" href="#" data-bs-toggle="modal" data-bs-target="#changePassModal">
                   Đổi mật khẩu
                 </a>
               </li>
@@ -133,18 +146,27 @@
               alt="bin"
               style="width: 30px;"
             />
-            <a href="#" id="makeAppointment">Đặt lịch khám với bác sĩ</a>
+            <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#appointmentModal">Đặt lịch khám với bác sĩ</a>
           </div>
           {{{ListAppointment}}}
         </div></div>
     </div>
   </div>
 </div>
-
+<form id="dynamicForm" method="POST"></form>
+{{> footer}}
 {{> logoutModal}}
+{{> changePassModal}}
+{{> handleClient}}
+{{> confirmModal}}
+{{> appointmentModal}}
 
-<div class="alert alert-primary mb-0" role="alert" style="height: 6.5rem;">
-  this is footer
-</div>
+<script src="/js/controlLogout.js"></script>
+<script src="/js/controlChangePass.js"></script>
+<script src="/js/event.js"></script>
+<script src="/js/controlUiConfirmModal.js"></script>
+<script src="/js/controlRemove.js"></script>
 
-<script src="/js/client.js"></script>
+<script src="/js/client/client.js"></script>
+<script src="/js/client/controlChangeInfo.js"></script>
+<script src="/js/client/addAppointment.js"></script>

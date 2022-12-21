@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 const slug = require("mongoose-slug-generator");
 //include Mongoose delete
 const mongoose_delete = require('mongoose-delete');
+const { ObjectId } = require("mongodb");
 
 
 const Schema = mongoose.Schema;
 
 const Patient = new Schema({
+    id_patient: { type: ObjectId },
     dateOfCreation: { type: String },
     medicalHistory: { type: Array },
     // this code support generator slug

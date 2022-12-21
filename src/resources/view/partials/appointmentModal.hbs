@@ -1,0 +1,80 @@
+<!-- Appointment Modal-->
+<div
+  class="modal fade"
+  id="appointmentModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="appointmentModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="appointmentModalLabel">Hẹn với bác sĩ.</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      {{! đây là phần body }}
+      <div class="modal-body">
+        <form id="form" class="row">
+          <h6>Thông tin liên hệ của bạn:</h6>
+          <div class="myInfo"></div>
+          <h6>Chi tiết cuộc hẹn:</h6>
+
+          <div class="mb-3 nameC displayNone col-md-6">
+            <label for="nameC" class="form-label">Khách hàng</label>
+            <input type="string" class="form-control" id="nameC" name="nameC" />
+          </div>
+
+          <div class="mb-3 emailC displayNone col-md-3">
+            <label for="emailC" class="form-label">Email</label>
+            <input
+              type="string"
+              class="form-control"
+              id="emailC"
+              name="emailC"
+            />
+          </div>
+
+          <div class="mb-3 SDTC displayNone col-md-3">
+            <label for="SDTC" class="form-label">SDT</label>
+            <input type="string" class="form-control" id="SDTC" name="SDTC" />
+          </div>
+
+          <div class="mb-3">
+            <label for="APdate" class="form-label">Ngày hẹn</label>
+            <input type="date" class="form-control" id="APdate" name="APdate" />
+          </div>
+
+          <div class="mb-3">
+            <label for="note" class="form-label">Ghi chú:</label>
+            <textarea
+              name="note"
+              id="note"
+              style="width: 100%;"
+              rows="10"
+            ></textarea>
+          </div>
+          <h5 id="" class="notification text-danger">{{notification}}</h5>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Hủy</button>
+
+        <button type="button" class="btn btn-primary" id="makeAppointment">Xác
+          nhận</button>
+
+      </div>
+    </div>
+  </div>
+</div>

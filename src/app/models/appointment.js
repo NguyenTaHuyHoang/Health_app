@@ -11,6 +11,7 @@ const Appointment = new Schema({
     client: { type: Object },
     employee: { type: Object },
     dateOfCreation: { type: String },
+    note: { type: String },
     // this code support generator slug
     slug: { type: String, slug: 'name', maxLength: 300, unique: true },
 }, {
