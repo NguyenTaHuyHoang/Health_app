@@ -1,4 +1,4 @@
-function getInvoiceElement(invoiceEle, stt) {
+function getInvoiceElement(invoiceEle, stt, type) {
     let sumPrice = 0;
     for (let i = 0; i < invoiceEle.service.length; i++) {
         sumPrice += invoiceEle.service[i].price;
@@ -28,7 +28,7 @@ function getBtn(className, val) {
 }
 
 
-function getRowAppointment(AM, index) {
+function getRowAppointment(AM, index, type) {
     return `
     <tr>
         <th scope="row">${index}</th>
@@ -57,7 +57,7 @@ function getRowService(service) {
 
 module.exports = {
     // This function for multi Object
-    getListInvoice: function (listInvoice) {
+    getListInvoice: function (listInvoice, type) {
 
         let template = `
                 <tr>
@@ -79,7 +79,7 @@ module.exports = {
             data += `<tbody class="noneDisplay" id="InvoiceTable${j + 1}">`;
             for (let i = 0; i < 10; i++) {
                 if (j * 10 + i < listInvoice.length) {
-                    data += getInvoiceElement(listInvoice[j * 10 + i], j * 10 + i + 1);
+                    data += getInvoiceElement(listInvoice[j * 10 + i], j * 10 + i + 1, type);
                 }
             }
             btn += getBtn("invoiceBtn", j + 1);
@@ -130,12 +130,11 @@ module.exports = {
     },
 
     //Thí function for 1 Obj
-
-    getListAppointment: function (AMs) {
+    getListAppointment: function (AMs, type) {
 
         data = '';
         for (let i = 0; i < AMs.length; i++) {
-            data += getRowAppointment(AMs[i], i + 1);
+            data += getRowAppointment(AMs[i], i + 1, type);
         }
 
         if (AMs.length == 0) {

@@ -1,4 +1,4 @@
-function getInvoiceElement(invoiceEle, stt) {
+function getInvoiceElement(invoiceEle, stt, type) {
     let sumPrice = 0;
     for (let i = 0; i < invoiceEle.service.length; i++) {
         sumPrice += invoiceEle.service[i].price;
@@ -36,7 +36,7 @@ function getOneMedicalRecord(val, index) {
     `
 }
 
-function getRowAppointment(val, index) {
+function getRowAppointment(val, index, type) {
     return `
     <tr>
         <th scope="row">${index}</th>
@@ -50,7 +50,7 @@ function getRowAppointment(val, index) {
 
 module.exports = {
     // This function for multi Object
-    getListInvoice: function (listInvoice) {
+    getListInvoice: function (listInvoice, type) {
 
         let template = `
                 <tr>
@@ -147,7 +147,7 @@ module.exports = {
         `;
     },
 
-    getListAppointment: function (AMs) {
+    getListAppointment: function (AMs, type) {
 
         data = '';
         for (let i = 0; i < AMs.length; i++) {

@@ -20,9 +20,18 @@ function eventPOST(dataSending, url, modalName, notification) {
 function validationDate(date) {
     let currentDate = new Date();
 
-    if (date == "") return false;
+    // Convert the date argument to a Date object if it's a string
+    if (typeof date === 'string') {
+        date = new Date(date);
+    }
 
-    if (date.getTime() > currentDate.getTime()) return true;
+    // Check if the date argument is a valid Date object
+    if (date instanceof Date && !isNaN(date)) {
+        if (date.getTime() > currentDate.getTime()) return true;
+        return false;
+    }
+
+    // If the date argument is not a valid Date object, return false
     return false;
 }
 
