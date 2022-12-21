@@ -10,7 +10,7 @@ const Schema = mongoose.Schema;
 
 const Patient = new Schema({
     id_patient: { type: ObjectId },
-    dateOfCreation: { type: String },
+    dateOfCreation: { type: Date },
     medicalHistory: { type: Array },
     // this code support generator slug
     slug: { type: String, slug: 'name', maxLength: 300, unique: true },

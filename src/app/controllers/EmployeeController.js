@@ -3,6 +3,7 @@ const mongooseHelper = require('../util/mongoose');
 const Invoice = require('../models/invoice');
 const employeeHelper = require('../util/employeeHelper');
 
+const Service = require('../models/service');
 const MedicalRecord = require('../models/medicalRecord');
 const Appointment = require('../models/appointment');
 class EmployeeController {
@@ -15,11 +16,12 @@ class EmployeeController {
             let obj = mongooseHelper.multiMongooseToObject(await Invoice.find({}));
             const allAM = mongooseHelper.multiMongooseToObject(await Appointment.find());
             const employee_ = mongooseHelper.mongoosesToObject(await Employee.findOne({ _id: req.params.id }));
+            const services = mongooseHelper.multiMongooseToObject(await Service.find());
 
             let invoice = [];
 
             for (let i = 0; i < obj.length; i++) {
-                if (obj[i].employee._id == req.params.id) {
+                if (obj[i].employee.email == employee_.email) {
                     invoice.push(obj[i]);
                 }
             }
@@ -36,6 +38,7 @@ class EmployeeController {
                 employee: employee_,
                 ListInvoice: employeeHelper.getListInvoice(invoice),
                 ListAppointment: employeeHelper.getListAppointment(AM),
+                listService: employeeHelper.getListService(services),
             });
         }
         catch (err) {
@@ -108,24 +111,30 @@ class EmployeeController {
             .catch(next);
     }
 
-    //[POST] /client/disableInvoice
+    //[POST] /employee/disableInvoice
     removeInvoice(req, res, next) {
         Invoice.delete({ _id: req.body.id })
             .then(() => console.log("Successfully deleted" + req.params.id))
             .catch(next);
     }
 
-    //[POST] //admin/disableAppointment/
+    //[POST] //employee/disableAppointment/
     removeAppointment(req, res, next) {
         Appointment.delete({ _id: req.body.id })
             .then(() => console.log("Successfully deleted" + req.params.id))
             .catch(next);
     }
 
-    // [POST] /client/add/Appointment
+    // [POST] /employee/add/Appointment
     addAppointment(req, res, next) {
         const ap = new Appointment(req.body);
         ap.save();
+    }
+
+    // [POST] /employee/add/Invoice
+    addInvoice(req, res, next) {
+        const iv = new Invoice(req.body);
+        iv.save();
     }
 }
 
