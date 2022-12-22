@@ -12,11 +12,18 @@ class ClientController {
     async interface(req, res, next) {
         try {
             if (!req.session.uidClient) return res.redirect('/login');
+            // import data from db
             let obj = mongooseHelper.multiMongooseToObject(await Invoice.find({}));
             let MR = mongooseHelper.mongoosesToObject(await MedicalRecord.findOne({ id_patient: req.params.id }));
             const allAM = mongooseHelper.multiMongooseToObject(await Appointment.find());
             let client_ = mongooseHelper.mongoosesToObject(await Client.findOne({ _id: req.params.id }));
 
+            //import InvoiceRemove and AP remove
+            let allInvoiceRM = mongooseHelper.multiMongooseToObject(await Invoice.findDeleted({}));
+            let allAppointmentRM = mongooseHelper.multiMongooseToObject(await Appointment.findDeleted());
+
+
+            //filter list invoice and appointment is not deleted
             let invoice = [];
 
             for (let i = 0; i < obj.length; i++) {
@@ -33,6 +40,21 @@ class ClientController {
                 }
             }
 
+            //filter list invoice and appointment is deleted
+            let invoiceRM = [];
+            let appointmentRM = [];
+            for (let i = 0; i < allInvoiceRM.length; i++) {
+                if (allInvoiceRM[i].client.email == client_.email) {
+                    invoiceRM.push(allInvoiceRM[i]);
+                }
+            }
+
+            for (let i = 0; i < allAppointmentRM.length; i++) {
+                if (allAppointmentRM[i].client.email == client_.email) {
+                    appointmentRM.push(allAppointmentRM[i]);
+                }
+            }
+
             let MH = [];
             if (MR != null) MH = MR.medicalHistory;
 
@@ -42,6 +64,12 @@ class ClientController {
                 ListInvoice: clientHelper.getListInvoice(invoice, "notBin"),
                 ListPatient: clientHelper.getListPatient(MH),
                 ListAppointment: clientHelper.getListAppointment(AM, "notBin"),
+                BinAppointment: clientHelper.getListAppointment(appointmentRM, "Bin"),
+                BinInvoice: clientHelper.getListInvoice(invoiceRM, "Bin"),
+                numberAppointmentRemove: appointmentRM.length,
+                numberAppointment: AM.length,
+                numberInvoiceRemove: invoiceRM.length,
+                numberInvoice: invoice.length,
             });
 
         }

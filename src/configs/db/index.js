@@ -5,11 +5,11 @@ async function connect() {
     await mongoose.connect("mongodb://localhost:27017/Hospital", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      //useCreateIndex: true,
+      //useCreateIndex: true,mongodb://localhost:27017/
     });
     console.log("Successfully connected!");
   } catch (error) {
-    console.log("Failed to connect!");
+    console.log(error);
   }
 }
 

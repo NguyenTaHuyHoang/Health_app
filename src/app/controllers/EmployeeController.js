@@ -18,6 +18,10 @@ class EmployeeController {
             const employee_ = mongooseHelper.mongoosesToObject(await Employee.findOne({ _id: req.params.id }));
             const services = mongooseHelper.multiMongooseToObject(await Service.find());
 
+            //import InvoiceRemove and AP remove
+            let allInvoiceRM = mongooseHelper.multiMongooseToObject(await Invoice.findDeleted({}));
+            let allAppointmentRM = mongooseHelper.multiMongooseToObject(await Appointment.findDeleted());
+
             let invoice = [];
 
             for (let i = 0; i < obj.length; i++) {
@@ -33,12 +37,33 @@ class EmployeeController {
                 }
             }
 
+            //filter list invoice and appointment is deleted
+            let invoiceRM = [];
+            let appointmentRM = [];
+            for (let i = 0; i < allInvoiceRM.length; i++) {
+                if (allInvoiceRM[i].employee.email == employee_.email) {
+                    invoiceRM.push(allInvoiceRM[i]);
+                }
+            }
+
+            for (let i = 0; i < allAppointmentRM.length; i++) {
+                if (allAppointmentRM[i].employee.email == employee_.email) {
+                    appointmentRM.push(allAppointmentRM[i]);
+                }
+            }
+
             res.render("employee", {
                 title: `Employee: ${req.params.id}`,
                 employee: employee_,
                 ListInvoice: employeeHelper.getListInvoice(invoice, "notBin"),
                 ListAppointment: employeeHelper.getListAppointment(AM, "notBin"),
                 listService: employeeHelper.getListService(services),
+                BinAppointment: employeeHelper.getListAppointment(appointmentRM, "Bin"),
+                BinInvoice: employeeHelper.getListInvoice(invoiceRM, "Bin"),
+                numberAppointmentRemove: appointmentRM.length,
+                numberAppointment: AM.length,
+                numberInvoiceRemove: invoiceRM.length,
+                numberInvoice: invoice.length,
             });
         }
         catch (err) {

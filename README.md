@@ -17,3 +17,15 @@ How to run this project:
         Step 2: Move to file /Design database/Hospital and import data from JSON file to MongoDB (you can watch that video: https://www.youtube.com/watch?time_continue=1&v=IjAflHMkuzk&feature=emb_title)
         
     + Last : Now, you can run this project with command : npm start
+
+Các thư viện cần cài:
+    npm init
+    npm i express
+    npm i express-handlebars
+    npm i express-session
+    npm i mongoose
+    npm i mongoose-delete
+    npm i mongoose-slug-generator
+
+    npm i nodemon --save-dev
+    npm i inspect --save-dev

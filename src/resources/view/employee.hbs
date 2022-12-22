@@ -30,7 +30,8 @@
               <li class="fw-bold">Tên: {{employee.name}}</li>
               <li>Vị trí: {{employee.position}}</li>
               <li>Địa chỉ: {{employee.address}}</li>
-              <li><a href="#"
+              <li><a
+                  href="#"
                   data-bs-toggle="modal"
                   data-bs-target="#employeeModal"
                   type-account="employee"
@@ -42,7 +43,8 @@
                   data-image="{{employee.image}}"
                   data-address="{{employee.address}}"
                   data-gender="{{employee.gender}}"
-                  id="getDataAccount">Sửa đổi thông tin cá nhân</a></li>
+                  id="getDataAccount"
+                >Sửa đổi thông tin cá nhân</a></li>
             </ul>
           </div>
         </div>
@@ -58,7 +60,12 @@
                   data-bs-target="#logoutModal"
                 /></li>
               <li>
-                <a id="changePass" href="#" data-bs-toggle="modal" data-bs-target="#changePassModal">
+                <a
+                  id="changePass"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#changePassModal"
+                >
                   Đổi mật khẩu
                 </a>
               </li>
@@ -105,14 +112,45 @@
         aria-labelledby="healing-history"
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
-          <div><img
-              src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
-              alt="bin"
-              style="width: 30px; cursor: pointer;"
-            />
-            <a href="#"  style="float: right;" data-bs-toggle="modal" data-bs-target="#InvoiceModal">Tạo mới hóa đơn.</a>
-            </div>
-          {{{ListInvoice}}}
+          <div>
+            <a
+              href="#"
+              id="moveToInvoiceBin"
+              style="width: 50px; cursor: pointer;"
+            >
+              <img
+                src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
+                alt="bin"
+                style="width: 30px; cursor: pointer;"
+              />({{numberInvoiceRemove}})
+            </a>
+
+            <a
+              class="displayNone"
+              id="returnToInvoiceList"
+              style="width: 50px; cursor: pointer;"
+            >
+              <img
+                src="https://img.icons8.com/metro/52/null/left.png"
+                alt="bin"
+                style="width: 30px;"
+              />({{numberInvoice}})
+            </a>
+
+            <a
+              href="#"
+              style="float: right;"
+              data-bs-toggle="modal"
+              data-bs-target="#InvoiceModal"
+            >Tạo mới hóa đơn.</a>
+          </div>
+
+          <div class="notBinInvoice">
+            {{{ListInvoice}}}
+          </div>
+          <div class="binInvoice displayNone">
+            {{{BinInvoice}}}
+          </div>
         </div></div>
       <div
         class="tab-pane fade"
@@ -121,20 +159,47 @@
         aria-labelledby="appointment-tab"
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
-          <div><img
-              src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
-              alt="bin"
-              style="width: 30px;"
-            />
-            <a href="#" data-bs-toggle="modal" style="float: right;" data-bs-target="#appointmentModal">Thêm lịch hẹn với khách hàng.</a>
+          <div>
+            <a href="#"  id="moveToAppointmentBin" style="width: 50px; cursor: pointer;">
+              <img
+                src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
+                alt="bin"
+                style="width: 30px;"
+              />({{numberAppointmentRemove}})
+            </a>
+
+            <a
+              class="displayNone"
+              id="returnAppointmentList"
+              style="width: 50px; cursor: pointer;"
+            >
+              <img
+                src="https://img.icons8.com/metro/52/null/left.png"
+                alt="bin"
+                style="width: 30px;"
+              />({{numberAppointment}})
+            </a>
+
+            <a
+              href="#"
+              data-bs-toggle="modal"
+              style="float: right;"
+              data-bs-target="#appointmentModal"
+            >Thêm lịch hẹn với khách hàng.</a>
           </div>
-          {{{ListAppointment}}}
+
+          <div class="notBinAppointment">
+            {{{ListAppointment}}}
+          </div>
+          <div class="BinAppointment displayNone">
+            {{{BinAppointment}}}
+          </div>
         </div></div>
     </div>
   </div>
 </div>
 <form id="dynamicForm" method="POST"></form>
-  
+
 {{> footer}}
 {{> logoutModal}}
 {{> changePassModal}}
@@ -149,6 +214,7 @@
 <script src="/js/controlUiConfirmModal.js"></script>
 <script src="/js/controlRemove.js"></script>
 <script src="/js/validation.js"></script>
+<script src="/js/controlMoveDisplay.js"></script>
 
 <script src="/js/employee/employee.js"></script>
 <script src="/js/employee/controlChangeInfo.js"></script>
