@@ -72,7 +72,7 @@ module.exports = {
             data += `<tbody class="noneDisplay" id="InvoiceTable${j + 1}">`;
             for (let i = 0; i < 10; i++) {
                 if (j * 10 + i < listInvoice.length) {
-                    data += getInvoiceElement(listInvoice[j * 10 + i], j * 10 + i + 1);
+                    data += getInvoiceElement(listInvoice[j * 10 + i], j * 10 + i + 1, type);
                 }
             }
             btn += getBtn("invoiceBtn", j + 1);
@@ -151,7 +151,7 @@ module.exports = {
 
         data = '';
         for (let i = 0; i < AMs.length; i++) {
-            data += getRowAppointment(AMs[i], i + 1);
+            data += getRowAppointment(AMs[i], i + 1, type);
         }
 
         if (AMs.length == 0) {
