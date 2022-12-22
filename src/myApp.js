@@ -7,16 +7,13 @@ const path = require("path");
 const routes = require("./routes");
 
 // connect to DB
-const db = require("./configs/db");
+const db = require("./config/db");
 //connect DB
 db.connect();
 
 // declare app
 const app = express();
 const port = 3000;
-
-// setup session
-require('./configs/session')(app);
 
 // setup resources for client
 // all images,... are provided from the file "public"

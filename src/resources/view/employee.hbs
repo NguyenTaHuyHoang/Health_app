@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/employee.css" />
+<link rel="stylesheet" href="/css/footer.css" />
 
 <div class="container-md" style="min-width: 90%;">
   <nav
@@ -30,19 +31,6 @@
               <li class="fw-bold">Tên: {{employee.name}}</li>
               <li>Vị trí: {{employee.position}}</li>
               <li>Địa chỉ: {{employee.address}}</li>
-              <li><a href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#employeeModal"
-                  type-account="employee"
-                  data-name="{{employee.name}}"
-                  data-bd="{{employee.dateOfBirth}}"
-                  data-email="{{employee.email}}"
-                  data-id="{{employee.CCCD_CMND}}"
-                  data-SDT="{{employee.SDT}}"
-                  data-image="{{employee.image}}"
-                  data-address="{{employee.address}}"
-                  data-gender="{{employee.gender}}"
-                  id="getDataAccount">Sửa đổi thông tin cá nhân</a></li>
             </ul>
           </div>
         </div>
@@ -57,12 +45,7 @@
                   data-bs-toggle="modal"
                   data-bs-target="#logoutModal"
                 /></li>
-              <li>
-                <a id="changePass" href="#" data-bs-toggle="modal" data-bs-target="#changePassModal">
-                  Đổi mật khẩu
-                </a>
-              </li>
-
+              <a href="">Sửa đổi thông tin cá nhân</a>
             </ul>
           </div>
         </div>
@@ -109,9 +92,7 @@
               src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
               alt="bin"
               style="width: 30px; cursor: pointer;"
-            />
-            <a href="#"  style="float: right;" data-bs-toggle="modal" data-bs-target="#InvoiceModal">Tạo mới hóa đơn.</a>
-            </div>
+            /></div>
           {{{ListInvoice}}}
         </div></div>
       <div
@@ -126,31 +107,68 @@
               alt="bin"
               style="width: 30px;"
             />
-            <a href="#" data-bs-toggle="modal" style="float: right;" data-bs-target="#appointmentModal">Thêm lịch hẹn với khách hàng.</a>
+            <a href="#" id="makeAppointment">Đặt lịch khám với bác sĩ</a>
           </div>
           {{{ListAppointment}}}
         </div></div>
     </div>
   </div>
 </div>
-<form id="dynamicForm" method="POST"></form>
-  
-{{> footer}}
-{{> logoutModal}}
-{{> changePassModal}}
-{{> handleEmployee}}
-{{> confirmModal}}
-{{> appointmentModal}}
-{{> invoiceModal}}
 
-<script src="/js/controlLogout.js"></script>
-<script src="/js/controlChangePass.js"></script>
-<script src="/js/event.js"></script>
-<script src="/js/controlUiConfirmModal.js"></script>
-<script src="/js/controlRemove.js"></script>
-<script src="/js/validation.js"></script>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="logoutModal"
+  tabindex="-1"
+  aria-labelledby="logoutModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="logoutModalLabel">Đăng xuất</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc muốn đăng xuất không?
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Không</button>
+        <a type="button" class="btn btn-danger" href="/">Chắc chắn</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-<script src="/js/employee/employee.js"></script>
-<script src="/js/employee/controlChangeInfo.js"></script>
-<script src="/js/employee/addAppointment.js"></script>
-<script src="/js/employee/addInvoice.js"></script>
+<div class="alert alert-primary mb-0" role="alert" style="height: 6.5rem;">
+        <div class="col-1">
+            <h3> About Us</h3>
+            <br>
+            <p>VNUHCM-University of Science</p>
+            <p>Faculty of Information Technology</p>
+            <p>20_3 - Group 13</p>
+        </div>
+          
+        <div class="col-2">
+            <h3> Contact Us</h3>
+            <div class="social-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+          
+      </div>
+</div>
+
+<script src="/js/employee.js"></script>
+<script src="https://kit.fontawesome.com/78e2e856b7.js" crossorigin="anonymous"></script>

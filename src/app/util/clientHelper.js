@@ -1,4 +1,4 @@
-function getInvoiceElement(invoiceEle, stt, type) {
+function getInvoiceElement(invoiceEle, stt) {
     let sumPrice = 0;
     for (let i = 0; i < invoiceEle.service.length; i++) {
         sumPrice += invoiceEle.service[i].price;
@@ -16,7 +16,7 @@ function getInvoiceElement(invoiceEle, stt, type) {
             <td>${invoiceEle.dateOfCreation}</td>
             <td>${sumPrice}</td>
             <td>${status}</td>
-            <td><a href="#" role="button" data-id="${invoiceEle._id}" data-type="removeInvoice" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
+            <td><a href="#" role="button">Xóa</a></td>
         </tr>
     `
 }
@@ -36,21 +36,21 @@ function getOneMedicalRecord(val, index) {
     `
 }
 
-function getRowAppointment(val, index, type) {
+function getRowAppointment(val, index) {
     return `
     <tr>
         <th scope="row">${index}</th>
         <td>${val.employee.name}</td>
         <td>${val.employee.SDT}</td>
         <td>${val.dateOfCreation}</td>
-        <td><a href="#" data-id="${val._id}" data-type="removeAppointment" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
+        <td><a href="#" role="button">Xóa</a></td>
     </tr>
     `
 }
 
 module.exports = {
     // This function for multi Object
-    getListInvoice: function (listInvoice, type) {
+    getListInvoice: function (listInvoice) {
 
         let template = `
                 <tr>
@@ -147,7 +147,7 @@ module.exports = {
         `;
     },
 
-    getListAppointment: function (AMs, type) {
+    getListAppointment: function (AMs) {
 
         data = '';
         for (let i = 0; i < AMs.length; i++) {

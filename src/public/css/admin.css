@@ -10,10 +10,6 @@ nav {
 li {
   list-style: none;
 }
-
-.displayNone {
-  display: none;
-}
 /*
 .noneDisplay {
   display: none;
@@ -22,14 +18,3 @@ li {
 #makeAppointment {
   float: right;
 }
-
-#changePass {
-  position: absolute;
-  margin-left: 80px;
-}
-
-/* .gr1 {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-}
- */

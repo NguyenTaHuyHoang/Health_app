@@ -13,12 +13,12 @@ const Employee = new Schema({
     image: { type: String },
     address: { type: String },
     password: { type: String },
-    dateOfBirth: { type: Date },
+    dateOfBirth: { type: String },
     CCCD_CMND: { type: String },
     specialist: { type: String },
     SDT: { type: String },
-    position: { type: String },
-    gender: { type: String },
+    position : { type: String },
+    gender : { type: String },
     // this code support generator slug
     slug: { type: String, slug: 'name', maxLength: 300, unique: true },
 }, {

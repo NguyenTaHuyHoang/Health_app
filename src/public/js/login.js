@@ -1,9 +1,10 @@
 const loginBtn = document.getElementById("login");
+
 let regexMail =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 
-loginBtn.addEventListener("click", async (event) => {
+loginBtn.addEventListener("click", (event) => {
     event.preventDefault();
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;

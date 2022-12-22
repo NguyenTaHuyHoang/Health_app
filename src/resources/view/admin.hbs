@@ -30,21 +30,6 @@
               <li class="fw-bold">Tên: {{admin.name}}</li>
               <li>Admin</li>
               <li>Địa chỉ: {{admin.address}}</li>
-              <li><a
-                  href=""
-                  data-bs-toggle="modal"
-                  data-bs-target="#adminModal"
-                  type-account="admin"
-                  data-name="{{admin.name}}"
-                  data-bd="{{admin.dateOfBirth}}"
-                  data-email="{{admin.email}}"
-                  data-id="{{admin.CCCD_CMND}}"
-                  data-SDT="{{admin.SDT}}"
-                  data-image="{{admin.image}}"
-                  data-address="{{admin.address}}"
-                  data-gender="{{admin.gender}}"
-                  id="getDataAccount"
-                >Sửa đổi thông tin cá nhân</a></li>
             </ul>
           </div>
         </div>
@@ -59,12 +44,7 @@
                   data-bs-toggle="modal"
                   data-bs-target="#logoutModal"
                 /></li>
-              <li>
-                <a id="changePass" href="#" data-bs-toggle="modal" data-bs-target="#changePassModal">
-                  Đổi mật khẩu
-                </a>
-              </li>
-
+              <a href="">Sửa đổi thông tin cá nhân</a>
             </ul>
           </div>
         </div>
@@ -119,33 +99,19 @@
         aria-labelledby="list-client"
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
-          <a id="moveToClientBin" style="width: 50px; cursor: pointer;">
-            <img
+          <div><img
               src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
               alt="bin"
-              style="width: 30px;"
-            />({{numberClientDisable}})
-          </a>
-
-          <a
-            class="displayNone"
-            id="returnToClientList"
-            style="width: 50px; cursor: pointer;"
-          >
-            <img
-              src="https://img.icons8.com/metro/52/null/left.png"
-              alt="bin"
-              style="width: 30px;"
-            />({{numberClient}})
-          </a>
-          <a
-            href="#"
-            style="float: right;"
-            data-bs-toggle="modal"
-            data-bs-target="#clientModal"
-          >Tạo mới tài khoản khách hàng.</a>
+              style="width: 30px; cursor: pointer;"
+            />
+            <a
+              href="#"
+              style="float: right;"
+              data-bs-toggle="modal"
+              data-bs-target="#addClientModal"
+            >Tạo mới tài khoản khách hàng.</a>
+          </div>
           {{{ListClient}}}
-          {{{BinClient}}}
         </div></div>
       <div
         class="tab-pane fade"
@@ -154,36 +120,19 @@
         aria-labelledby="list-employee-tab"
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
-          <div>
-            <a id="moveToEmployeeBin" style="width: 50px; cursor: pointer;">
-              <img
-                src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
-                alt="bin"
-                style="width: 30px;"
-              />({{numberEmployeeDisable}})
-            </a>
-
-            <a
-              class="displayNone"
-              id="returnToEmployeeList"
-              style="width: 50px; cursor: pointer;"
-            >
-              <img
-                src="https://img.icons8.com/metro/52/null/left.png"
-                alt="bin"
-                style="width: 30px;"
-              />({{numberClient}})
-            </a>
-
+          <div><img
+              src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
+              alt="bin"
+              style="width: 30px;"
+            />
             <a
               href="#"
               style="float: right;"
               data-bs-toggle="modal"
-              data-bs-target="#employeeModal"
+              data-bs-target="#addEmployeeModal"
             >Tạo mới tài khoản nhân viên.</a>
           </div>
           {{{ListEmployee}}}
-          {{{BinEmployee}}}
         </div></div>
       <div
         class="tab-pane fade"
@@ -192,62 +141,265 @@
         aria-labelledby="list-service"
         tabindex="0"
       ><div class="shadow-lg p-2 mt-3 mb-3">
-          <div>
-            <a id="moveToServiceBin" style="width: 50px; cursor: pointer;">
-              <img
-                src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
-                alt="bin"
-                style="width: 30px;"
-              />({{numberServiceDisable}})
-            </a>
-
-            <a
-              class="displayNone"
-              id="returnToServiceList"
-              style="width: 50px; cursor: pointer;"
-            >
-              <img
-                src="https://img.icons8.com/metro/52/null/left.png"
-                alt="bin"
-                style="width: 30px;"
-              />({{numberClient}})
-            </a>
-            <a
-              href="#"
-              style="float: right;"
-              data-bs-toggle="modal"
-              data-bs-target="#serviceModal"
-            >Thêm dịch vụ.</a>
+          <div><img
+              src="https://img.icons8.com/glyph-neue/64/null/recycle-bin.png"
+              alt="bin"
+              style="width: 30px;"
+            />
           </div>
           {{{ListService}}}
-          {{{BinService}}}
         </div></div>
     </div>
   </div>
 </div>
 
-<form id="dynamicForm" method="POST"></form>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="logoutModal"
+  tabindex="-1"
+  aria-labelledby="logoutModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="logoutModalLabel">Đăng xuất</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc muốn đăng xuất không?
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Không</button>
+        <a type="button" class="btn btn-danger" href="/">Chắc chắn</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-{{> footer}}
-{{> confirmModal}}
-{{> handleClient}}
-{{> handleEmployee}}
-{{> handleService}}
-{{> handleAdmin}}
-{{> changePosition}}
-{{> changeRank}}
-{{> logoutModal}}
-{{> changePassModal}}
+<div class="alert alert-primary mb-0" role="alert" style="height: 6.5rem;">
+  this is footer
+</div>
 
-<script src="/js/controlLogout.js"></script>
-<script src="/js/event.js"></script>
-<script src="/js/validation.js"></script>
-<script src="/js/controlChangePass.js"></script>
+<!-- Modal Add Client-->
+<div
+  class="modal fade"
+  id="addClientModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="addClientModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addClientModalLabel">Thêm tài khoản của
+          khách hàng.</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      {{! đây là phần body }}
+      <div class="modal-body">
+        <form id="form" class="row">
+          <div class="mb-3 col-md-6">
+            <label for="name" class="form-label">Họ và tên</label>
+            <input type="text" class="form-control" id="name" name="name" />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="gender" class="form-label">Giới tính</label>
+            <select class="form-select" name="gender" id="gender">
+              <option value="Nam">Nam</option>
+              <option value="Nữ">Nữ</option>
+            </select>
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="BD" class="form-label">Ngày sinh</label>
+            <input type="date" class="form-control" id="BD" name="BD" />
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="address" class="form-label">Địa chỉ</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              name="address"
+            />
+          </div>
+
+          <div class="mb-3 col-md-4">
+            <label for="id" class="form-label">CCCD/CMND</label>
+            <input type="text" class="form-control" id="id" name="id" />
+          </div>
+
+          <div class="mb-3 col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="example@aa.xx"
+            />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="SDT" class="form-label">Số điện thoại</label>
+            <input type="text" class="form-control" id="SDT" name="SDT" />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="BHYT" class="form-label">Số bảo hiểm y tế</label>
+            <input type="text" class="form-control" id="BHYT" name="BHYT" />
+          </div>
+          <h5 id="notification" class="text-danger">{{notification}}</h5>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Hủy</button>
+        <button type="button" class="btn btn-primary" id="addCBtn">Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Add Employee-->
+<div
+  class="modal fade"
+  id="addEmployeeModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="addEmployeeModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addEmployeeModalLabel">Thêm tài khoản
+          của nhân viên.</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      {{! đây là phần body }}
+      <div class="modal-body">
+        <form id="form" class="row">
+          <div class="mb-3 col-md-6">
+            <label for="nameE" class="form-label">Họ và tên</label>
+            <input type="text" class="form-control" id="nameE" name="nameE" />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="genderE" class="form-label">Giới tính</label>
+            <select class="form-select" name="genderE" id="genderE">
+              <option value="male">Nam</option>
+              <option value="female">Nữ</option>
+            </select>
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="BD_E" class="form-label">Ngày sinh</label>
+            <input type="date" class="form-control" id="BD_E" name="BD_E" />
+          </div>
+
+          <div class="mb-3 col-md-7">
+            <label for="addressE" class="form-label">Địa chỉ</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addressE"
+              name="addressE"
+            />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="SDT_E" class="form-label">Số điện thoại</label>
+            <input type="text" class="form-control" id="SDT_E" name="SDT_E" />
+          </div>
+
+          <div class="mb-3 col-md-2">
+            <label for="idE" class="form-label">CCCD/CMND</label>
+            <input type="text" class="form-control" id="idE" name="idE" />
+          </div>
+
+          <div class="mb-3 col-md-6">
+            <label for="emailE" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="emailE"
+              name="emailE"
+              placeholder="example@aa.xx"
+            />
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="department" class="form-label">Khoa</label>
+            <select class="form-select" name="department" id="department">
+              <option value="Khoa Nội">Khoa Nội</option>
+              <option value="Khoa Ngoại">Khoa Ngoại</option>
+              <option value="Khoa Phụ sản">Khoa Phụ sản</option>
+              <option value="Khoa Nhi">Khoa Nhi</option>
+              <option value="Khoa Truyền nhiễm">Khoa Truyền nhiễm</option>
+              <option value="Khoa Cấp cứu">Khoa Cấp cứu</option>
+              <option value="Khoa xét nghiệm">Khoa xét nghiệm</option>
+            </select>
+          </div>
+
+          <div class="mb-3 col-md-3">
+            <label for="position" class="form-label">Chức vụ</label>
+            <select class="form-select" name="position" id="position">
+              <option value="Trưởng khoa">Trưởng khoa</option>
+              <option value="Phó khoa">Phó khoa</option>
+              <option value="Bác sĩ">Bác sĩ</option>
+              <option value="Y tá">Y tá</option>
+            </select>
+          </div>
+          <h5 id="notification" class="text-danger">{{notification}}</h5>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Hủy</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="addEmployeeBtn"
+        >Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="/js/admin/admin.js"></script>
-<script src="/js/admin/addEvent.js"></script>
-<script src="/js/admin/getAdminInterface.js"></script>
-<script src="/js/controlUIConfirmModal.js"></script>
-<script src="/js/admin/controlTheChangeOfInfo.js"></script>
-<script src="/js/admin/controlEventRemoveForever.js"></script>
-<script src="/js/admin/controlRemoveEvent.js"></script>
-<script src="/js/admin/controlRestore.js"></script>
+<script src="/js/validation.js"></script>

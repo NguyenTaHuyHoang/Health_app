@@ -1,4 +1,4 @@
-function getInvoiceElement(invoiceEle, stt, type) {
+function getInvoiceElement(invoiceEle, stt) {
     let sumPrice = 0;
     for (let i = 0; i < invoiceEle.service.length; i++) {
         sumPrice += invoiceEle.service[i].price;
@@ -16,7 +16,7 @@ function getInvoiceElement(invoiceEle, stt, type) {
             <td>${invoiceEle.dateOfCreation}</td>
             <td>${sumPrice}</td>
             <td>${status}</td>
-            <td><a href="#" role="button" data-id="${invoiceEle._id} " data-type="removeInvoice" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
+            <td><a href="#" role="button">Xóa</a></td>
         </tr>
     `
 }
@@ -28,36 +28,21 @@ function getBtn(className, val) {
 }
 
 
-function getRowAppointment(AM, index, type) {
+function getRowAppointment(AM, index) {
     return `
     <tr>
         <th scope="row">${index}</th>
         <td>${AM.client.name}</td>
         <td>${AM.client.SDT}</td>
         <td>${AM.dateOfCreation}</td>
-        <td><a href="#" role="button" data-id="${AM._id}" data-type="removeAppointment" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
+        <td><a href="#" role="button">Xóa</a></td>
     </tr>
-    `
-}
-
-function getRowService(service) {
-    return `
-    <div class="form-check col-md-4">
-        <input
-        class="form-check-input"
-        type="checkbox"
-        name="services"
-        id="${service._id}"
-        value="${service._id}"
-        />
-        <label class="form-check-label" for="${service._id}"> ${service.serviceName} : ${service.price}đ </label>
-    </div>
     `
 }
 
 module.exports = {
     // This function for multi Object
-    getListInvoice: function (listInvoice, type) {
+    getListInvoice: function (listInvoice) {
 
         let template = `
                 <tr>
@@ -79,7 +64,7 @@ module.exports = {
             data += `<tbody class="noneDisplay" id="InvoiceTable${j + 1}">`;
             for (let i = 0; i < 10; i++) {
                 if (j * 10 + i < listInvoice.length) {
-                    data += getInvoiceElement(listInvoice[j * 10 + i], j * 10 + i + 1, type);
+                    data += getInvoiceElement(listInvoice[j * 10 + i], j * 10 + i + 1);
                 }
             }
             btn += getBtn("invoiceBtn", j + 1);
@@ -130,11 +115,12 @@ module.exports = {
     },
 
     //Thí function for 1 Obj
-    getListAppointment: function (AMs, type) {
+
+    getListAppointment: function (AMs) {
 
         data = '';
         for (let i = 0; i < AMs.length; i++) {
-            data += getRowAppointment(AMs[i], i + 1, type);
+            data += getRowAppointment(AMs[i], i + 1);
         }
 
         if (AMs.length == 0) {
@@ -161,13 +147,5 @@ module.exports = {
 
         </table>
         `;
-    },
-
-    getListService: function (services) {
-        let data = "";
-        services.forEach(element => {
-            data += getRowService(element);
-        });
-        return data;
     }
 }

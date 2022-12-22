@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/client.css" />
+<link rel="stylesheet" href="/css/footer.css" />
 
 <div class="container-md" style="min-width: 90%;">
   <nav
@@ -30,20 +31,6 @@
               <li class="fw-bold">Tên: {{client.name}}</li>
               <li>Thành viên: {{client.rank}}</li>
               <li>Địa chỉ: {{client.address}}</li>
-              <li><a href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#clientModal"
-                  type-account="client"
-                  data-name="{{client.name}}"
-                  data-bd="{{client.dateOfBirth}}"
-                  data-email="{{client.email}}"
-                  data-id="{{client.CCCD_CMND}}"
-                  data-SDT="{{client.SDT}}"
-                  data-image="{{client.image}}"
-                  data-address="{{client.address}}"
-                  data-gender="{{client.gender}}"
-                  data-BHYT="{{client.BHYT}}"
-                  id="getDataAccount">Sửa đổi thông tin cá nhân</a></li>
             </ul>
           </div>
         </div>
@@ -58,12 +45,7 @@
                   data-bs-toggle="modal"
                   data-bs-target="#logoutModal"
                 /></li>
-              <li>
-                <a id="changePass" href="#" data-bs-toggle="modal" data-bs-target="#changePassModal">
-                  Đổi mật khẩu
-                </a>
-              </li>
-
+              <a href="">Sửa đổi thông tin cá nhân</a>
             </ul>
           </div>
         </div>
@@ -146,27 +128,67 @@
               alt="bin"
               style="width: 30px;"
             />
-            <a href="#" style="float: right;" data-bs-toggle="modal" data-bs-target="#appointmentModal">Đặt lịch khám với bác sĩ</a>
+            <a href="#" id="makeAppointment">Đặt lịch khám với bác sĩ</a>
           </div>
           {{{ListAppointment}}}
         </div></div>
     </div>
   </div>
 </div>
-<form id="dynamicForm" method="POST"></form>
-{{> footer}}
-{{> logoutModal}}
-{{> changePassModal}}
-{{> handleClient}}
-{{> confirmModal}}
-{{> appointmentModal}}
 
-<script src="/js/controlLogout.js"></script>
-<script src="/js/controlChangePass.js"></script>
-<script src="/js/event.js"></script>
-<script src="/js/controlUiConfirmModal.js"></script>
-<script src="/js/controlRemove.js"></script>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="logoutModal"
+  tabindex="-1"
+  aria-labelledby="logoutModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="logoutModalLabel">Đăng xuất</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc muốn đăng xuất không?
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Không</button>
+        <a type="button" class="btn btn-danger" href="/">Chắc chắn</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-<script src="/js/client/client.js"></script>
-<script src="/js/client/controlChangeInfo.js"></script>
-<script src="/js/client/addAppointment.js"></script>
+<div class="alert alert-primary mb-0" role="alert" style="height: 6.5rem;">
+    <div class="col-1">
+        <h3> About Us</h3>
+        <br>
+        <p>VNUHCM-University of Science</p>
+        <p>Faculty of Information Technology</p>
+        <p>20_3 - Group 13</p>
+    </div>
+      
+    <div class="col-2">
+        <h3> Contact Us</h3>
+        <div class="social-icons">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+    </div>
+          
+</div>
+
+<script src="/js/client.js"></script>
+<script src="https://kit.fontawesome.com/78e2e856b7.js" crossorigin="anonymous"></script>

@@ -14,14 +14,7 @@ li {
 .noneDisplay {
   display: none;
 } */
-.displayNone {
-  display: none;
-}
+
 #makeAppointment {
   float: right;
-}
-
-#changePass {
-  position: absolute;
-  margin-left: 80px;
 }
