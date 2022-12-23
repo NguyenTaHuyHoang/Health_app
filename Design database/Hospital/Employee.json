@@ -3,16 +3,22 @@
     "$oid": "637c855f8e1c88bcddda99e6"
   },
   "name": "Nguyễn Tạ Huy Hoàng",
-  "dateOfBirth": "05/07/2002",
+  "dateOfBirth": null,
   "email": "nthh@gmail.com",
-  "gender": "Nam",
+  "gender": "male",
   "CCCD_CMND": "245405199",
   "SDT": "0326130017",
   "address": "KTX, khu B, DHQG Thành Phố Hồ Chí Minh",
   "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
-  "password": "123456789",
+  "password": "nthh3",
   "specialist": "Răng hàm mặt",
-  "position": "Trưởng khoa"
+  "position": "Trưởng khoa",
+  "deleted": false,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671634082374"
+    }
+  }
 },{
   "_id": {
     "$oid": "637c855f8e1c88bcddda99e7"
@@ -27,7 +33,13 @@
   "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
   "password": "123456789",
   "specialist": "Tim mạch",
-  "position": "Phó khoa"
+  "position": "Phó khoa",
+  "deleted": true,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670954628770"
+    }
+  }
 },{
   "_id": {
     "$oid": "637c855f8e1c88bcddda99e8"
@@ -42,7 +54,13 @@
   "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
   "password": "123456789",
   "specialist": "Da liễu",
-  "position": "Bác sĩ"
+  "position": "Bác sĩ",
+  "deleted": true,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670954631828"
+    }
+  }
 },{
   "_id": {
     "$oid": "63921a398d0fe2dc6e964893"
@@ -58,7 +76,7 @@
   "SDT": "0984659450",
   "position": "Trưởng khoa",
   "gender": "male",
-  "deleted": false,
+  "deleted": true,
   "createdAt": {
     "$date": {
       "$numberLong": "1670519353861"
@@ -66,9 +84,37 @@
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1670519353861"
+      "$numberLong": "1670904534716"
     }
   },
   "slug": "nguyen-hoang-duy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6397f4b57a593c699f9f05fa"
+  },
+  "name": "Nguyễn Thị Hậu",
+  "email": "ngthihau@gmail.com",
+  "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
+  "address": "Đông Hòa, Dĩ An, Bình Dương",
+  "password": "243165477",
+  "dateOfBirth": "2003-02-04",
+  "CCCD_CMND": "243165477",
+  "specialist": "Khoa Nội",
+  "SDT": "0984659452",
+  "position": "Bác sĩ",
+  "gender": "female",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670902965014"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671118314174"
+    }
+  },
+  "slug": "nguyen-thi-hau",
   "__v": 0
 }]
