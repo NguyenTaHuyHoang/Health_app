@@ -3,6 +3,10 @@ const router = express.Router();
 
 const clientRouter = require("../app/controllers/ClientController");
 
+//restore
+router.post("/restoredInvoice/:id", clientRouter.restoredInvoice);
+router.post("/restoredAppointment/:id", clientRouter.restoredAppointment);
+
 // add appointment
 router.post("/add/appointment", clientRouter.addAppointment);
 

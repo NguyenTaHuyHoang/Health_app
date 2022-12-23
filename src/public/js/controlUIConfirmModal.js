@@ -44,11 +44,19 @@ confirmModal.addEventListener('show.bs.modal', event => {
         updateContentOnConfirmModal("Xác nhận!", `Bạn có chắc muốn xóa vĩnh viễn dịch vụ này không?`, 'cfDestroyService');
     }
 
-    //handle in client
+    //handle in client, employee event remove
     else if (type == "removeInvoice") {
         updateContentOnConfirmModal("Xác nhận!", `Bạn có chắc muốn xóa hóa đơn này không?`, 'cfRemoveInvoice');
     }
     else if (type == "removeAppointment") {
         updateContentOnConfirmModal("Xác nhận!", `Bạn có chắc muốn xóa cuộc hẹn này không?`, 'cfRemoveAppointment');
+    }
+
+    //handle in client, employee event restore
+    else if (type == "restoreInvoice") {
+        updateContentOnConfirmModal("Xác nhận!", `Bạn có chắc muốn khôi phục hóa đơn này không?`, 'cfRestoreInvoice');
+    }
+    else if (type == "restoreAppointment") {
+        updateContentOnConfirmModal("Xác nhận!", `Bạn có chắc muốn khôi phục hẹn này không?`, 'cfRestoreAppointment');
     }
 });
