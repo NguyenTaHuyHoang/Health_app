@@ -1,32 +1,242 @@
-[
-    {
-        "_id": {
-            "$oid": "6386f0a8c171b247735b2885"
-        },
-        "client": {
-            "email": "nva@gmail.com",
-            "SDT": "0812124789",
-            "name": "Nguyễn Văn A"
-        },
-        "employee": {
-            "name": "Nguyễn Tạ Huy Hoàng",
-            "email": "nthh@gmail.com"
-        },
-        "dateOfCreation": "25/12/2022"
-    },
-    {
-        "_id": {
-            "$oid": "6386f307c171b247735b2888"
-        },
-        "client": {
-            "email": "nva@gmail.com",
-            "SDT": "0812124789",
-            "name": "Nguyễn Văn A"
-        },
-        "employee": {
-            "name": "Nhật Nam",
-            "email": "nnnam@gmail.com"
-        },
-        "dateOfCreation": "24/12/2022"
+[{
+  "_id": {
+    "$oid": "6386f0a8c171b247735b2885"
+  },
+  "client": {
+    "email": "nva@gmail.com",
+    "SDT": "0812124789",
+    "name": "Nguyễn Văn A"
+  },
+  "employee": {
+    "name": "Nguyễn Tạ Huy Hoàng",
+    "email": "nthh@gmail.com",
+    "SDT": "0813012244"
+  },
+  "dateOfCreation": "25/12/2022",
+  "deleted": true,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671546402409"
     }
-]
+  }
+},{
+  "_id": {
+    "$oid": "6386f307c171b247735b2888"
+  },
+  "client": {
+    "email": "nva@gmail.com",
+    "SDT": "0812124789",
+    "name": "Nguyễn Văn A"
+  },
+  "employee": {
+    "name": "Nhật Nam",
+    "email": "nnnam@gmail.com",
+    "SDT": "0123456789"
+  },
+  "dateOfCreation": "24/12/2022",
+  "deleted": true,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671522161534"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63a17b1b4d0be0151651e6ec"
+  },
+  "client": {
+    "name": "Nguyễn Văn AAAA",
+    "email": "nva@gmail.com",
+    "SDT": "0827130017"
+  },
+  "employee": {
+    "name": "",
+    "email": "",
+    "SDT": ""
+  },
+  "dateOfCreation": "2022-12-30",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671527195177"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671527195177"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a1d73dd71264bcd0c0d439"
+  },
+  "client": {
+    "name": "Nguyễn Thị Vân",
+    "email": "ntv@gmail.com",
+    "SDT": "0813021144"
+  },
+  "employee": {
+    "name": "",
+    "email": "",
+    "SDT": ""
+  },
+  "dateOfCreation": "2022-12-22",
+  "note": "Cho em khám đi mòa, moah moah",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671550781293"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671550781293"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a1de0dad749b75fe113047"
+  },
+  "client": {
+    "name": "Nguyễn Thị Vân",
+    "email": "ntv@gmail.com",
+    "SDT": "0813021144"
+  },
+  "employee": {
+    "name": "",
+    "email": "",
+    "SDT": ""
+  },
+  "dateOfCreation": "2022-12-31",
+  "note": "clm nó",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671552525989"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671552525989"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a1de9efdc2f50b8eb76ddc"
+  },
+  "client": {
+    "name": "Nguyễn Thị Vân",
+    "email": "ntv@gmail.com",
+    "SDT": "0813021144"
+  },
+  "employee": {
+    "name": "",
+    "email": "",
+    "SDT": ""
+  },
+  "dateOfCreation": "2022-12-28",
+  "note": "Kakakakka",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671552670797"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671552670797"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a1df26e4fe3d554dd4dd0f"
+  },
+  "client": {
+    "name": "Nguyễn Thị Vân",
+    "email": "ntv@gmail.com",
+    "SDT": "0112233445"
+  },
+  "employee": {
+    "name": "Nguyễn Tạ Huy Hoàng ngu vc",
+    "email": "nthh@gmail.com",
+    "SDT": "0326130017"
+  },
+  "dateOfCreation": "2022-12-23",
+  "note": "Bug ảo ma quá, dumamay",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671552806459"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671552806459"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a1dfad37b441770e1d26bb"
+  },
+  "client": {
+    "name": "Nguyễn Thị Vân",
+    "email": "ntv@gmail.com",
+    "SDT": "0112233445"
+  },
+  "employee": {
+    "name": "Nguyễn Tạ Huy Hoàng ngu vc",
+    "email": "nthh@gmail.com",
+    "SDT": "0326130017"
+  },
+  "dateOfCreation": "2022-12-28",
+  "note": "Nói chung là do mình ngu.",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671552941983"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671552941983"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a32d4b33eada77423aa08f"
+  },
+  "client": {
+    "name": "Nguyễn Văn AAAA",
+    "email": "nva@gmail.com",
+    "SDT": "0827130017"
+  },
+  "employee": {
+    "name": "",
+    "email": "",
+    "SDT": ""
+  },
+  "dateOfCreation": {
+    "$date": {
+      "$numberLong": "1671753600000"
+    }
+  },
+  "note": "Co cc",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671638347815"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638347815"
+    }
+  },
+  "__v": 0
+}]

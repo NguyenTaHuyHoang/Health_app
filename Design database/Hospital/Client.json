@@ -3,7 +3,7 @@
     "$oid": "637c89c98e1c88bcddda99f7"
   },
   "name": "Nguyễn Văn A",
-  "dateOfBirth": "08/08/1975",
+  "dateOfBirth": null,
   "email": "nva@gmail.com",
   "gender": "Nam",
   "CCCD_CMND": "545405199",
@@ -12,7 +12,13 @@
   "address": "24 Nguyễn Văn Thành, phường Hiệp Phú, TP Thủ Đức, TP HCM",
   "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
   "password": "123456789",
-  "rank": "Bạc"
+  "rank": "Bạc",
+  "deleted": false,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671638444353"
+    }
+  }
 },{
   "_id": {
     "$oid": "637c89c98e1c88bcddda99f8"
@@ -27,7 +33,13 @@
   "address": "248 Dương Quảng Hàm, quận Gò Vấp, TP HCM",
   "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
   "password": "123456789",
-  "rank": "Vàng"
+  "rank": "Vàng",
+  "deleted": true,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670954562125"
+    }
+  }
 },{
   "_id": {
     "$oid": "637c89c98e1c88bcddda99f9"
@@ -42,7 +54,13 @@
   "address": "160 Nguyễn Du, huyện Phù Mỹ, tỉnh Bình Định",
   "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
   "password": "123456789",
-  "rank": "Kim Cương"
+  "rank": "Kim Cương",
+  "deleted": true,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670954643354"
+    }
+  }
 },{
   "_id": {
     "$oid": "637c89c98e1c88bcddda99fa"
@@ -57,7 +75,13 @@
   "address": "77/46 Lê Văn Việt, quận 5, TP HCM",
   "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
   "password": "123456789",
-  "rank": "Bạc"
+  "rank": "Bạc",
+  "deleted": true,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670954650621"
+    }
+  }
 },{
   "_id": {
     "$oid": "639219944620195940bbbb55"
@@ -66,9 +90,9 @@
   "email": "ntv@gmail.com",
   "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
   "address": "Đông Hòa, Dĩ An, Bình Dương",
-  "password": "54",
-  "dateOfBirth": "2002-10-31",
-  "CCCD_CMND": "54",
+  "password": "ntv2",
+  "dateOfBirth": "2022-12-13",
+  "CCCD_CMND": "245403122",
   "BHYT": "41313313",
   "SDT": "0813021144",
   "rank": "Bạc",
@@ -81,9 +105,93 @@
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1670519188297"
+      "$numberLong": "1671549242525"
     }
   },
   "slug": "nguyen-thi-van",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63948c70322e3c53e3ff86c6"
+  },
+  "name": "Nguyễn Văn G",
+  "email": "nvg@gmail.com",
+  "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
+  "address": "Đông Hòa, Dĩ An, Bình Dương",
+  "password": "245408811",
+  "dateOfBirth": "2003-02-11",
+  "CCCD_CMND": "245408811",
+  "BHYT": "41313",
+  "SDT": "0813021144",
+  "rank": "Bạc",
+  "gender": "Nam",
+  "deleted": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670679664554"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671521718617"
+    }
+  },
+  "slug": "nguyen-van-g",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63948f78dbe3c53bed424da3"
+  },
+  "name": "Nguyễn Hoàng Duy",
+  "email": "nhd@gmail.com",
+  "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
+  "address": "",
+  "password": "141313",
+  "dateOfBirth": "",
+  "CCCD_CMND": "141313",
+  "BHYT": "1413",
+  "SDT": "0817323344",
+  "rank": "Kim Cương",
+  "gender": "Nam",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670680440773"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670953358125"
+    }
+  },
+  "slug": "nguyen-hoang-duy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6397f3cafe989380fdf626a7"
+  },
+  "name": "Nguyễn Hoàng Hà",
+  "email": "awm@gmail.com",
+  "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
+  "address": "Đông Hòa, Dĩ An, Bình Dương",
+  "password": "245407744",
+  "dateOfBirth": "2018-05-27",
+  "CCCD_CMND": "245407744",
+  "BHYT": "209182324",
+  "SDT": "0813021122",
+  "rank": "Kim Cương",
+  "gender": "Nam",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670902730505"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671122420581"
+    }
+  },
+  "slug": "nguyen-hoang-ha",
   "__v": 0
 }]

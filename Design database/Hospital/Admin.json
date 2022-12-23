@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "637c866c8e1c88bcddda99f3"
   },
-  "name": "Trần Khắc Bình",
+  "name": "Trần Khắc Bình AA",
   "dateOfBirth": "02/02/2002",
   "email": "tkb@gmail.com",
   "gender": "Nam",
@@ -10,7 +10,12 @@
   "SDT": "0326130017",
   "address": "77/7 Tân Lập 2, phường Hiệp Phú, TP Thủ Đức, TP HCM",
   "image": "https://img.icons8.com/metro/100/null/gender-neutral-user.png",
-  "password": "123456789"
+  "password": "tkb111",
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671440581281"
+    }
+  }
 },{
   "_id": {
     "$oid": "637c866c8e1c88bcddda99f4"

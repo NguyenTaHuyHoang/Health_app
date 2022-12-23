@@ -3,23 +3,83 @@
     "$oid": "637c8cd98e1c88bcddda9a02"
   },
   "serviceName": "Siêu âm tim",
-  "price": 200000
+  "price": 200000,
+  "deleted": false,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671611685391"
+    }
+  }
 },{
   "_id": {
     "$oid": "637c8cd98e1c88bcddda9a03"
   },
   "serviceName": "Nội soi dạ dày",
-  "price": 100000
+  "price": 100000,
+  "deleted": false,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671611688016"
+    }
+  }
 },{
   "_id": {
     "$oid": "637c8cd98e1c88bcddda9a04"
   },
   "serviceName": "Xét nghiệm máu",
-  "price": 50000
+  "price": "50000",
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671611690275"
+    }
+  },
+  "deleted": false
 },{
   "_id": {
     "$oid": "637c8cd98e1c88bcddda9a05"
   },
   "serviceName": "Khám tổng quát",
-  "price": 500000
+  "price": 500000,
+  "deleted": false,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671611692597"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6397f52e90723ea57acff4a1"
+  },
+  "serviceName": "Cấy ghép thận trái",
+  "price": "20000000",
+  "deleted": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670903086154"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671264055575"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6399ae24a8f3bb25d4b5e31a"
+  },
+  "serviceName": "Nối chân",
+  "price": "2000000000",
+  "deleted": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671015972076"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671264063548"
+    }
+  },
+  "__v": 0
 }]
