@@ -8,6 +8,13 @@ function getInvoiceElement(invoiceEle, stt, type) {
     if (invoiceEle.status == true) status = "Đã thanh toán";
     else status = "Chưa thanh toán";
 
+    let dtt = "restoreInvoice";
+    let html_ = "Khôi phục";
+    if (type == "notBin") {
+        dtt = "removeInvoice";
+        html_ = "Xóa";
+    }
+
     return `
         <tr>
             <th scope="row">${stt}</th>
@@ -16,7 +23,7 @@ function getInvoiceElement(invoiceEle, stt, type) {
             <td>${invoiceEle.dateOfCreation}</td>
             <td>${sumPrice}</td>
             <td>${status}</td>
-            <td><a href="#" role="button" data-id="${invoiceEle._id} " data-type="removeInvoice" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
+            <td><a href="#" role="button" data-id="${invoiceEle._id}" data-type="${dtt}" data-bs-toggle="modal" data-bs-target="#confirmModal">${html_}</a></td>
         </tr>
     `
 }
@@ -29,13 +36,19 @@ function getBtn(className, val) {
 
 
 function getRowAppointment(AM, index, type) {
+    let dtt = "restoreAppointment";
+    let html_ = "Khôi phục";
+    if (type == "notBin") {
+        dtt = "removeAppointment";
+        html_ = "Xóa";
+    }
     return `
     <tr>
         <th scope="row">${index}</th>
         <td>${AM.client.name}</td>
         <td>${AM.client.SDT}</td>
         <td>${AM.dateOfCreation}</td>
-        <td><a href="#" role="button" data-id="${AM._id}" data-type="removeAppointment" data-bs-toggle="modal" data-bs-target="#confirmModal">Xóa</a></td>
+        <td><a href="#" data-id="${AM._id}" data-type="${dtt}" data-bs-toggle="modal" data-bs-target="#confirmModal">${html_}</a></td>
     </tr>
     `
 }

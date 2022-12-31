@@ -162,6 +162,20 @@ class ClientController {
         const ap = new Appointment(req.body);
         ap.save();
     }
+
+    //[POST] /client/restoreInvoice/:id
+    restoredInvoice(req, res, next) {
+        Invoice.restore({ _id: req.params.id })
+            .then(() => console.log("Done restore " + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /client/restoredAppointment/:id
+    restoredAppointment(req, res, next) {
+        Appointment.restore({ _id: req.params.id })
+            .then(() => console.log("Done restore " + req.params.id))
+            .catch(next);
+    }
 }
 
 module.exports = new ClientController();

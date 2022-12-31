@@ -161,6 +161,20 @@ class EmployeeController {
         const iv = new Invoice(req.body);
         iv.save();
     }
+
+    //[POST] /employee/restoreInvoice/:id
+    restoredInvoice(req, res, next) {
+        Invoice.restore({ _id: req.params.id })
+            .then(() => console.log("Done restore " + req.params.id))
+            .catch(next);
+    }
+
+    //[POST] /employee/restoreInvoice/:id
+    restoredAppointment(req, res, next) {
+        Appointment.restore({ _id: req.params.id })
+            .then(() => console.log("Done restore " + req.params.id))
+            .catch(next);
+    }
 }
 
 module.exports = new EmployeeController();
