@@ -33,3 +33,38 @@ li {
   grid-template-columns: 33% 33% 33%;
 }
  */
+
+.alert-primary {
+  text-align: center;
+  width: 100%;
+  padding: 3% 10% 12% 15%;
+  background: #333;
+  color: #efefef;
+  display: flex;
+}
+
+.alert-primary .col-1 {
+  width: 40%;
+}
+
+.alert-primary .p {
+  display: block;
+  margin-block-start: 0em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.alert-primary .col-2 {
+  flex-grow: 2;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons i {
+  font-size: 22px;
+  margin: 10px;
+  cursor: pointer;
+}
