@@ -4,10 +4,10 @@ const handlebars = require("express-handlebars").create({
   extname: ".hbs",
 });
 const path = require("path");
-const routes = require("./routes");
+const routes = require("./src/routes");
 
 // connect to DB
-const db = require("./configs/db");
+const db = require("./src/configs/db");
 //connect DB
 db.connect();
 
@@ -16,16 +16,16 @@ const app = express();
 const port = 3000;
 
 // setup session
-require('./configs/session')(app);
+require('./src/configs/session')(app);
 
 // setup resources for client
 // all images,... are provided from the file "public"
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "src/public")));
 
 //setup handlebars
 app.engine("hbs", handlebars.engine);
 app.set("view engine", "hbs");
-app.set("views", path.join(__dirname, "resources", "view"));
+app.set("views", path.join(__dirname, "src", "resources", "view"));
 
 app.use(
   express.urlencoded({
