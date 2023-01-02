@@ -296,22 +296,23 @@ p {
   position: relative;
   z-index: 1;
   overflow: hidden;
+  min-height: 300px;
 }
 
 #services #item1 {
-  background-image: url(/image/homepage/p1.jpg);
+  background-image: url(/image/homepage/p1.png);
 }
 
 #services #item4 {
-  background-image: url(/image/homepage/p3.jpg);
+  background-image: url(https://media.istockphoto.com/id/1361316534/vi/anh/v%C3%AD-m%C3%A0u-xanh-v%E1%BB%9Bi-ti%E1%BB%81n-v%C3%A0ng.jpg?s=612x612&w=0&k=20&c=icnFfUphT2tdPG27kKsjYya0NY1N55CrpvbnvUFSuD8=);
 }
 
 #services #item3 {
-  background-image: url(/image/homepage/p4.jpg);
+  background-image: url(https://media.istockphoto.com/id/1348371855/vi/anh/ch%C3%A2n-dung-m%E1%BB%99t-doanh-nh%C3%A2n-ch%C3%A2u-%C3%A1-m%E1%BB%89m-c%C6%B0%E1%BB%9Di-v%C3%A0-c%E1%BA%A7m-m%C3%A1y-t%C3%ADnh-b%E1%BA%A3ng-k%E1%BB%B9-thu%E1%BA%ADt-s%E1%BB%91-trong-kh%C3%B4ng-gian-l%C3%A0m.jpg?s=612x612&w=0&k=20&c=WWfeukZSGL4aQOmmnt3wK4yVColODV_y7JBAFKjqkjM=);
 }
 
 #services #item2 {
-  background-image: url(/image/homepage/p3.jpg);
+  background-image: url(https://benhvientantao.com/wp-content/uploads/2021/12/1.-Noi-soi.png);
 }
 
 #services .service-item::after {
@@ -717,3 +718,39 @@ p {
   }
 }
 /* End  Media Query For Desktop */
+
+/* make appointment css */
+.MAcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MAitem {
+  width: 1300px;
+  height: 420px;
+}
+
+@media (max-width: 480px) {
+  /* CSS để tùy chỉnh giao diện cho điện thoại */
+  .MAitem {
+    width: 600px;
+    height: 920px;
+  }
+}
+
+@media (max-width: 980px) {
+  /* CSS để tùy chỉnh giao diện cho điện thoại */
+  .MAitem {
+    width: 500px;
+    height: 920px;
+  }
+}
+
+#makeA {
+  height: 4rem;
+  width: 98%;
+  margin-left: 1%;
+  margin-top: 5px;
+  font-size: 15px;
+}
